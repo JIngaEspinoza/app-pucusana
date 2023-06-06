@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Transporte\VehiculoController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/iniciar-sesion','showLogin')->name ('login');
 });
 Route::controller(VehiculoController::class)->group(function () {
     Route::get('/registrar-vehiculo','show');
