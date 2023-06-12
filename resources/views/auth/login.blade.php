@@ -14,11 +14,15 @@
     <section class="login">
         <div class="body">
             <div class="portada">
-                <div class="img" style="background-image: url(portada.jpg);"></div>
+                <div class="img" style="background-image: url({{asset('storage').'/'.'uploads/login/portada.jpg'}});"></div>
             </div>
             <div class="space">
+                <div class="pad_logo">
+                    <img src="{{asset('storage').'/'.'uploads/login/somoPucuLargo.svg'}}" >
+                </div>
                 <div class="space__form">
-                    <img src="">
+
+
                     <h1>Iniciar Sesion</h1>
                     <span >Inicie sesión para continuar en nuestro sitio web</span>
 
@@ -35,13 +39,42 @@
                                 name="password">
                             <label for="floatingPassword">Contraseña</label>
                         </div>
+                        <div class="pad_button">
+                            <button type="submit" class=" mb-4">Iniciar Sesion</button>
+                        </div>
 
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar Sesion</button>
 
                     </form>
-
                 </div>
-                <div class="space__informacion"></div>
+
+                <div class="space__information">
+                    <div class="siguenos">
+                        <div class="linea"></div>
+                        <div class="paragraph">
+                            <p>Siguenos en</p>
+                        </div>
+                        <div class="linea"></div>
+                    </div>
+
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/facebook_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/instagram_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://www.tiktok.com/es/" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/tiktok_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/twiter_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/youtube_icono.svg'}});"></div>
+                        </a>
+
+                    </div>
+                </div>
             </div>
         </div>
 
