@@ -27,3 +27,10 @@ Route::controller(VehiculoController::class)->group(function () {
     Route::post('/registrar-vehiculo', 'create')->name ('vehiculos.store');
 });
 
+Route::get('/modulos', function () {
+    return view('modulos.panel');
+});
+
+Route::get('/navegacion', function () {
+    return view('navegacion.nav');
+});
