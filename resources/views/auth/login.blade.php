@@ -14,7 +14,19 @@
     <section class="login">
         <div class="body">
             <div class="portada">
+
                 <div class="img" style="background-image: url({{asset('storage').'/'.'uploads/login/portada.jpg'}});"></div>
+                <div class="margin-buttons">
+                    <div class="buttons">
+                        <div class="buttons__login active">
+                            <span>Login</span>
+
+                        </div>
+                        <div class="buttons__about">
+                            <span>About Us</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="space">
                 <div class="pad_logo">
@@ -76,12 +88,15 @@
                     </div>
                 </div>
             </div>
+            <div class="space-about disable">
+
+            </div>
         </div>
 
     </section>
 
 
-    @vite(['resources/scss/user/main-user.scss'])
+    @vite(['resources/scss/user/main-user.scss','resources/js/user/login.js'])
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>

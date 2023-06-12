@@ -27,6 +27,75 @@
 
 
             }
+            .margin-buttons{
+                background-color: transparent;
+                width: 100%;
+                height: 110px;
+                position: relative;
+                display: flex;
+                flex-direction: row-reverse;
+                top:-55%;
+
+                .buttons{
+                    background-color: transparent;
+                    width: 120px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    &__login{
+                        background-color: #1AA9E1;
+                        width: 100%;
+                        height: 48%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 45px 0 0 45px;
+                        @include transition-ease(0.1s);
+                        span{
+                            font-family: Roboto, 'Trebuchet MS', sans-serif;
+                            font-weight: bold;
+                            font-size: 18px;
+                            color: #ffffff;
+                        }
+
+                        &.active{
+                            background-color: #ffffff;
+                            span{
+                                color: #000000;
+                            }
+                        }
+
+
+                    }
+                    &__about{
+                        background-color: #1AA9E1;
+                        width: 100%;
+                        height: 48%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 45px 0 0 45px;
+                        @include transition-ease(0.1s);
+                        span{
+                            font-family: Roboto, 'Trebuchet MS', sans-serif;
+                            font-weight: bold;
+                            font-size: 18px;
+                            color: #ffffff;
+                        }
+
+                        &.active{
+                            background-color: #ffffff;
+                            span{
+                                color: #000000
+                            }
+                        }
+                    }
+
+                }
+            }
+
         }
         .space{
             width: 30%;
@@ -36,6 +105,8 @@
             flex-direction: column;
             background-color: #fff;
             border-radius:0 20px 20px 0;
+            @include transition-ease(0.1s);
+
             .pad_logo{
 
                 width: 100%;
@@ -147,6 +218,23 @@
 
             }
 
+            &.disable{
+                display: none;
+            }
+
+        }
+        .space-about{
+            width: 30%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: #ffffff;
+            border-radius:0 20px 20px 0;
+            @include transition-ease(0.1s);
+            &.disable{
+                display: none;
+            }
         }
     }
 }
