@@ -2,3 +2,7 @@
     font-family: "Flexo-Bold" ;
     src: url("../../../../public/fonts/Flexo-Bold.ttf");
 }
+
+@mixin transition-ease($time) {
+    transition: all $time ease-in-out;
+}

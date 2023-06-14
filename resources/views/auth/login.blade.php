@@ -54,7 +54,7 @@
                         <div class="pad_button">
                             <button type="submit" class=" mb-4">Iniciar Sesion</button>
                         </div>
-                        
+
                     </form>
                 </div>
 
@@ -89,43 +89,41 @@
             </div>
             <div class="space-about disable">
 
-                
-                <div class="space-about">
-                    <img src="{{asset('storage').'/'.'uploads/login/escudo.svg'}}" >
+
+
+                <img class="escudo" src="{{asset('storage').'/'.'uploads/login/escudo.svg'}}" >
+                <span><strong>Sistema Integrado de Gestión Administrativa y Operativa (SIGAO)</strong></span>
+                <div class="parrafo">
+                    <p>Se trata de un sistema que integra diferentes áreas y funciones, permitiendo la automatización de tareas y la centralización de la información, lo que contribuye a mejorar la eficiencia y la toma de decisiones.</p>
                 </div>
-
-                <span>Sistema Integrado de Gestión Administrativa y Operativa (SIGAO)</span>
-                
-
-                <div class="imagen2">
-                    <img src="{{asset('storage').'/'.'uploads/login/somoPucuLargo.svg'}}" >
-                </div>
-
-                <div class="siguenos">
-                    <div class="linea"></div>
-                    <div class="paragraph">
-                        <p>Siguenos en</p>
+                <img class="logo" src="{{asset('storage').'/'.'uploads/login/somoPucuLargo.svg'}}">
+                <div class="space__information">
+                    <div class="siguenos">
+                        <div class="linea"></div>
+                        <div class="paragraph">
+                            <p>Siguenos en</p>
+                        </div>
+                        <div class="linea"></div>
                     </div>
-                    <div class="linea"></div>
-                </div>
 
-                <div class="social-media2">
-                    <a href="https://www.facebook.com/" target="_blank">
-                        <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/facebook_icono.svg'}});"></div>
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                        <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/instagram_icono.svg'}});"></div>
-                    </a>
-                    <a href="https://www.tiktok.com/es/" target="_blank" rel="noopener noreferrer">
-                        <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/tiktok_icono.svg'}});"></div>
-                    </a>
-                    <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
-                        <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/twiter_icono.svg'}});"></div>
-                    </a>
-                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-                        <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/youtube_icono.svg'}});"></div>
-                    </a>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/facebook_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/instagram_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://www.tiktok.com/es/" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/tiktok_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/twiter_icono.svg'}});"></div>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/youtube_icono.svg'}});"></div>
+                        </a>
 
+                    </div>
                 </div>
 
             </div>

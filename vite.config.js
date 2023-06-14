@@ -10,7 +10,8 @@ export default defineConfig({
             'resources/js/app.js',
             'resources/js/user/login.js',
             'resources/scss/modulos/main-panel.scss',
-            'resources/scss/navegacion/main-navegacion.scss'
+            'resources/scss/navegacion/main-navegacion.scss',
+            'resources/js/navegacion/navegacion.js'
             ],
             refresh: true,
         }),
