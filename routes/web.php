@@ -32,5 +32,5 @@ Route::get('/modulos', function () {
 });
 
 Route::get('/navegacion', function () {
-    return view('navegacion.nav');
+    return view('navegacion.panelnav');
 });

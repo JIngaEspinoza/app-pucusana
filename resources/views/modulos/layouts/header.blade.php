@@ -1,12 +1,5 @@
 <div class="cajapadre">
-
-
     <div class="header"> 
-        
-        
-        
-        
-
         <!--Content before waves-->
         <div class="inner-header flex">
             <!--Just the logo.. Don't mind this-->
@@ -17,7 +10,6 @@
             </svg>
             <h1>    </h1>
         </div>
-        
         <!--Waves Container-->
         <div>
             
@@ -34,8 +26,6 @@
             </g>
             </svg>
         </div>
-    
-    
         <div class="usuario"> </div>
     
     </div>

@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,34 +12,18 @@
     
 </head>
 <body>
-    
-    
-    @include('modulos.layouts.header')
-    
 
-    
+    @include('modulos.layouts.header')
 
     <div class="cuerpo">
-    
 
-        
-
-        <div class="imagenes">
-            
+        <div class="imagenes">          
             <div class="cabecerapucu">
                 <img class="todosomos_pucu" src="{{asset('storage').'/'.'uploads/modulos/todosomospucu.svg'}}">
-
             </div>
-        
             <img class="escudo" src="{{asset('storage').'/'.'uploads/modulos/escudo.svg'}}" >
-
-
             <img class="marca_agua" src="{{asset('storage').'/'.'uploads/modulos/imagendeagua.svg'}}" >
-
-
-
-            <img class="esquina_gota" src="{{asset('storage').'/'.'uploads/modulos/imagenesquina.svg'}}" >
-            
+            <img class="esquina_gota" src="{{asset('storage').'/'.'uploads/modulos/imagenesquina.svg'}}" >      
         </div>
 
         <div class="tarjetas">
