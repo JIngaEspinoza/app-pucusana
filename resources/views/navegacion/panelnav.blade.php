@@ -93,7 +93,33 @@
 
             </nav>
             <div class="seccion">
-                <div class="barra"></div>
+                <div class="barra">
+                    <div class="burguer-icon">
+                        <div class="menu-burguer">
+                            <div class="menu-line"></div>
+                            <div class="menu-line"></div>
+                            <div class="menu-line"></div>
+                        </div>
+                    </div>
+                    <div class="opciones">
+                        <div class="luna"></div>
+                        <div class="full-screen"></div>
+                        <div class="card-usuario">
+                            <div class="foto">
+                                <div class="foto__url" style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});"></div>
+                            </div>
+                            <div class="info">
+                                <div class="nombre">
+                                    <span>Hilton Bill</span>
+                                </div>
+                                <div class="rol">
+                                    <span>Super Admin</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="contenido">
 
                 </div>
