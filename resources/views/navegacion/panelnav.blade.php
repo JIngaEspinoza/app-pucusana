@@ -16,10 +16,14 @@
                 <img class="ola_superior" src="{{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }}">
 
                 <div class="items">
-                    <a id="item-usuario" class="item">
-                        <div class="item__icono usuario"
+                    <a class="item">
+                        <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_usuarios.svg' }});">
                         </div>
+                        <div class="item__icono--blanco disable"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_usuarios_blanco.svg' }});">
+                        </div>
+                        {{-- <i class="fa-regular fa-user"></i> --}}
                         <span class="item__nombre">Usuarios</span>
                     </a>
 
@@ -28,12 +32,18 @@
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_consulta.svg' }});">
                         </div>
+                        <div class="item__icono--blanco disable"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_consulta_blanco.svg' }});">
+                        </div>
                         <span class="item__nombre">Consulta Vehícular</span>
                     </a>
 
                     <a class="item">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_reporte.svg' }});">
+                        </div>
+                        <div class="item__icono--blanco disable"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_reporte_blanco.svg' }});">
                         </div>
                         <span class="item__nombre">Reporte Laborales</span>
                     </a>
@@ -42,6 +52,9 @@
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_papeletas.svg' }});">
                         </div>
+                        <div class="item__icono--blanco disable"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_papeletas_blanco.svg' }});">
+                        </div>
                         <span class="item__nombre">Papeletas</span>
                     </a>
 
@@ -49,17 +62,26 @@
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_ordenpago.svg' }});">
                         </div>
+                        <div class="item__icono--blanco disable"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_ordenpago_blanco.svg' }});">
+                        </div>
                         <span class="item__nombre">Orden de Pago</span>
                     </a>
                     <a class="item">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos.svg' }});">
                         </div>
+                        <div class="item__icono--blanco disable"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos_blanco.svg' }});">
+                        </div>
                         <span class="item__nombre">Modulos</span>
                     </a>
                     <a class="item">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_cerrarsesion.svg' }});">
+                        </div>
+                        <div class="item__icono--blanco disable"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_cerrarsesion_blanco.svg' }});">
                         </div>
                         <span class="item__nombre">Cerrar Sesión</span>
                     </a>

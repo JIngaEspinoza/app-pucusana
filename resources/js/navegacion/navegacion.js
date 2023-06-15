@@ -1,12 +1,19 @@
-console.log("HILTON CTMRE");
 
-
-const itemUsuario = document.getElementById('item-usuario');
-const classUsuario = document.querySelector('.usuario');
-
-itemUsuario.addEventListener('mouseenter',()=>{
-    console.log("entra")
-    classUsuario.classList.add('active-usuario');
-    //classUsuario.style.backgroundImage = "url(asset('storage') . '/' . 'uploads/navegacion/icono_usuarios_blanco.svg')"
-})
-
+const items = document.querySelectorAll('.item');
+const iconos = document.querySelectorAll('.item__icono');
+const iconosBlanco = document.querySelectorAll('.item__icono--blanco');
+console.log("items",items);
+console.log("iconos",iconos);
+console.log("iiconosBlanco",iconosBlanco);
+items.forEach((item,pos) => {
+    console.log("item",item);
+    console.log("pos",pos)
+    item.addEventListener('mouseenter',()=>{
+        iconos[pos].classList.add('disable');
+        iconosBlanco[pos].classList.remove('disable');
+    });
+    item.addEventListener('mouseleave',()=>{
+        iconosBlanco[pos].classList.add('disable');
+        iconos[pos].classList.remove('disable');
+    })
+});

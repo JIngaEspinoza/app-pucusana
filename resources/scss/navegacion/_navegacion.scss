@@ -57,6 +57,21 @@ body {
                         margin-right: 20px;
                         background-repeat: no-repeat;
                         @include transition-ease(0.3s);
+                        &.disable{
+                            display: none;
+                        }
+                    }
+
+                    &__icono--blanco {
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 20px;
+                        background-repeat: no-repeat;
+
+                        @include transition-ease(0.3s);
+                        &.disable{
+                            display: none;
+                        }
                     }
 
                     span {
@@ -71,6 +86,7 @@ body {
                     }
                     &:hover{
                         background-color: #62A8E0;
+
 
                         span{
                             color: #fff;
