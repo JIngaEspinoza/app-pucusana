@@ -38,7 +38,6 @@ body {
                 min-height: 400px;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-evenly;
                 align-items: center;
                 margin-top: 50px;
                 .item {
@@ -48,6 +47,8 @@ body {
                     justify-content: center;
                     align-items: center;
                     border-radius: 10px;
+                    margin-bottom: 20px;
+                    text-decoration: none;
                     cursor: pointer;
                     @include transition-ease(0.3s);
 
@@ -87,15 +88,15 @@ body {
                     }
                     &:hover{
                         background-color: #cfe1f0;
-
-
                         // span{
                         //     color: #fff;
                         // }
-
-
-
-
+                    }
+                    &.active{
+                        background-color: #62A8E0;
+                        span{
+                            color:#fff
+                        }
                     }
                 }
             }
@@ -279,6 +280,27 @@ body {
                 height: calc(100% - 70px);
                 border: 1px solid black;
                 // background-color: rgb(255, 255, 255);
+
+                .container-vehiculos{
+                    &.desactive{
+                        display: none;
+                    }
+                }
+                .container-reportes{
+                    &.desactive{
+                        display: none;
+                    }
+                }
+                .container-pagos{
+                    &.desactive{
+                        display: none;
+                    }
+                }
+                .container-papeletas{
+                    &.desactive{
+                        display: none;
+                    }
+                }
 
             }
         }

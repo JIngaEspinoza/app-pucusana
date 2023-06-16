@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Navegación</title>
+    <title>{{$title}}</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
                 <img class="ola_superior" src="{{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }}">
 
                 <div class="items">
-                    <a class="item">
+                    <div id="itemUsuario" class="item">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_usuarios.svg' }});">
                         </div>
@@ -25,9 +25,9 @@
                         </div>
                         {{-- <i class="fa-regular fa-user"></i> --}}
                         <span class="item__nombre">Usuarios</span>
-                    </a>
+                    </div>
 
-                    <a class="item">
+                    <div id="itemConsulta" class="item">
 
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_consulta.svg' }});">
@@ -36,9 +36,9 @@
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_consulta_blanco.svg' }});">
                         </div>
                         <span class="item__nombre">Consulta Vehícular</span>
-                    </a>
+                    </div>
 
-                    <a class="item">
+                    <div id="itemReporte" class="item">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_reporte.svg' }});">
                         </div>
@@ -46,9 +46,9 @@
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_reporte_blanco.svg' }});">
                         </div>
                         <span class="item__nombre">Reporte Laborales</span>
-                    </a>
+                    </div>
 
-                    <a class="item">
+                    <div id="itemPapeleta" class="item">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_papeletas.svg' }});">
                         </div>
@@ -56,9 +56,9 @@
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_papeletas_blanco.svg' }});">
                         </div>
                         <span class="item__nombre">Papeletas</span>
-                    </a>
+                    </div>
 
-                    <a class="item">
+                    <div id="itemPago" class="item">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_ordenpago.svg' }});">
                         </div>
@@ -66,8 +66,8 @@
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_ordenpago_blanco.svg' }});">
                         </div>
                         <span class="item__nombre">Orden de Pago</span>
-                    </a>
-                    <a class="item">
+                    </div>
+                    <a class="item" href="{{route('modulos')}}">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos.svg' }});">
                         </div>
@@ -76,7 +76,7 @@
                         </div>
                         <span class="item__nombre">Modulos</span>
                     </a>
-                    <a class="item">
+                    <a class="item" href="{{route('login')}}">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_cerrarsesion.svg' }});">
                         </div>
@@ -121,7 +121,10 @@
                     </div>
                 </div>
                 <div class="contenido">
-
+                   @include('transporte.vehiculo.indexVehiculos')
+                   @include('transporte.reportes.indexReportes')
+                   @include('transporte.papeletas.indexPapeletas')
+                   @include('transporte.pagos.indexPagos')
                 </div>
             </div>
         </div>
