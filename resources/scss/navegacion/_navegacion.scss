@@ -24,24 +24,77 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             background-color: white;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            @include transition-ease($time-nav);
+            .ola_superior{
+                width: 100%;
+                height: 130px;
+                overflow: hidden;
+                @include transition-ease($time-nav);
+
+                &__url{
+                    transform: translateY(0px);
+                    transition: all 0.3s ease-in-out;
+
+                    &.active-complex{
+                        transform: translateY(-130px);
+                    }
+                }
+                .logo-pucu{
+                    width: 100%;
+                    height: auto;
+                    //background-color: #22af29;
+                    opacity: 0;
+                    transition: all 0.3s ease-in-out;
+                    transition-delay: 0.1s;
+                    &__url{
+                        width: 100%;
+                        height: 78px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+
+                    &.active-complex{
+                        height: 130px;
+                        opacity: 1;
+                    }
+                }
+            }
+            .ola_inferior{
+                width: 100%;
+                height: 272px;
+                overflow: hidden;
+                @include transition-ease($time-nav);
+
+                &__url{
+                    transform: translateY(0px);
+                    transition: all 0.3s ease-in-out;
+
+                    &.active-complex{
+                        transform: translateY(300px);
+                    }
+                }
+            }
             img {
                 max-width: 100%;
                 height: auto;
+                @include transition-ease($time-nav);
                 // border: 1px solid black;
                 // background-color: aqua;
             }
             .items {
-                width: 100%;
+                width: 220px;
                 max-height: 500px;
                 min-height: 400px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 margin-top: 50px;
+                @include transition-ease($time-nav);
                 .item {
-                    width: 220px;
+                    width: 100%;
                     height: 45px;
                     display: flex;
                     justify-content: center;
@@ -62,6 +115,9 @@ body {
                         &.disable {
                             display: none;
                         }
+                        &.active-complex{
+                            margin-right: 0px;
+                        }
                     }
 
                     &__icono--blanco {
@@ -74,6 +130,9 @@ body {
                         &.disable {
                             display: none;
                         }
+                        &.active-complex{
+                            margin-right: 0px;
+                        }
                     }
 
                     span {
@@ -84,7 +143,13 @@ body {
                         align-items: center;
                         display: flex;
                         text-align: left;
+                        opacity: 1;
                         @include transition-ease(0.3s);
+
+                        &.active-complex{
+                            opacity: 0;
+                            width: 0;
+                        }
                     }
                     &:hover {
                         background-color: #cfe1f0;
@@ -98,8 +163,20 @@ body {
                             color: #fff;
                         }
                     }
+                    &.active-complex{
+                        border-radius: 50%;
+                        width: 45px;
+                    }
+                }
+                &.active-complex{
+                    width: 60px;
                 }
             }
+
+            &.active-complex{
+                width: 70px;
+            }
+
         }
         .seccion {
             width: calc(100% - 330px);
@@ -272,13 +349,9 @@ body {
                     .card-usuario {
                         width: 180px;
                         height: 40px;
-                      
-                        // background-color: #d1b3b3;
-                        border-left: 0.5px solid #7e7e7e;
+                        border-left: 0.5px solid #adaaaa;
                         padding-left: 15px;
-
                         display: flex;
-
                         align-items: center;
                         justify-content: center;
                         .foto {
