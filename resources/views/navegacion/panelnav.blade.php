@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{$title}}</title>
+    <title>{{ $title }}</title>
 </head>
 
 <body>
@@ -67,7 +67,7 @@
                         </div>
                         <span class="item__nombre">Orden de Pago</span>
                     </div>
-                    <a class="item" href="{{route('modulos')}}">
+                    <a class="item" href="{{ route('modulos') }}">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos.svg' }});">
                         </div>
@@ -76,7 +76,7 @@
                         </div>
                         <span class="item__nombre">Modulos</span>
                     </a>
-                    <a class="item" href="{{route('login')}}">
+                    <a class="item" href="{{ route('login') }}">
                         <div class="item__icono"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_cerrarsesion.svg' }});">
                         </div>
@@ -102,11 +102,22 @@
                         </div>
                     </div>
                     <div class="opciones">
-                        <div class="luna"></div>
-                        <div class="full-screen"></div>
+                        <div class="luna">
+                            <div class="luna__url"
+                                style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/luna.svg' }});">
+                            </div>
+                        </div>
+                        <div class="screen">
+                            <div class="screen__url"
+                                style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/screen.svg' }});">
+                            </div>
+                        </div>
+
                         <div class="card-usuario">
                             <div class="foto">
-                                <div class="foto__url" style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});"></div>
+                                <div class="foto__url"
+                                    style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});">
+                                </div>
                             </div>
                             <div class="info">
                                 <div class="nombre">
@@ -121,10 +132,10 @@
                     </div>
                 </div>
                 <div class="contenido">
-                   @include('transporte.vehiculo.indexVehiculos')
-                   @include('transporte.reportes.indexReportes')
-                   @include('transporte.papeletas.indexPapeletas')
-                   @include('transporte.pagos.indexPagos')
+                    @include('transporte.vehiculo.indexVehiculos')
+                    @include('transporte.reportes.indexReportes')
+                    @include('transporte.papeletas.indexPapeletas')
+                    @include('transporte.pagos.indexPagos')
                 </div>
             </div>
         </div>
