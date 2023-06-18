@@ -1,31 +1,12 @@
 
-// const items = document.querySelectorAll('.item');
-// const iconos = document.querySelectorAll('.item__icono');
-// const iconosBlanco = document.querySelectorAll('.item__icono--blanco');
-// console.log("items",items);
-// console.log("iconos",iconos);
-// console.log("iiconosBlanco",iconosBlanco);
-// items.forEach((item,pos) => {
-//     console.log("item",item);
-//     console.log("pos",pos)
-//     item.addEventListener('mouseenter',()=>{
-//         iconos[pos].classList.add('disable');
-//         iconosBlanco[pos].classList.remove('disable');
-//     });
-//     item.addEventListener('mouseleave',()=>{
-//         iconosBlanco[pos].classList.add('disable');
-//         iconos[pos].classList.remove('disable');
-//     })
-// });
-
-
-var iconMenu = document.querySelector('.menu-burguer');
+const iconMenu = document.querySelector('.menu-burguer');
 const bodyItems = document.querySelector('.items');
 const navCuerpo = document.getElementById('nacCuerpo');
 const icons = document.querySelectorAll('.iconOption');
 const olaSup = document.querySelector('.ola_superior__url');
 const olaInfo = document.querySelector('.ola_inferior__url');
 const logoPucu = document.querySelector('.logo-pucu');
+
 iconMenu.addEventListener('click', function () {
     if (iconMenu.classList.contains('open')) {
         iconMenu.classList.remove('open');
@@ -73,6 +54,8 @@ iconMenu.addEventListener('click', function () {
 
 const items = document.querySelectorAll('.item');
 const options = document.querySelectorAll('.options');
+
+
 
 const itemConsulta = document.getElementById('itemConsulta');
 itemConsulta.addEventListener('click',()=>{
@@ -183,8 +166,61 @@ itemPago.addEventListener('click',()=>{
 })
 
 
+// const listItems = [
+//     {
+//         element: itemConsulta,
+//         title: 'Consulta vehicular',
+//         route: '/consulta-vehicular',
+//         classContainer:'.container-vehiculos'
+//     },
+//     {
+//         element: itemReporte,
+//         title: 'Reportes laborales',
+//         route: '/reportes-laborales',
+//         classContainer:'.container-reportes'
+//     },
+//     {
+//         element: itemPapeleta,
+//         title: 'Papeletas',
+//         route: '/papeletas',
+//         classContainer:'.container-papeletas'
+//     },{
+//         element: itemPago,
+//         title: 'Orden de pago',
+//         route: '/orden-de-pago',
+//         classContainer:'.container-pagos'
+//     }];
 
+// const setStates=(list) =>{
+//     list.forEach(e => {
+//         e.element.addEventListener('click',()=>{
+//             document.title = e.title
+//             history.pushState(null, e.title, e.route);
+//             items.forEach((item) => {
+//                 item.classList.remove('active');
+//                 const hijoPlomo = item.querySelector('.item__icono');
+//                 const hijoBlanco = item.querySelector('.item__icono--blanco');
+//                 hijoPlomo.classList.remove('disable');
+//                 hijoBlanco.classList.add('disable');
+//             })
 
+//             e.element.classList.add('active');
+//             const hijoPlomo = e.element.querySelector('.item__icono');
+//             const hijoBlanco = e.element.querySelector('.item__icono--blanco');
+//             hijoPlomo.classList.add('disable');
+//             hijoBlanco.classList.remove('disable');
+
+//             options.forEach(option => {
+//                 option.classList.add('desactive');
+//             });
+
+//             const container = document.querySelector(e.classContainer);
+//             container.classList.remove('desactive');
+//         })
+//     });
+// }
+
+// setStates(listItems);
 
 
 const title = document.title;
