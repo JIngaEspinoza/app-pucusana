@@ -1,10 +1,11 @@
 $time-nav:0.5s;
+$delayg:0.3s;
 @font-face {
     font-family: "Flexo-Bold" ;
     src: url("../../../../public/fonts/Flexo-Bold.ttf");
 }
 
-@mixin transition-ease($time) {
+@mixin transition-ease($time,$delay) {
     transition: all $time ease-in-out;
-    transition-delay: 0.3s;
+    transition-delay: $delay;
 }

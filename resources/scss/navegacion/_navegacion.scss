@@ -27,12 +27,12 @@ body {
             align-items: center;
             background-color: white;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            @include transition-ease($time-nav);
+            @include transition-ease($time-nav,0);
             .ola_superior{
                 width: 100%;
                 height: 130px;
                 overflow: hidden;
-                @include transition-ease($time-nav);
+                @include transition-ease($time-nav,0s);
 
                 &__url{
                     transform: translateY(0px);
@@ -66,7 +66,7 @@ body {
                 width: 100%;
                 height: 272px;
                 overflow: hidden;
-                @include transition-ease($time-nav);
+                @include transition-ease($time-nav,0s);
 
                 &__url{
                     transform: translateY(0px);
@@ -80,7 +80,7 @@ body {
             img {
                 max-width: 100%;
                 height: auto;
-                @include transition-ease($time-nav);
+                @include transition-ease($time-nav,$delayg);
                 // border: 1px solid black;
                 // background-color: aqua;
             }
@@ -92,7 +92,8 @@ body {
                 flex-direction: column;
                 align-items: center;
                 margin-top: 50px;
-                @include transition-ease($time-nav);
+                @include transition-ease($time-nav,0);
+
                 .item {
                     width: 100%;
                     height: 45px;
@@ -103,7 +104,8 @@ body {
                     margin-bottom: 20px;
                     text-decoration: none;
                     cursor: pointer;
-                    @include transition-ease(0.3s);
+                    @include transition-ease(0.3s,0);
+
 
                     //border: 1px solid black;
                     &__icono {
@@ -111,7 +113,7 @@ body {
                         height: 30px;
                         margin-right: 20px;
                         background-repeat: no-repeat;
-                        @include transition-ease(0.3s);
+                        @include transition-ease(0.3s,0);
                         &.disable {
                             display: none;
                         }
@@ -126,7 +128,7 @@ body {
                         margin-right: 20px;
                         background-repeat: no-repeat;
 
-                        @include transition-ease(0.3s);
+                        @include transition-ease(0.3s,0);
                         &.disable {
                             display: none;
                         }
@@ -144,7 +146,8 @@ body {
                         display: flex;
                         text-align: left;
                         opacity: 1;
-                        @include transition-ease(0.3s);
+                        @include transition-ease(0.3s,0);
+
 
                         &.active-complex{
                             opacity: 0;
