@@ -37,19 +37,19 @@ Route::get('/modulos', function () {
 
 Route::get('/consulta-vehicular', function () {
     $title = 'Consulta vehicular';
-    return view('navegacion.panelnav',compact('title'));
+    return view('transporte.navegacion.nav_transporte',compact('title'));
 });
 Route::get('/orden-de-pago', function () {
     $title = 'Orden de pago';
-    return view('navegacion.panelnav',compact('title'));
+    return view('transporte.navegacion.nav_transporte',compact('title'));
 });
 Route::get('/reportes-laborales', function () {
     $title = 'Reportes laborales';
-    return view('navegacion.panelnav',compact('title'));
+    return view('transporte.navegacion.nav_transporte',compact('title'));
 });
 Route::get('/papeletas', function () {
     $title = 'Papeletas';
-    return view('navegacion.panelnav',compact('title'));
+    return view('transporte.navegacion.nav_transporte',compact('title'));
 });
 
 

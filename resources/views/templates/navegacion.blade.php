@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title }}</title>
+    @yield('head')
 </head>
 
 <body>
@@ -24,46 +24,7 @@
 
                 <div class="items">
 
-                    <div id="itemConsulta" class="item">
-
-                        <div class="item__icono iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_consulta.svg' }});">
-                        </div>
-                        <div class="item__icono--blanco disable iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_consulta_blanco.svg' }});">
-                        </div>
-                        <span class="item__nombre">Consulta Vehícular</span>
-                    </div>
-
-                    <div id="itemReporte" class="item">
-                        <div class="item__icono iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_reporte.svg' }});">
-                        </div>
-                        <div class="item__icono--blanco disable iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_reporte_blanco.svg' }});">
-                        </div>
-                        <span class="item__nombre">Reporte Laborales</span>
-                    </div>
-
-                    <div id="itemPapeleta" class="item">
-                        <div class="item__icono iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_papeletas.svg' }});">
-                        </div>
-                        <div class="item__icono--blanco disable iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_papeletas_blanco.svg' }});">
-                        </div>
-                        <span class="item__nombre">Papeletas</span>
-                    </div>
-
-                    <div id="itemPago" class="item">
-                        <div class="item__icono iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_ordenpago.svg' }});">
-                        </div>
-                        <div class="item__icono--blanco disable iconOption"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_ordenpago_blanco.svg' }});">
-                        </div>
-                        <span class="item__nombre">Orden de Pago</span>
-                    </div>
+                    @yield('itemDinamic')
                     <a class="item" href="{{ route('modulos') }}">
                         <div class="item__icono iconOption"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos.svg' }});">
@@ -114,16 +75,14 @@
 
                         <div class="card-usuario">
                             <div class="foto">
-                                <div class="foto__url"
-                                    style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});">
-                                </div>
+                                @yield('userFoto')
                             </div>
                             <div class="info">
                                 <div class="nombre">
-                                    <span>Hilton Bill</span>
+                                    <span>@yield('userName')</span>
                                 </div>
                                 <div class="rol">
-                                    <span>Super Admin</span>
+                                    <span>@yield('userRol')</span>
                                 </div>
 
                             </div>
@@ -131,10 +90,7 @@
                     </div>
                 </div>
                 <div class="contenido">
-                    @include('transporte.vehiculo.indexVehiculos')
-                    @include('transporte.reportes.indexReportes')
-                    @include('transporte.papeletas.indexPapeletas')
-                    @include('transporte.pagos.indexPagos')
+                   @yield('contenido')
                 </div>
             </div>
         </div>
@@ -145,7 +101,7 @@
 
 
     @vite(['resources/scss/navegacion/main-navegacion.scss', 'resources/js/navegacion/navegacion.js'])
-
+    @yield('footer')
     {{-- /*no poner nada */ --}}
 
 
