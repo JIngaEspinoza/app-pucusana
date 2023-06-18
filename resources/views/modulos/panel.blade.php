@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,8 +10,8 @@
 
 <body>
 
-    <div class="cuerpo" style="background-image: url({{ asset('storage') . '/' . 'uploads/modulos/fondotarjetas.svg' }});">
-        
+    <div class="seccion-mod" style="background-image: url({{ asset('storage') . '/' . 'uploads/modulos/fondotarjetas.svg' }});">
+
         <div class="tarjetas">
 
             @include('modulos.layouts.tarjeta', [
@@ -98,8 +97,6 @@
                 'icono' => asset('storage') . '/' . 'uploads/modulos/icono_fiscalizacion_tributaria.svg',
                 'descripcion' => '<p>Gerencia de Administración Tributaria</p>',
             ])
-
-
 
         </div>
     </div>
