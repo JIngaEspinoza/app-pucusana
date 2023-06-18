@@ -1,75 +1,29 @@
-.cuerpo{
-
-
-    display: flex;
+body{
     width: 100vw;
-    height: calc(100vh - 150px);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: 5px solid black;
 
-    .imagenes{
+}
+.cuerpo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // border: solid 2px black;
+    margin-top: 155px;
 
-
-        display: flex;
-        flex-direction: column;
-        width: 250px;
+    
+    .tarjetas {
+        width: 100%;
         height: 100%;
-        
-    
-    
-        .cabecerapucu{
-    
-            
-            position: absolute;
-            width: 100vw;
-            height: 100px;
-            // background-color: black;*/
-            display: flex;
-            justify-content: center;
-            margin-top: -150px;
-    
-    
-            .todosomos_pucu{
-                height: 70px;
-    
-    
-            }
-        }
-        .escudo{
-            max-width: 100%;
-            height: auto;
-            margin-top: 50px;
-        }
-    
-        .marca_agua{
-            max-width: 100%;
-            height: 690px;
-            margin-top: 08px;
-            
-            
-    
-        }
-        .esquina_gota{
-            width: 150px;
-            height: auto;
-            position: absolute;
-            margin-top: 920px;
-            margin-left: -60px;
-            
-            
-            
-    
-        }
-        
-    }
-
-    .tarjetas{
-        width: calc(100vw - 250px);
-        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         padding: 50px;
-        
-
-        
+        // align-items: center;
+        // background-color: aqua;
     }
 }

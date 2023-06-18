@@ -165,7 +165,6 @@
                         width: 20%;
                         height: 20px;
                         border-bottom: 1px solid #c0bfc1;
-                        
                     }
                     .paragraph {
                         display: flex;
@@ -221,31 +220,29 @@
             padding: 30px;
             @include transition-ease(0.1s);
 
-
             .escudo {
                 width: 150px;
                 height: auto;
                 margin: 20px 0 40px 0;
             }
 
-            span{
+            span {
                 width: 80%;
                 height: 90px;
                 font-family: Flexo;
                 font-size: 18px;
                 text-align: center;
             }
-            .parrafo{
+            .parrafo {
                 width: 80%;
-                p{
+                p {
                     text-align: justify;
                 }
             }
-            .logo{
+            .logo {
                 width: 50%;
                 margin: 30px 0 30px 0;
             }
-
 
             &.disable {
                 display: none;
