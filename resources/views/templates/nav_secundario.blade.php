@@ -1,13 +1,12 @@
 <div class="nav-secundario">
     <div class="opciones">
-        <span>Consulta</span>
-        <span>Registro</span>
+        {!!$opciones!!}
     </div>
     <div class="ruta">
         <span class="nombre">{{$modulo}}</span>
         <span class="flecha">></span>
         <span class="nombre">{{$seccion}}</span>
         <span class="flecha">></span>
-        <span class="nombre">{{$accion}}</span>
+        <span class="nombre nombre--active">{{$accion}}</span>
     </div>
 </div>

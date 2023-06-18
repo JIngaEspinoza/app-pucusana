@@ -1,3 +1,10 @@
 <div class="container-pagos options desactive">
-    <h1>Pagos</h1>
+    @include('templates.nav_secundario',
+        [
+            'modulo'=>'Transporte',
+            'seccion'=>'Orden de Pago',
+            'accion'=>'Consulta',
+            'opciones'=>'<span class="opcion opcion--active">Consulta</span><span class="opcion">Registro</span>'
+        ]
+    )
 </div>

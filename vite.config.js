@@ -12,7 +12,8 @@ export default defineConfig({
             'resources/scss/modulos/main-panel.scss',
             'resources/scss/navegacion/main-navegacion.scss',
             'resources/js/navegacion/navegacion.js',
-            'resources/js/transporte/nav_transporte.js'
+            'resources/js/transporte/nav_transporte.js',
+            'resources/scss/templates/main-templates.scss'
             ],
             refresh: true,
         }),

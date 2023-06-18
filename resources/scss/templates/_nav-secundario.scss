@@ -1,0 +1,57 @@
+.nav-secundario{
+    width: 100%;
+    background-color: #fff;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    // padding: 0 10px 0 10px;
+    .opciones{
+        width: 200px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background-color: #62a8e0;
+
+        .opcion{
+            margin: 0 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 0.9rem;
+            color: #4a2870;
+            cursor: pointer;
+            @include transition-ease(0.3s,0s);
+            &--active{
+                color: #1f0342;
+                font-weight: bold;
+            }
+            &:hover{
+                color: #27ccc4;
+            }
+        }
+    }
+
+    .ruta{
+        width: 350px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+        // background-color: #62a8e0;
+
+        .nombre {
+            margin: 0 10px;
+            color: #4a22dd;
+
+            &--active {
+              font-weight: bold;
+            }
+          }
+        .flecha{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            // font-weight: bold;
+        }
+    }
+
+}

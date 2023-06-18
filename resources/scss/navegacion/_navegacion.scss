@@ -404,7 +404,7 @@ body {
             .contenido {
                 width: 100%;
                 height: calc(100% - 70px);
-                border: 1px solid black;
+                // border: 1px solid black;
                 // background-color: rgb(255, 255, 255);
 
                 .container-vehiculos {
@@ -432,29 +432,4 @@ body {
     }
 }
 
-.nav-secundario{
-    width: 100%;
-    background-color: #fff;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px 0 10px;
-    .opciones{
-        width: 100px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-    }
-
-    .ruta{
-        width: 200px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-}

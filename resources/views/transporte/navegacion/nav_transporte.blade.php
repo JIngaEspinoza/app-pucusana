@@ -75,6 +75,6 @@
 @endsection
 
 @section('footer')
-    @vite(['resources/js/transporte/nav_transporte.js'])
+    @vite(['resources/scss/templates/main-templates.scss','resources/js/transporte/nav_transporte.js'])
 @endsection
 

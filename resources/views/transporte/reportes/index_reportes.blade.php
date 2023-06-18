@@ -1,3 +1,10 @@
 <div class="container-reportes options desactive">
-    <h1>Reportes</h1>
+    @include('templates.nav_secundario',
+        [
+            'modulo'=>'Transporte',
+            'seccion'=>'Reportes laborales',
+            'accion'=>'Consulta',
+            'opciones'=>'<span class="opcion opcion--active">Consulta</span><span class="opcion">Registro</span>'
+        ]
+    )
 </div>
