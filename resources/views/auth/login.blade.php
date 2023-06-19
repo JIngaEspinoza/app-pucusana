@@ -52,7 +52,9 @@
                             <label for="floatingPassword">Contraseña</label>
                         </div>
                         <div class="pad_button">
-                            <button type="submit" class=" mb-4">Iniciar Sesion</button>
+                            {{-- <a href="{{ route('vehiculoConsulta') }}" class="mb-4">Iniciar Sesion</a> --}}
+                            <button onclick="window.location.href='http://127.0.0.1:8000/modulos'" class="mb-4">Iniciar Sesion</button>
+
                         </div>
 
                     </form>

@@ -41,7 +41,7 @@ Route::get('/consulta-vehicular/consulta', function () {
     $title = 'Consulta vehicular';
     $accion = 'Consulta';
     return view('transporte.navegacion.nav_transporte',compact('title','accion'));
-});
+})->name('vehiculoConsulta');
 Route::get('/orden-de-pago/consulta', function () {
     $title = 'Orden de pago';
     $accion = 'Consulta';

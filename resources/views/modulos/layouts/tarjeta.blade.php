@@ -1,5 +1,5 @@
-<a class="tarjeta" style="background-image: url({{$imagen}});">
-    <div class="tarjeta__img"></div> 
+<a class="tarjeta" style="background-image: url({{$imagen}});" href="{{ route('vehiculoConsulta') }}">
+    <div class="tarjeta__img"></div>
     <div class="tarjeta__superponer">
       <div class="tarjeta_body">
           <div class="tarjeta_header">
@@ -15,15 +15,15 @@
             </div>
           </div>
           <div class="tarjeta_descripcion">
-            
+
             {!!$descripcion!!}
           </div>
 
-        
+
 
 
       </div>
     </div>
-          
+
 
 </a>
