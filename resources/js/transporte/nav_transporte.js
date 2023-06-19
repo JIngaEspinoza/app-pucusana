@@ -8,26 +8,30 @@ const listItems = [
     {
         element: itemConsulta,
         title: 'Consulta vehicular',
-        route: '/consulta-vehicular',
-        classContainer:'.container-vehiculos'
+        route: '/consulta-vehicular/consulta',
+        classContainer:'.container-vehiculos',
+
     },
     {
         element: itemReporte,
         title: 'Reportes laborales',
-        route: '/reportes-laborales',
+        route: '/reportes-laborales/consulta',
         classContainer:'.container-reportes'
     },
     {
         element: itemPapeleta,
         title: 'Papeletas',
-        route: '/papeletas',
+        route: '/papeletas/consulta',
         classContainer:'.container-papeletas'
     },{
         element: itemPago,
         title: 'Orden de pago',
-        route: '/orden-de-pago',
+        route: '/orden-de-pago/consulta',
         classContainer:'.container-pagos'
     }];
 
 setStates(listItems);
 setRoute(listItems);
+
+
+

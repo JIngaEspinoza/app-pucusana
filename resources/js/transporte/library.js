@@ -44,9 +44,34 @@ const setStates=(list) =>{
                 option.classList.add('desactive');
             });
 
+
             const container = document.querySelector(e.classContainer);
             container.classList.remove('desactive');
+
+            const rutaAccion = container.querySelector('#rutaAccion');
+            rutaAccion.textContent = 'Consulta';
+
+
         })
+
+        const container = document.querySelector(e.classContainer);
+        const optionsMenu = container.querySelectorAll('.opcion');
+        const rutaAccion = container.querySelector('#rutaAccion');
+
+
+
+        optionsMenu.forEach(option => {
+            option.addEventListener('click', () => {
+                optionsMenu.forEach(option => {
+
+                    option.classList.remove('opcion--active');
+
+                });
+                option.classList.add('opcion--active');
+                rutaAccion.textContent = option.textContent;
+            })
+        });
+
     });
 }
 

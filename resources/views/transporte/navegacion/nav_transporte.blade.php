@@ -55,17 +55,11 @@
     </div>
 @endsection
 
-@section('userName')
-    <div class="nombre">
-        <span>Hilton Bill</span>
-    </div>
-@endsection
+@section('userName','Hilton Bill')
 
-@section('userRol')
-    <div class="rol">
-        <span>Super Admin</span>
-    </div>
-@endsection
+
+@section('userRol','Super Admin')
+
 
 @section('contenido')
     @include('transporte.vehiculo.index_vehiculos')

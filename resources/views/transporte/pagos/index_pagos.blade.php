@@ -3,7 +3,7 @@
         [
             'modulo'=>'Transporte',
             'seccion'=>'Orden de Pago',
-            'accion'=>'Consulta',
+            'accion'=>$accion,
             'opciones'=>'<span class="opcion opcion--active">Consulta</span><span class="opcion">Registro</span>'
         ]
     )

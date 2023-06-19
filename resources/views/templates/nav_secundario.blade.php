@@ -7,6 +7,6 @@
         <span class="flecha">></span>
         <span class="nombre">{{$seccion}}</span>
         <span class="flecha">></span>
-        <span class="nombre nombre--active">{{$accion}}</span>
+        <span id="rutaAccion" class="nombre nombre--active">{{$accion}}</span>
     </div>
 </div>

@@ -35,21 +35,49 @@ Route::get('/modulos', function () {
     return view('modulos.panel');
 })->name ('modulos');
 
-Route::get('/consulta-vehicular', function () {
+
+
+Route::get('/consulta-vehicular/consulta', function () {
     $title = 'Consulta vehicular';
-    return view('transporte.navegacion.nav_transporte',compact('title'));
+    $accion = 'Consulta';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
 });
-Route::get('/orden-de-pago', function () {
+Route::get('/orden-de-pago/consulta', function () {
     $title = 'Orden de pago';
-    return view('transporte.navegacion.nav_transporte',compact('title'));
+    $accion = 'Consulta';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
 });
-Route::get('/reportes-laborales', function () {
+Route::get('/reportes-laborales/consulta', function () {
     $title = 'Reportes laborales';
-    return view('transporte.navegacion.nav_transporte',compact('title'));
+    $accion = 'Consulta';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
 });
-Route::get('/papeletas', function () {
+Route::get('/papeletas/consulta', function () {
     $title = 'Papeletas';
-    return view('transporte.navegacion.nav_transporte',compact('title'));
+    $accion = 'Consulta';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+});
+
+
+Route::get('/consulta-vehicular/registro', function () {
+    $title = 'Consulta vehicular';
+    $accion = 'Registro';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+});
+Route::get('/orden-de-pago/registro', function () {
+    $title = 'Orden de pago';
+    $accion = 'Registro';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+});
+Route::get('/reportes-laborales/registro', function () {
+    $title = 'Reportes laborales';
+    $accion = 'Registro';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+});
+Route::get('/papeletas/registro', function () {
+    $title = 'Papeletas';
+    $accion = 'Registro';
+    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
 });
 
 

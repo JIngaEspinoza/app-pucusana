@@ -6,6 +6,7 @@ const olaSup = document.querySelector('.ola_superior__url');
 const olaInfo = document.querySelector('.ola_inferior__url');
 const logoPucu = document.querySelector('.logo-pucu');
 const items = document.querySelectorAll('.item');
+const seccion = document.querySelector('.seccion');
 
 iconMenu.addEventListener('click', function () {
     if (iconMenu.classList.contains('open')) {
@@ -31,6 +32,8 @@ iconMenu.addEventListener('click', function () {
         bodyItems.classList.remove('active-complex');
         navCuerpo.classList.remove('active-complex');
         logoPucu.classList.remove('active-complex');
+        seccion.classList.remove('active-complex');
+
     } else {
         //complex
         olaSup.classList.add('active-complex');
@@ -48,6 +51,7 @@ iconMenu.addEventListener('click', function () {
         bodyItems.classList.add('active-complex');
         navCuerpo.classList.add('active-complex');
         logoPucu.classList.add('active-complex');
+        seccion.classList.add('active-complex');
     }
 }, false);
 
