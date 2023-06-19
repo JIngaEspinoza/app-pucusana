@@ -16,7 +16,85 @@ body {
         justify-content: center;
         // margin-bottom: 100%;
         z-index: 10;
+
+        .logopucu {
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+            .logo_marcagua {
+                width: 700px;
+                height: 80px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            
+            }
+        }
+
+        .padreuser {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            margin-top: 25px;
+            // background-color: aqua;
+
+            .card-usuario {
+                width: 180px;
+                height: 40px;
+                border-left: 2px solid #ffffff;
+                padding-left: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .foto {
+                    width: 60px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+
+                    &__url {
+                        width: 40px;
+                        height: 40px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        border-radius: 8%;
+                    }
+                }
+                .info {
+                    width: 140px;
+                    height: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding-left: 10px;
+                    .nombre {
+                        width: 100%;
+                        height: 20px;
+                        font-size: 18px;
+                        font-family: "Flexo-Heavy";
+                        color: #ffffff;
+                    }
+                    .rol {
+                        width: 100%;
+                        height: 26px;
+                        font-size: 14px;
+                        font-family: "Flexo";
+                        color: #e1ff00;
+                    }
+                }
+            }
+        }
     }
+
     .vectores {
         width: 100%;
         height: 690px;

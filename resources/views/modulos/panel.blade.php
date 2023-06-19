@@ -12,6 +12,35 @@
 <body>
     <div class="vector_cabecera"
         style="background-image: url({{ asset('storage') . '/' . 'uploads/modulos/cabecera_modelos.svg' }});">
+
+        <div class="logopucu">
+            <div class="logo_marcagua"
+                style="background-image: url({{ asset('storage') . '/' . 'uploads/modulos/todosomospucu.svg' }});">
+            </div>
+        </div>
+
+        <div class="padreuser">
+            <div class="card-usuario">
+
+                <div class="foto">
+                    <div class="foto__url"
+                        style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});">
+                    </div>
+                </div>
+
+                <div class="info">
+
+                    <div class="nombre">
+                        <span>Hilton Bill</span>
+                    </div>
+
+                    <div class="rol">
+                        <span>Super Admin</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <div class="vectores">
@@ -104,6 +133,13 @@
             'title' => '<p>FIZCALIZACIÓN</p><p>TRIBUTARIA</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_fiscalizacion_tributaria.svg',
             'descripcion' => '<p>Gerencia de Administración Tributaria</p>',
+        ])
+
+        @include('modulos.layouts.tarjeta', [
+            'imagen' => asset('storage') . '/' . 'uploads/modulos/moduloregistrousuario.svg',
+            'title' => '<p>USUARIOS</p>',
+            'icono' => asset('storage') . '/' . 'uploads/modulos/sinicono.svg',
+            'descripcion' => '<p>Usuarios</p>',
         ])
 
     </div>

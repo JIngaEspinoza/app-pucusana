@@ -15,7 +15,7 @@
         <div class="body">
             <div class="portada">
 
-                <div class="img" style="background-image: url({{asset('storage').'/'.'uploads/login/portada.jpg'}});"></div>
+                <div class="img" style="background-image: url({{asset('storage').'/'.'uploads/login/portada.svg'}});"></div>
                 <div class="margin-buttons">
                     <div class="buttons">
                         <div class="buttons__login active">
