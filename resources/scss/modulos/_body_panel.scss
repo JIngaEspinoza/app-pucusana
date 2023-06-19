@@ -4,12 +4,14 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: black;
+    // border: 10px solid rgb(47, 165, 0);
+    // display: flex;
+    // flex-direction: column;
 
     .vector_cabecera {
         position: fixed;
         width: 100%;
-        height: 100px;
+        height: 200px;
         background-size: cover;
         justify-content: center;
         // margin-bottom: 100%;
@@ -24,7 +26,7 @@ body {
         display: flex;
         justify-content: space-between;
         z-index: 1;
-        background-color: aqua;
+        // background-color: aqua;
 
         .vector_izquierda {
             max-width: 40%;
@@ -41,7 +43,7 @@ body {
         height: auto;
         background-size: cover;
         background-repeat: no-repeat;
-        margin-top: 100px;
+        margin-top: 200px;
         display: flex;
         justify-content: center;
         position: absolute;
@@ -49,5 +51,6 @@ body {
         padding: 50px;
         align-items: center;
         z-index: 5;
+        // border: 10px solid rgb(228, 159, 11);
     }
 }
