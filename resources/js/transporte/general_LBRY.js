@@ -11,6 +11,7 @@ const setRoute = (listItems) =>{
             hijoBlanco.classList.remove('disable');
             const container = document.querySelector(e.classContainer);
             container.classList.remove('desactive');
+
         }
     });
 }
@@ -22,7 +23,7 @@ const setStates=(list) =>{
     list.forEach(e => {
         e.element.addEventListener('click',()=>{
             document.title = e.title
-            history.pushState(null, e.title, e.route);
+
 
             items.forEach((item) => {
 
@@ -49,28 +50,13 @@ const setStates=(list) =>{
             container.classList.remove('desactive');
 
             const rutaAccion = container.querySelector('#rutaAccion');
-            rutaAccion.textContent = 'Consulta';
+            //rutaAccion.textContent = 'Consulta';
+            console.log('rutaAccion.textContent',`${rutaAccion.textContent.toLowerCase()}` );
+            history.pushState(null, e.title, e.route[`${rutaAccion.textContent.toLowerCase()}`]);
+            // hstory.pushState(null, e.title, e.route[`${rutaAccion.textContent.toLowerCase()}`]);
 
 
         })
-
-        const container = document.querySelector(e.classContainer);
-        const optionsMenu = container.querySelectorAll('.opcion');
-        const rutaAccion = container.querySelector('#rutaAccion');
-
-
-
-        optionsMenu.forEach(option => {
-            option.addEventListener('click', () => {
-                optionsMenu.forEach(option => {
-
-                    option.classList.remove('opcion--active');
-
-                });
-                option.classList.add('opcion--active');
-                rutaAccion.textContent = option.textContent;
-            })
-        });
 
     });
 }

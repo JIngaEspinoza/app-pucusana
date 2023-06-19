@@ -7,4 +7,8 @@
             'opciones'=>'<span class="opcion opcion--active">Consulta</span><span class="opcion">Registro</span>'
         ]
     )
+
+    @include('transporte.vehiculo.consulta')
+    @include('transporte.vehiculo.registro')
+
 </div>

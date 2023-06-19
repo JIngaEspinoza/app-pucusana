@@ -13,7 +13,11 @@ export default defineConfig({
             'resources/scss/navegacion/main-navegacion.scss',
             'resources/js/navegacion/navegacion.js',
             'resources/js/transporte/nav_transporte.js',
-            'resources/scss/templates/main-templates.scss'
+            'resources/scss/templates/main-templates.scss',
+            'resources/scss/transporte/pagos/main-pagos.scss',
+            'resources/scss/transporte/reportes/main-reportes.scss',
+            'resources/scss/transporte/papeletas/main-papeletas.scss',
+            'resources/scss/transporte/vehiculos/main-vehiculos.scss'
             ],
             refresh: true,
         }),

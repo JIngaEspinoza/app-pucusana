@@ -51,7 +51,7 @@
 
 @section('userFoto')
     <div class="foto__url"
-        style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});">
+        style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.jpeg' }});">
     </div>
 @endsection
 
@@ -70,5 +70,9 @@
 
 @section('footer')
     @vite(['resources/scss/templates/main-templates.scss','resources/js/transporte/nav_transporte.js'])
+    @vite(['resources/scss/transporte/pagos/main-pagos.scss',
+    'resources/scss/transporte/reportes/main-reportes.scss',
+    'resources/scss/transporte/papeletas/main-papeletas.scss',
+    'resources/scss/transporte/vehiculos/main-vehiculos.scss'])
 @endsection
 

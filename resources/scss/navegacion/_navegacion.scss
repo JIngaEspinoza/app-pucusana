@@ -408,26 +408,6 @@ body {
                 // border: 1px solid black;
                 // background-color: rgb(255, 255, 255);
 
-                .container-vehiculos {
-                    &.desactive {
-                        display: none;
-                    }
-                }
-                .container-reportes {
-                    &.desactive {
-                        display: none;
-                    }
-                }
-                .container-pagos {
-                    &.desactive {
-                        display: none;
-                    }
-                }
-                .container-papeletas {
-                    &.desactive {
-                        display: none;
-                    }
-                }
             }
             &.active-complex{
                 width: calc(100% - 100px);
