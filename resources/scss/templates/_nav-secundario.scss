@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     // padding: 0 10px 0 10px;
+
     .opciones{
         width: 200px;
         height: 100%;
@@ -16,7 +17,7 @@
 
         .opcion{
             margin: 0 15px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: flexo;
             font-size: 0.9rem;
             color: #4a2870;
             cursor: pointer;
@@ -38,10 +39,11 @@
         justify-content: center;
         align-items: center;
         margin-right: 30px;
+        font-family: flexo;
         // background-color: #62a8e0;
 
         .nombre {
-            margin: 0 10px;
+            margin: 1 12px;
             color: #4a22dd;
 
             &--active {
@@ -49,6 +51,7 @@
             }
           }
         .flecha{
+            margin: 0 12px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             // font-weight: bold;
         }

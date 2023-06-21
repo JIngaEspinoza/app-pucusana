@@ -51,7 +51,7 @@
 
 @section('userFoto')
     <div class="foto__url"
-        style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.jpeg' }});">
+        style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});">
     </div>
 @endsection
 
