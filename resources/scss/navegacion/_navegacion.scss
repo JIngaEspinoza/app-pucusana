@@ -189,7 +189,7 @@ body {
             @include transition-ease(0.3s,0.2s);
 
             .barra {
-                width: calc(100% - 20px);
+                width: 100%;
                 height: 60px;
                 margin-bottom: 30px;
                 background-color: rgb(255, 255, 255);
@@ -404,7 +404,8 @@ body {
 
             .contenido {
                 width: 100%;
-                height: calc(100% - 70px);
+                height: calc(100% - 90px);
+
                 // border: 1px solid black;
                 // background-color: rgb(255, 255, 255);
 

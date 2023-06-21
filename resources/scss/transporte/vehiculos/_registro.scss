@@ -1,100 +1,97 @@
 .container-vehiculos {
+    width: 100%;
+    height: 100%;
+
     .registro {
-        font-family: "Flexo";
-        font-family: "Flexo-Bold";
+        width: 100%;
+        height: calc(100% - 80px);
+        margin-top: 30px;
+
+        // font-family: "Flexo";
+        // font-family: "Flexo-Bold";
+
+        .container{
+            width: 800px;
+            height: 100%;
+            background-color: #fff;
+            padding: 20px 0;
+            border-radius: 20px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .title-registro-vhicular{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                h1{
+                    font-family: "Flexo-Bold";
+                    font-size: 2rem;
+                }
+            }
+            form{
+                display: flex;
+                flex-wrap: wrap;
+                width: 600px;
+                .campo-max{
+
+                    width: 580px;
+                    margin: 10px 10px;
+                    input{
+                        &.oculto{
+                            display: none;
+                        }
+                    }
+
+                }
+                .campo-mitad{
+
+                    width: 280px;
+                    margin: 10px 10px;
+                    input{
+                        &.oculto{
+                            display: none;
+                        }
+                    }
+                }
+                .campo-tercio{
+
+                    width: 180px;
+                    margin: 10px 10px;
+                    input{
+                        &.oculto{
+                            display: none;
+                        }
+                    }
+                }
+                .campo-dos-tercio{
+
+                    width: 380px;
+                    margin: 10px 10px;
+                    input{
+                        &.oculto{
+                            display: none;
+                        }
+                    }
+                }
+                label{
+                    font-family: "Flexo-Bold"
+                }
+                .div-btn-guardar{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 15px;
+                    .btn-guardar{
+                        width: 580px;
+                        height: 45px;
+                    }
+                }
+            }
+        }
 
         &--desactive {
             display: none;
-        }
-        .container {
-            /*es el cajon padre con bordes y estilo*/
-            position: relative;
-            max-width: 700px;
-            width: 100%;
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            // margin-top: 30px;
-        }
-        // .container header {   /* le da centrado y negrita*/
-        //     font-size: 1.5rem;
-        //     color: #333;
-        //     font-weight: 500;
-        //     text-align: center;
-        // }
-        // .container .form { /*mueve todo el cajon letras y cajoneras*/
-        //     margin-top: 30px;
-        // }
-        .input-box {
-            /*separador de los input-box*/
-            width: 100%;
-            margin-top: 20px;
-            color: #333;
-            color: #333;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-        }
-        // .input-box label { /*color de los subtitulos negritas*/
-        //     color: #333;
-        // }
-        .form :where(.input-box input, .select-box) {
-            /*estilo del cajon de escritura*/
-            position: relative;
-            height: 50px;
-            width: 100%;
-            outline: none;
-            font-size: 1rem;
-            color: #707070;
-            margin-top: 8px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 0 15px;
-            display: flex;
-            column-gap: 70px;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-            color: #707070;
-        }
-        .form .column {
-            /*celda a celada de lado mover distancia para que no este pegado*/
-            display: flex;
-            column-gap: 70px;
-        }
-
-        // .gender label {  /*COLOR A LA LETRA*/
-        //     color: #707070;
-        // }
-        // .address :where(input, .select-box) {  /*separador de altura de cajones*/
-        //     margin-top: 15px;
-        // }
-        .select-box select {
-            /*estilo del cajon de country desplegable */
-            height: 100%;
-            width: 100%;
-            outline: none;
-            border: none;
-            color: #707070;
-            font-size: 1rem;
-        }
-
-        .btnregistrar {
-            height: 55px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 1rem;
-            border: none;
-            margin-top: 30px;
-            cursor: pointer;
-            border-radius: 6px;
-            font-weight: 400;
-            transition: all 0.2s ease;
-            background: rgb(130, 106, 251);
-        }
-        .btnregistrar:hover {
-            /*color del boton al dar click*/
-            background: rgb(88, 56, 250);
         }
     }
 }
