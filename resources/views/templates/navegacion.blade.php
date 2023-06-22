@@ -14,6 +14,9 @@
             <nav id="nacCuerpo" class="nav_cuerpo">
                 <div class="ola_superior">
                     <img class="ola_superior__url" src="{{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }}">
+                    {{-- <div class="ola_superior__url"
+                        style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }});">
+                    </div> --}}
                     <div class="logo-pucu">
                         <div class="logo-pucu__url"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/escudo.svg' }});">

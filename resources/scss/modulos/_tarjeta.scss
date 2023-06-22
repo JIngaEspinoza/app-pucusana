@@ -12,6 +12,7 @@
     filter: brightness(100%);
     cursor: pointer;
     user-select: none;
+    text-decoration: none;
     @include transition-ease(0.4s);
 
     &__superponer {
@@ -76,10 +77,6 @@
                     height: 52%;
                     width: 2px;
                     border-radius: 1px;
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    align-items: center;
                     margin-left: -2px;
                 }
 
@@ -94,7 +91,7 @@
                     p {
                         font-size: 15px;
                         text-align: left;
-                        color: #707070;;;
+                        color: #707070;
                         font-family: "Flexo-Heavy";
                         margin: -1px;
                     }
@@ -113,12 +110,11 @@
                 margin-bottom: -8dvi;
                 p {
                     font-size: 14px;
-                    font-family: sans-serif;
                     margin: 10px 50px;
-                    text-align: justify;
                     text-align: left;
                     margin-right: 5px;
                     font-family: "Flexo";
+
                     // margin-bottom: 22px;
                     margin-left: 20px;
                 }
