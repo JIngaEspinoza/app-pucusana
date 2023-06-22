@@ -15,6 +15,24 @@ class VehiculoController extends Controller
     public function create(Request $request){
 
         $vehiculo = Vehiculo::create($request->only(['empresa', 'placa', 'id_propietario', 'id_chofer','numero_municipal', 'estado_inspeccion', 'fecha_inspeccion', 'curso_vial', 'estado_credencial', 'fecha_credencial', 'estado']));
-        return redirect('/')->with('success','Se Registro existosamente');
+        return redirect('/consulta-vehicular/consulta')->with('success','Se Registro existosamente');
+    }
+
+    public function showConsulta() {
+        $title = 'Consulta vehicular';
+        $accion = 'Consulta';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    }
+
+    public function showRegistro() {
+        $title = 'Consulta vehicular';
+        $accion = 'Registro';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    }
+
+    public function searchVehiculo($param){
+        $vehiculo = Vehiculo::where('placa',$param)->first();
+        return $vehiculo;
+
     }
 }

@@ -3,3 +3,7 @@
         display: none;
     }
 }
+@mixin transition-ease($time,$delay) {
+    transition: all $time ease-in-out;
+    transition-delay: $delay;
+}

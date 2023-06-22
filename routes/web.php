@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Transporte\EntidadController;
 use App\Http\Controllers\Transporte\VehiculoController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +24,19 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/iniciar-sesion','showLogin')->name ('login');
 });
 Route::controller(VehiculoController::class)->group(function () {
-    Route::get('/registrar-vehiculo','show');
+    // Route::get('/registrar-vehiculo','show');
     Route::post('/registrar-vehiculo', 'create')->name ('vehiculos.store');
+
+    Route::get('/consulta-vehicular/consulta','showConsulta')->name('vehiculo.consulta');
+    Route::get('/consulta-vehicular/registro', 'showRegistro')->name('vehiculo.registro');
+    Route::get('/buscar-vehiculo/{param}','searchVehiculo');
+});
+
+Route::controller(EntidadController::class)->group(function () {
+
+    Route::get('/buscar-entidad/{param}','searchEntity');
+    Route::post('/registrar-entidad','registerEntity')->name ('entity.register');
+
 });
 
 
@@ -37,11 +49,7 @@ Route::get('/modulos', function () {
 
 
 
-Route::get('/consulta-vehicular/consulta', function () {
-    $title = 'Consulta vehicular';
-    $accion = 'Consulta';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
-})->name('vehiculoConsulta');
+
 Route::get('/orden-de-pago/consulta', function () {
     $title = 'Orden de pago';
     $accion = 'Consulta';
@@ -59,11 +67,7 @@ Route::get('/papeletas/consulta', function () {
 });
 
 
-Route::get('/consulta-vehicular/registro', function () {
-    $title = 'Consulta vehicular';
-    $accion = 'Registro';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
-});
+
 Route::get('/orden-de-pago/registro', function () {
     $title = 'Orden de pago';
     $accion = 'Registro';

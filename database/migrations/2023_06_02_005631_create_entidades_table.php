@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('entidades', function (Blueprint $table) {
             $table->id('id_entidad');
             $table->string('nombre');
+            $table->string('edad');
+            $table->string('sexo');
             $table->string('dni');
             $table->string('direccion');
             $table->string('celular');

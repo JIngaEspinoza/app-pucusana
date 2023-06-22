@@ -75,7 +75,7 @@
                     }
                 }
                 label{
-                    font-family: "Flexo-Bold"
+                    font-family: "Flexo-Bold";
                 }
                 .div-btn-guardar{
                     width: 100%;
@@ -87,11 +87,108 @@
                         height: 45px;
                     }
                 }
+                .lbl-chofer{
+                    display: flex;
+                    .check-repeat{
+                        margin-left: 15px;
+                        input{
+                            width: 15px;
+                            height: 15px;
+                        }
+                    }
+                }
+
+
+
+                .grupo-btn{
+                    // background-color: aqua;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: end;
+                    .padding-btn{
+                        width: 100%;
+                        height: 50%;
+                        display: flex;
+                        align-items: center;
+                        //  background-color: rgb(163, 97, 10);
+
+                        .btn-option{
+                            width: 35px;
+                            height: 35px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 10px;
+                            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                            border: 1px rgb(209, 207, 207) solid;
+                            margin: 0 10px;
+                            cursor: pointer;
+                            .icon-option{
+                                width: 20px;
+                                height: 20px;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                            }
+
+                        }
+
+                        .btn-buscar{
+                            background-color: rgb(9, 192, 9);
+                            @include transition-ease(0.3s,0s);
+                            &:hover{
+                                background-color: rgb(10, 158, 10);
+                                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                            }
+                        }
+                        .btn-mass{
+                            background-color: rgb(158, 121, 226);
+                            @include transition-ease(0.3s,0s);
+                            &:hover{
+                                background-color: rgb(95, 32, 212);
+                                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                            }
+                        }
+
+
+                    }
+
+                }
             }
         }
 
         &--desactive {
             display: none;
+        }
+    }
+}
+
+.form-modal{
+    margin: 20px 20px;
+    .form-title-entidad{
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: center;
+
+        h2{
+            font-size: 1.3rem;
+            font-family: Flexo-bold;
+        }
+    }
+    .field-form-identidad{
+        width: 100%;
+        margin-bottom: 20px;
+        label{
+            font-family: Flexo-bold;
+        }
+    }
+    .btn-form-identidad{
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+
+        button{
+            margin: 0 10px;
         }
     }
 }

@@ -85,6 +85,73 @@ const changeAction = (itemList) => {
     });
 }
 
+const setEmpresa =(numeroMunicipal) =>{
+    const empresas =[
+        {
+            nombre:'AMTUP',
+            min:1,
+            max:100
+        },
+        {
+            nombre:'ATOMI',
+            min:101,
+            max:200
+        },
+        {
+            nombre:'PUCUSANA EXPRESS',
+            min:201,
+            max:300
+        },
+        {
+            nombre:'BOCANA',
+            min:301,
+            max:400
+        },
+        {
+            nombre:'SAN JERONIMO',
+            min:501,
+            max:551
+        },
+        {
+            nombre:'NUEVA VIDA',
+            min:601,
+            max:650
+        },
+        {
+            nombre:'AMIGOS GEMINIS',
+            min:701,
+            max:752
+        },
+        {
+            nombre:'RAYOS DEL SUR',
+            min:801,
+            max:850
+        },
+        {
+            nombre:'LOS METEORITOS',
+            min:901,
+            max:950
+        }
+    ]
+
+    const valor = parseInt(numeroMunicipal)
+
+    for (let i = 0; i < empresas.length; i++) {
+        const empresa = empresas[i];
+
+        console.log("valor:",valor)
+        console.log("empresa:",empresa)
+        if(empresa.min <= valor && valor <= empresa.max) {
+            return empresa.nombre;
+        }
+
+    }
+    return null;
+}
+
+//Vehiculos
 
 
-export {changeAction};
+
+
+export {changeAction,setEmpresa};
