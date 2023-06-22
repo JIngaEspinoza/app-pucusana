@@ -1,5 +1,91 @@
 .container-papeletas {
-    .registro{
+
+    .registro {
+        width: 100%;
+        height: calc(100% - 80px);
+        margin-top: 30px;
+
+        .container {
+            justify-content: space-between;
+            overflow: hidden;
+            justify-content: center;
+            position: relative;
+            max-width: 700px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px 0;
+            border-radius: 20px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .title-registro-papeletas {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                h1 {
+                    font-family: "Flexo-Bold";
+                    font-size: 2rem;
+                }
+            }
+            form {
+                display: flex;
+                flex-wrap: wrap;
+                width: 600px;
+                
+                .campo-max {
+                    width: 580px;
+                    margin: 10px 10px;
+                    input {
+                        &.oculto {
+                            display: none;
+                        }
+                    }
+                }
+                .campo-mitad {
+                    width: 280px;
+                    margin: 10px 10px;
+                    input {
+                        &.oculto {
+                            display: none;
+                        }
+                    }
+                }
+                .campo-tercio {
+                    width: 180px;
+                    margin: 10px 10px;
+                    input {
+                        &.oculto {
+                            display: none;
+                        }
+                    }
+                }
+                .campo-dos-tercio {
+                    width: 380px;
+                    margin: 10px 10px;
+                    input {
+                        &.oculto {
+                            display: none;
+                        }
+                    }
+                }
+                label {
+                    font-family: "Flexo-Bold";
+                }
+                .div-btn-guardar {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 15px;
+                    .btn-guardar {
+                        width: 580px;
+                        height: 45px;
+                    }
+                }
+            }
+        }
+
         &--desactive{
             display: none;
         }
