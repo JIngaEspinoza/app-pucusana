@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    // .padre{
+
+
+    //     background-color: rgb(127, 255, 165);
+    //     height: 300px;
+
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     flex-wrap: wrap;
+
+    //     .hijo{
+    //         background-color: blue;
+    //         width: 50px;
+    //         height: 50px;
+    //         border: 3px solid white;
+    //         margin: 10px;
+
+
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+
+
+    //         span{
+    //             color: #fff;
+    //             font-size: 2rem;
+
+    //         }
+
+
+    //     }
+    // }
+    // a{
+
+    //     width: 200px;
+    //     background-color: rgb(91, 75, 182);
+    //     color: #fff;
+    // }
+
+    .caja-consulta{
+        margin-top: 30px;
+        width: 500px;
+        height: 100px;
+        background-color: aqua;
+        border-radius: 10px 10px 0 0;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        display: flex;
+
+        align-items: center;
+        .caja-hijo{
+            margin-left: 60px;
+            // width: 250px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            // flex-direction: column;
+            background-color: rgb(25, 192, 66);
+        }
+
+    }
+}
+

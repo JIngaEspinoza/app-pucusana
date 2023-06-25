@@ -84,6 +84,9 @@ Route::get('/papeletas/registro', function () {
     return view('transporte.navegacion.nav_transporte',compact('title','accion'));
 });
 
+Route::get('/p', function () {
+    return view('prueba.prueba');
+});
 
 // Route::get('/ordenes-de-pago', function () {
 //     $title = 'Orden de pago';

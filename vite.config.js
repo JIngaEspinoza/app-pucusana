@@ -19,6 +19,7 @@ export default defineConfig({
             'resources/scss/transporte/papeletas/main-papeletas.scss',
             'resources/scss/transporte/vehiculos/main-vehiculos.scss',
             'resources/js/transporte/vehiculo.js',
+            'resources/scss/prueba/prueba.scss'
             ],
             refresh: true,
         }),
