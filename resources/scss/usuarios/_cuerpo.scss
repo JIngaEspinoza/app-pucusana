@@ -1,0 +1,305 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.fondo {
+    background-color: #e9f0f8;
+    height: 100vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    .cuerpo {
+        width: 95%;
+        height: auto;
+        display: flex;
+        margin-top: 30px;
+        flex-direction: column;
+        .barra {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 30px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // padding: 0 10px 0 10px;
+
+            .busqueda-usuario{
+                position: relative;
+                width: 220px;
+                height: 40px;
+                background-color: #ffffff;
+                border-radius: 5px;
+                margin-left: 20px;
+
+                box-shadow: rgba(99, 99, 100, 0.35) 0px -50px 36px -28px inset;
+
+                .icon-busqueda{
+
+                    // background-color: #000000;
+
+                    width: 15px;
+                    height: 15px;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    margin-top: 13px;
+                    margin-left: 5px;
+                }
+                .input-busqueda{
+                    width: 200px;
+                    height: 100%;
+                    margin-left: 25px;
+                    background-color: transparent;
+
+                    border: none;
+                    &::active {
+                        outline: none;
+                        border-color: transparent;
+                    }
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+            .opciones {
+                // background-color: #cfe1f0;
+                width: 400px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                padding: 0 10px 0 10px;
+
+                .opcion{
+                    margin: 0 15px;
+                    font-family: flexo;
+                    font-size: 0.9rem;
+                    color: #4a2870;
+                    cursor: pointer;
+                    @include transition-ease(0.3s,0s);
+                    &--active{
+                        color: #1f0342;
+                        font-weight: bold;
+                    }
+                    &:hover{
+                        color: #27ccc4;
+                    }
+                }
+
+                .luna {
+                    width: 40px;
+                    height: 40px;
+                    // background-color: #d1b3b3;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    margin-left: 70px;
+                    margin-right: 10px;
+                    // border: black 1px solid;
+                    cursor: pointer;
+                    user-select: none;
+
+                    &__url {
+                        width: 40px;
+                        height: 35px;
+                        top: 50%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+                .screen {
+                    width: 30px;
+                    height: 40px;
+                    // background-color: #d1b3b3;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    margin-right: 20px;
+                    // border: black 1px solid;
+                    cursor: pointer;
+                    user-select: none;
+
+                    &__url {
+                        width: 45px;
+                        height: 25px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+
+                .card-usuario {
+                    width: 180px;
+                    height: 40px;
+                    border-left: 0.5px solid #adaaaa;
+                    padding-left: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .foto {
+                        width: 60px;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        overflow: hidden;
+
+                        &__url {
+                            width: 40px;
+                            height: 40px;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            border-radius: 8%;
+                        }
+                    }
+                    .info {
+                        width: 140px;
+                        height: 40px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding-left: 10px;
+                        .nombre {
+                            width: 100%;
+                            height: 20px;
+                            font-size: 18px;
+                            font-family: "Flexo-Bold";
+                            color: #000000;
+                        }
+                        .rol {
+                            width: 100%;
+                            height: 20px;
+                            font-size: 14px;
+                            font-family: "Flexo";
+                            color: #7e8593;
+                        }
+                    }
+                }
+            }
+            .ruta{
+                width: 350px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 30px;
+                font-family: flexo;
+                // background-color: #62a8e0;
+
+                .nombre {
+                    margin: 1 10px;
+                    color: #4a22dd;
+
+                    &--active {
+                      font-weight: bold;
+                    }
+                  }
+                .flecha{
+                    margin: 0 10px;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    // font-weight: bold;
+                }
+            }
+        }
+
+        .container-usuario{
+            width: 100%;
+            min-height: calc(100% - 90px);;
+            max-height: auto;
+
+            background-color: #e1ddee;
+            .nav-secundario{
+                width: 100%;
+                background-color: #fff;
+                height: 50px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+                // padding: 0 10px 0 10px;
+
+                .opciones{
+                    width: 360px;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // background-color: #62a8e0;
+
+                    .opcion{
+                        margin: 0 15px;
+                        font-family: flexo;
+                        font-size: 0.9rem;
+                        color: #4a2870;
+                        cursor: pointer;
+                        @include transition-ease(0.3s,0s);
+                        &--active{
+                            color: #1f0342;
+                            font-weight: bold;
+                        }
+                        &:hover{
+                            color: #27ccc4;
+                        }
+                    }
+                }
+
+                .ruta{
+                    width: 350px;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 30px;
+                    font-family: flexo;
+                    // background-color: #62a8e0;
+
+                    .nombre {
+                        margin: 1 10px;
+                        color: #4a22dd;
+
+                        &--active {
+                          font-weight: bold;
+                        }
+                      }
+                    .flecha{
+                        margin: 0 10px;
+                        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                        // font-weight: bold;
+                    }
+                }
+
+            }
+
+            .lista{
+
+                &--desactive {
+                    display: none;
+                }
+            }
+
+            .registro-usuario{
+
+                &--desactive {
+                    display: none;
+                }
+            }
+
+            .contrasena{
+
+                &--desactive {
+                    display: none;
+                }
+            }
+
+
+        }
+    }
+}

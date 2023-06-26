@@ -56,6 +56,7 @@
             'title' => '<p>TRANSPORTE</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_transporte.svg',
             'descripcion' => '<p>Gerencia de Seguridad Ciudadana, Fizcalización y Control</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -63,6 +64,7 @@
             'title' => '<P>SEGURIDAD CIUDADANA</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_seguridad_ciudadana.svg',
             'descripcion' => '<p>Gerencia de Seguridad Ciudadana, Fizcalización y Control</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -70,6 +72,7 @@
             'title' => '<p>GESTIÓN Y RIESGOS</p><p>DE DESASTRES</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_gestion_riesgo.svg',
             'descripcion' => '<p>Gerencia de Desarrollo Económico y Turismo</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -77,6 +80,7 @@
             'title' => '<p>FISCALIZACIÓN Y CONTROL</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_fiscalizacionycontrol.svg',
             'descripcion' => '<p>Gerencia de Seguridad Ciudadana, Fizcalización y Control</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -84,6 +88,7 @@
             'title' => '<p>DESARROLLO ECONÓMICO</p><p>Y TURISMO</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_turismo.svg',
             'descripcion' => '<p>Gerencia de Desarrollo Económico y Turismo</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -91,6 +96,7 @@
             'title' => '<p>SANIDAD Y SALUD</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_saludysanidad.svg',
             'descripcion' => '<p>Gerencia de Desarrollo Humano y Social</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -98,6 +104,7 @@
             'title' => '<p>DESARROLLO SOCIAL, DEMUNA, OMAPED, CIAM</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_desarrollosocial.svg',
             'descripcion' => '<p>Gerencia de Desarrollo Humano y Social</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -105,6 +112,7 @@
             'title' => '<p>CONTABILIDAD</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_contabilidad.svg',
             'descripcion' => '<p>Gerencia de Administración y Finanzas</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -112,6 +120,7 @@
             'title' => '<p>TEC. DE LA INFORMACIÓN Y</p><p>SISTEMAS</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_sistemas.svg',
             'descripcion' => '<p>Gerencia Municipal</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -119,6 +128,7 @@
             'title' => '<p>ADMINISTRACIÓN TRIBUTARIA</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_administracion_tributaria.svg',
             'descripcion' => '<p>Gerencia de Administración y Finanzas</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -126,6 +136,7 @@
             'title' => '<p>TESORERIA</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_tesoreria.svg',
             'descripcion' => '<p>Gerencia de Administración y Finanzas</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -133,6 +144,7 @@
             'title' => '<p>FIZCALIZACIÓN</p><p>TRIBUTARIA</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/icono_fiscalizacion_tributaria.svg',
             'descripcion' => '<p>Gerencia de Administración Tributaria</p>',
+            'route' => route('vehiculo.consulta')
         ])
 
         @include('modulos.layouts.tarjeta', [
@@ -140,6 +152,7 @@
             'title' => '<p>USUARIOS</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/sinicono.svg',
             'descripcion' => '<p>Usuarios</p>',
+            'route' => route('usuarios.lista')
         ])
 
     </div>

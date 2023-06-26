@@ -88,6 +88,21 @@ Route::get('/p', function () {
     return view('prueba.prueba');
 });
 
+Route::get('/usuarios/lista-de-usuarios', function () {
+    $accion = 'Lista de usuarios';
+    return view('usuarios.index_usuarios',compact('accion'));
+})->name ('usuarios.lista');
+
+Route::get('/usuarios/registro', function () {
+    $accion = 'Registro';
+    return view('usuarios.index_usuarios',compact('accion'));
+})->name ('usuarios.registro');
+
+Route::get('/usuarios/contrasena', function () {
+    $accion = 'Contraseña';
+    return view('usuarios.index_usuarios',compact('accion'));
+})->name ('usuarios.contrasena');
+
 // Route::get('/ordenes-de-pago', function () {
 //     $title = 'Orden de pago';
 //     return view('transporte.pagos.indexPagos',compact('title'));

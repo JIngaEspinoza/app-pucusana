@@ -7,6 +7,11 @@ const changeAction = (itemList) => {
         const rutaAccion = container.querySelector('#rutaAccion');
         const consulta = container.querySelector('.consulta');
         const registro = container.querySelector('.registro');
+
+        const consultaSinResultados = document.getElementById('sin_resultados');
+        const consultaConResultados = document.getElementById('con_resultados');
+
+
         optionsMenu.forEach(option => {
             option.addEventListener('click', () => {
                 optionsMenu.forEach(option => {
@@ -22,6 +27,11 @@ const changeAction = (itemList) => {
                     history.pushState(null, item.title, item.route.consulta);
                     consulta.classList.remove('consulta--desactive');
                     registro.classList.add('registro--desactive');
+
+                    if (item.title == 'Consulta vehicular') {
+                        consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
+                        consultaSinResultados.classList.add('vista-sin-resultados--desactive');
+                    }
                 }
                 if (option.textContent === 'Registro') {
                     history.pushState(null, item.title, item.route.registro);
@@ -44,6 +54,11 @@ const changeAction = (itemList) => {
                 consulta.classList.remove('consulta--desactive');
                 registro.classList.add('registro--desactive');
 
+                if (item.title == 'Consulta vehicular') {
+                    consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
+                    consultaSinResultados.classList.add('vista-sin-resultados--desactive');
+                }
+
             }
             if (rutaAccion.textContent === 'Registro') {
 
@@ -58,6 +73,11 @@ const changeAction = (itemList) => {
 
                 consulta.classList.remove('consulta--desactive');
                 registro.classList.add('registro--desactive');
+
+                if (item.title == 'Consulta vehicular') {
+                    consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
+                    consultaSinResultados.classList.add('vista-sin-resultados--desactive');
+                }
 
             }
             if (rutaAccion.textContent === 'Registro') {

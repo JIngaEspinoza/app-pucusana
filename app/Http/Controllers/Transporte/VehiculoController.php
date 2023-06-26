@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Transporte;
 
 use App\Http\Controllers\Controller;
+use App\Models\Entidade;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class VehiculoController extends Controller
 {
@@ -31,7 +33,19 @@ class VehiculoController extends Controller
     }
 
     public function searchVehiculo($param){
+        Log::debug('$param'.$param);
         $vehiculo = Vehiculo::where('placa',$param)->first();
+        Log::debug($vehiculo);
+        if ($vehiculo) {
+            Log::debug('$vehiculo->id_propietario :'.$vehiculo->id_propietario);
+            $propietario = Entidade::where('id_entidad', $vehiculo->id_propietario)->first();
+            Log::debug('propietario'.$propietario);
+            $chofer = Entidade::where('id_entidad', $vehiculo->id_chofer)->first();
+            // $chofer = Entidade::find($vehiculo->id_chofer);
+            Log::debug('chofer'.$chofer);
+            $vehiculo->nombre_propietario = $propietario->nombre;
+            $vehiculo->nombre_chofer = $chofer->nombre;
+        }
         return $vehiculo;
 
     }
