@@ -26,7 +26,7 @@ const register = () => {
         validateEmail();
         enviarForm();
 
-        defaultDevs();
+        // defaultDevs();
 
     } catch (error) {
         console.log(error);
