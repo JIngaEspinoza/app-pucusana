@@ -103,7 +103,7 @@
                 display: flex;
                 // justify-content: center;
                 align-items: center;
-                height: 30px;
+                height: 10px;
                 font-size: 13px;
                 position: absolute;
                 // font-weight: bold;
@@ -112,6 +112,7 @@
 
                 }
                 margin-top: 5px;
+                margin-left: 20px;
                 @include transition-ease(0.4s,0);
                 &--disable{
 
@@ -171,6 +172,9 @@
                 margin: 0 30px;
 
             }
+        }
+        .imagen-load{
+            background-image: url("asset('storage/app/public/uploads/usuarios/editar.png')");
         }
     }
 

@@ -24,10 +24,15 @@ Route::get('/', function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('/iniciar-sesion','showLogin')->name ('login');
     Route::post('/registrar-usuario','registerUser')->name('auth.registro');
-
+    Route::post('/cambiar-credencial','changePass')->name('auth.pass');
     Route::get('/usuarios/registro','showRegister')->name('auth.mostrar.registro');
     Route::get('/usuarios/contrasena','showPassword')->name('auth.mostrar.contrasena');
     Route::get('/usuarios/lista-de-usuarios','showList')->name('auth.lista');
+
+    Route::get('/buscar-username/{param}','searchUsername');
+    Route::get('/buscar-email/{param}','searchEmail');
+    Route::get('/buscar-username-or-email/{param}','validateUsernameOrEmail');
+    Route::post('/actualizar-password','updatePassword')->name('auth.update.pass');
 });
 
 

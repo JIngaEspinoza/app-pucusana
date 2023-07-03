@@ -11,7 +11,7 @@
             <div class="imagen-usuario">
                 <div class="box-exterior">
                     <div class="box-inferior">
-                        <div id="imageContainer" class="content-img " style="background-image: url({{ asset('storage') . '/' . 'uploads/usuarios/perfil_2.svg' }});"></div>
+                        <div id="imageContainer" class="content-img imagen-load" style="background-image: url({{ asset('storage') . '/' . 'uploads/usuarios/perfil_2.svg' }});"></div>
                         <input type="file" name="imagen" id="imagen-usuario" accept=".jpg, .jpeg, .png, .svg">
                         <div id="cargar-usuario" class="btn btn-dark button"> Subir imagen</div>
                     </div>
@@ -72,11 +72,17 @@
             <div class="campo-estandar campo-estandar--disable">
                 <label for="username_usuario" class="form-label">Nombre de usuario : </label>
                 <input type="text" name="username" id="username-usuario" class="form-control" required>
+                <div id="username-error" class="alert-campo alert-campo--disable" role="alert">
+                    <span> El nombre de usuario ya existe.</span>
+                </div>
             </div>
 
             <div class="campo-estandar">
                 <label for="email_usuario" class="form-label">Direccion de correo eletronico : </label>
                 <input type="text" name="email" id="email-usuario" class="form-control" required>
+                <div id="email-error" class="alert-campo alert-campo--disable" role="alert">
+                    <span> El correo ya existe.</span>
+                </div>
             </div>
 
 
@@ -100,7 +106,6 @@
                 <input type="password" name="password_confirmation" id="password_confirm_usuario" class="form-control" required>
                 <div id="password_error" class="alert-campo alert-campo--disable" role="alert">
                     <span> Las contraseñas no coinciden.</span>
-
                 </div>
             </div>
 

@@ -229,7 +229,7 @@ const getPerson = (param) => {
                 }
             }
         }).catch(error => {
-            console.log("error axios ",error)
+            console.log("error axios ", error)
         });
 
 }
@@ -297,7 +297,7 @@ const getVehiculo = (param) => {
             if (response.data) {
                 // valueVehiculo.innerHTML= listarAtributos(response.data);
                 const vehiculo = response.data;
-                numeroMunicipal_c.textContent =  vehiculo.numero_municipal;
+                numeroMunicipal_c.textContent = vehiculo.numero_municipal;
                 empresa_c.textContent = vehiculo.empresa;
                 placa_c.textContent = vehiculo.placa;
                 name_propietario_c.textContent = vehiculo.nombre_propietario;
@@ -311,7 +311,7 @@ const getVehiculo = (param) => {
                 consultaSinResultados.classList.add('vista-sin-resultados--desactive');
                 consultaConResultados.classList.remove('seccion-resultado-vehiculo--desactive');
 
-            }else{
+            } else {
                 // valueVehiculo.innerHTML = "No se encontro informacion vehicular",
                 consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
                 consultaSinResultados.classList.remove('vista-sin-resultados--desactive');
@@ -319,7 +319,7 @@ const getVehiculo = (param) => {
             }
             console.log('end');
         }).catch(error => {
-            console.log("error axios",error)
+            console.log("error axios", error)
         });
 
 }
@@ -341,9 +341,9 @@ const inputBusqueda = document.getElementById('input-busqueda-placa');
 const consultaSinResultados = document.getElementById('sin_resultados');
 const consultaConResultados = document.getElementById('con_resultados');
 
-inputBusqueda.addEventListener('keyup',(event)=>{
+inputBusqueda.addEventListener('keyup', (event) => {
     if (event.key === 13 || event.key === 'Enter') {
-        console.log("placa ",event.target.value);
+        console.log("placa ", event.target.value);
         getVehiculo(event.target.value);
     }
 });
