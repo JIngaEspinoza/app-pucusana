@@ -34,6 +34,6 @@ class EntidadController extends Controller
         $entidade->celular = $celular;
         $entidade->save();
 
-        return response()->json(['id' => $entidade->id,'nombre' => $entidade->nombre,'message'=>'Entidad registrada exitosamente'],200);
+        return response()->json(['id_entidad' => $entidade->id,'nombre' => $entidade->nombre,'message'=>'Entidad registrada exitosamente'],200);
     }
 }

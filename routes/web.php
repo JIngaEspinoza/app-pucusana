@@ -3,6 +3,7 @@
 use App\Http\Controllers\Transporte\EntidadController;
 use App\Http\Controllers\Transporte\VehiculoController;
 use App\Http\Controllers\User\UserController;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,25 @@ Route::get('/', function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/iniciar-sesion','showLogin')->name ('login');
+    Route::post('/registrar-usuario','registerUser')->name('auth.registro');
+
+    Route::get('/usuarios/registro','showRegister')->name('auth.mostrar.registro');
+    Route::get('/usuarios/contrasena','showPassword')->name('auth.mostrar.contrasena');
+    Route::get('/usuarios/lista-de-usuarios','showList')->name('auth.lista');
 });
+
+
+
+// Route::get('/usuarios/contrasena', function () {
+//     $accion = 'Contraseña';
+//     return view('usuarios.index_usuarios',compact('accion'));
+// })->name ('usuarios.contrasena');
+
+// Route::get('/usuarios/lista-de-usuarios', function () {
+//     $accion = 'Lista de usuarios';
+//     return view('usuarios.index_usuarios',compact('accion'));
+// })->name ('usuarios.lista');
+
 Route::controller(VehiculoController::class)->group(function () {
     // Route::get('/registrar-vehiculo','show');
     Route::post('/registrar-vehiculo', 'create')->name ('vehiculos.store');
@@ -88,20 +107,9 @@ Route::get('/p', function () {
     return view('prueba.prueba');
 });
 
-Route::get('/usuarios/lista-de-usuarios', function () {
-    $accion = 'Lista de usuarios';
-    return view('usuarios.index_usuarios',compact('accion'));
-})->name ('usuarios.lista');
 
-Route::get('/usuarios/registro', function () {
-    $accion = 'Registro';
-    return view('usuarios.index_usuarios',compact('accion'));
-})->name ('usuarios.registro');
 
-Route::get('/usuarios/contrasena', function () {
-    $accion = 'Contraseña';
-    return view('usuarios.index_usuarios',compact('accion'));
-})->name ('usuarios.contrasena');
+
 
 // Route::get('/ordenes-de-pago', function () {
 //     $title = 'Orden de pago';
@@ -122,5 +130,7 @@ Route::get('/usuarios/contrasena', function () {
 //     $title = 'Papeletas';
 //     return view('transporte.papeletas.indexPapeletas',compact('title'));
 // })->name ('papeletas');
+
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 

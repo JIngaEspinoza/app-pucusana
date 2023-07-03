@@ -1,3 +1,9 @@
+
+@font-face {
+    font-family: "Flexo-Bold" ;
+    src: url("../../../../public/fonts/Flexo-Thin.ttf");
+}
+
 @mixin transition-ease($time,$delay) {
     transition: all $time ease-in-out;
     transition-delay: $delay;

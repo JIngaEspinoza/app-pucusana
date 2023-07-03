@@ -10,7 +10,7 @@
 
 <body>
     <div class="fondo">
-        <div class="cuerpo">
+        <div id="cuerpo-main" class="cuerpo">
             <nav id="nacCuerpo" class="nav_cuerpo">
                 <div class="ola_superior">
                     <img class="ola_superior__url" src="{{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }}">

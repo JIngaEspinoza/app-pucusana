@@ -6,13 +6,30 @@
         width: 100%;
         height: calc(100% - 80px);
         margin-top: 30px;
-
+        overflow-y: scroll;
         // font-family: "Flexo";
         // font-family: "Flexo-Bold";
+        /* Para navegadores WebKit (Chrome, Safari) */
+            &::-webkit-scrollbar {
+                width: 0.1em;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #888;
+            }
+
+            /* Para navegadores que no sean de WebKit (Firefox) */
+
+            scrollbar-width: thin;
+            scrollbar-color: #888 transparent;
 
         .container{
             width: 800px;
-            height: 100%;
+            height: auto;
             background-color: #fff;
             padding: 20px 0;
             border-radius: 20px;
@@ -33,6 +50,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 width: 600px;
+                margin-bottom: 30px;
                 .campo-max{
 
                     width: 580px;
@@ -82,6 +100,7 @@
                     display: flex;
                     justify-content: center;
                     margin-top: 15px;
+
                     .btn-guardar{
                         width: 580px;
                         height: 45px;

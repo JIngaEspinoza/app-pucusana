@@ -1,12 +1,10 @@
 
 import { setEmpresa } from "./transporte_LBRY";
 import axios from "axios";
-const btnCancelEntity = document.getElementById('btn_cancel_entity');
-const btnCancelBuscar = document.getElementById('btn_cancel_buscar');
+
 const modalGeneral = document.getElementById('modal_general')
 const modalContent = document.getElementById('modal_content');
-const btnOptionMas = document.querySelectorAll('.btn-mass')
-const btnOptionBuscar = document.querySelectorAll('.btn-buscar')
+
 const numeroMunicipal = document.getElementById('numero_municipal');
 const empresaNombre = document.getElementById('empresa');
 const estadoInspeccion = document.getElementById('estado_inspeccion');
@@ -20,8 +18,7 @@ const nameChofer = document.getElementById('name_chofer');
 const idPropietario = document.getElementById('id_propietario');
 const idChofer = document.getElementById('id_chofer');
 
-const formEntity = document.getElementById('form_entity');
-const formSearch = document.getElementById('form_search');
+
 const nombreEntidadBuscar = document.getElementById('nombre_entidad_buscar');
 
 const formSearchVehiculo = document.getElementById('form_search_vehiculo');
@@ -29,6 +26,20 @@ const valueVehiculo = document.getElementById('valor_vehiculo');
 
 let propiestarioActiveSearch = false;
 let propiestarioActiveMass = false;
+
+
+
+//Registrar entidad
+const formEntity = document.getElementById('form_entity'); //html para crear entidad
+const btnOptionMas = document.querySelectorAll('.btn-mass') // boton que activa el modal de registrar entidad
+const btnCancelEntity = document.getElementById('btn_cancel_entity'); // boton que desactiva el modal de registrar entidad
+
+//Buscar entidad
+const formSearch = document.getElementById('form_search'); //html para buscar entidad
+const btnOptionBuscar = document.querySelectorAll('.btn-buscar') // boton que activa el modal de buscar entidad
+const btnCancelBuscar = document.getElementById('btn_cancel_buscar'); // boton que desactiva el modal de buscar entidad
+
+
 
 btnCancelEntity.addEventListener('click', () => {
     console.log('click cancel')
@@ -50,6 +61,7 @@ btnOptionMas.forEach((optionMas, i) => {
     })
 
 });
+
 
 btnCancelBuscar.addEventListener('click', () => {
     console.log('click cancel buscar');
@@ -76,6 +88,65 @@ btnOptionBuscar.forEach((optionBuscar, i) => {
 
 });
 
+
+
+// const componentes = {
+
+//     buscar: {
+//         element:formSearch, // Html que vas a crear
+//         html:{
+//             active:'content-modal__buscar', //clase que defines para darle dimension,
+//             desactive:'content-modal__buscar--disable' //clase que quitas la dimension,
+//         },
+//         btn: {
+//             active: btnOptionBuscar, //boton que activa el modal
+//             desactive: btnCancelBuscar //boton que desactiva el modal
+//         },
+//         state: false,
+//     },
+//     agregar: {
+//         element:formEntity, // Html que vas a crear
+//         html:{
+//             active:'content-modal__form', //clase que defines para darle dimension,
+//             desactive:'content-modal__form--disable' //clase que quitas la dimension,
+//         },
+//         btn: {
+//             active: btnOptionMas, //boton que activa el modal
+//             desactive: btnCancelEntity //boton que desactiva el modal
+//         },
+//         state: false,
+//     }
+// }
+
+// const setModal = (components) => {
+
+
+//     const atributos = Object.keys(components);
+//     atributos.forEach((component)=>{
+
+
+//         component.btn.active.addEventListener('click', () => {
+
+//             atributos.forEach((component)=>{
+//                 component.element.add(component.html.desactive); // Ocultas todos
+//                 modalContent.classList.remove(component.html.active);
+//             });
+
+//             component.state = i == 0;
+//             component.element.remove(component.html.desactive)
+//             modalContent.classList.add(component.html.active);
+//             modalGeneral.classList.remove('disable-modal');
+
+//         })
+
+//         component.btn.desactive.addEventListener('click', () => {
+//             // console.log('click cancel buscar');
+//             modalGeneral.classList.add('disable-modal');
+//         });
+//     });
+
+
+// }
 
 numeroMunicipal.addEventListener('keyup', () => {
 

@@ -13,11 +13,11 @@
     transition: all 0.3s ease-in-out;
     .content-modal{
         background-color: #fff;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
         &__form{
             width: 400px;
             height: 700px;
-            border-radius: 10px;
-            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
             &--disable{
                 display: none;
@@ -27,8 +27,7 @@
         &__buscar{
             width: 400px;
             height: 230px;
-            border-radius: 10px;
-            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
             &--disable{
                 display: none;
             }

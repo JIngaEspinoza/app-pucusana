@@ -7,6 +7,7 @@ const olaInfo = document.querySelector('.ola_inferior__url');
 const logoPucu = document.querySelector('.logo-pucu');
 const items = document.querySelectorAll('.item');
 const seccion = document.querySelector('.seccion');
+const barra = document.querySelector('.barra');
 
 iconMenu.addEventListener('click', function () {
     if (iconMenu.classList.contains('open')) {
@@ -14,7 +15,6 @@ iconMenu.addEventListener('click', function () {
     } else {
         iconMenu.classList.add('open');
     }
-
     if (navCuerpo.classList.contains('active-complex')) {
         //incomplex
         olaSup.classList.remove('active-complex');
@@ -36,6 +36,7 @@ iconMenu.addEventListener('click', function () {
 
     } else {
         //complex
+
         olaSup.classList.add('active-complex');
         olaInfo.classList.add('active-complex');
         items.forEach(item => {
@@ -52,7 +53,9 @@ iconMenu.addEventListener('click', function () {
         navCuerpo.classList.add('active-complex');
         logoPucu.classList.add('active-complex');
         seccion.classList.add('active-complex');
+
     }
+
 }, false);
 
 

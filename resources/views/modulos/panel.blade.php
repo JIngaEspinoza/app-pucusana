@@ -152,7 +152,7 @@
             'title' => '<p>USUARIOS</p>',
             'icono' => asset('storage') . '/' . 'uploads/modulos/sinicono.svg',
             'descripcion' => '<p>Usuarios</p>',
-            'route' => route('usuarios.lista')
+            'route' => route('auth.lista')
         ])
 
     </div>
