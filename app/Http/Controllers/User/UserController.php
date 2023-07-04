@@ -20,7 +20,8 @@ class UserController extends Controller
     {
         Log::debug('mostrar registro');
         $accion = 'Registro';
-        return view('usuarios.index_usuarios', compact('accion'));
+        $users = $this->userList();
+        return view('usuarios.index_usuarios', compact('accion','users'));
     }
     public function showLogin()
     {
@@ -95,14 +96,17 @@ class UserController extends Controller
     {
         Log::debug('mostrar Pass');
         $accion = 'Contraseña';
-        return view('usuarios.index_usuarios', compact('accion'));
+        $users = $this->userList();
+
+        return view('usuarios.index_usuarios', compact('accion','users'));
     }
 
     public function showList()
     {
         Log::debug('mostrar List');
         $accion = 'Lista de usuarios';
-        return view('usuarios.index_usuarios', compact('accion'));
+        $users = $this->userList();
+        return view('usuarios.index_usuarios', compact('accion','users'));
     }
 
     //Cambiar contraseña
@@ -151,5 +155,11 @@ class UserController extends Controller
 
         // Redireccionar al usuario a la página de inicio de sesión
         return response()->json(['title' => 'Cambio exitoso', 'text' => 'Se actualizó correcta la contraseña.'], 200);
+    }
+    public function userList(){
+        $users = User::select('username','imagen','celular','email','cargo')
+                ->get();
+
+        return $users;
     }
 }

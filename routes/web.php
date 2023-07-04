@@ -33,6 +33,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/buscar-email/{param}','searchEmail');
     Route::get('/buscar-username-or-email/{param}','validateUsernameOrEmail');
     Route::post('/actualizar-password','updatePassword')->name('auth.update.pass');
+
+    Route::get('/usuarios-listado','userList');
 });
 
 

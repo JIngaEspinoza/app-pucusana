@@ -11,6 +11,7 @@ let areas = ['TRANSPORTE'];
 const mainUser = () => {
     register();
     password();
+    lista();
 }
 const register = () => {
     try {
@@ -36,6 +37,9 @@ const password = () => {
     validateEmailOrUsername();
     verificarPassword();
     sendFormPass();
+}
+const lista = () =>{
+    // loadUsers();
 }
 const changeAction = () => {
     //cambio el bloque segun el subnavegador
@@ -801,6 +805,44 @@ const sendFormPass = () => {
             })
         }
 
+    });
+}
+
+const loadUsers = () =>{
+    axios.get(`/usuarios-listado`)
+    .then(response => {
+        console.log('users:', response.data);
+        if (response.data) {
+            const users = response.data;
+            const contenedor = document.getElementById("resultado-lista");
+            users.forEach(user =>{
+                let card = document.createElement('div');
+                card.className = 'contenido-card-usuario';
+
+                card.innerHTML = `
+                <div class="opciones-usuario">
+                <div class="menu">
+                    <div class="puntos"></div>
+                    <div class="puntos"></div>
+                    <div class="puntos"></div>
+                </div>
+                </div>
+                <div class="photo-usuario" style="background-image: url({{ asset('storage') . '/' . ${user.imagen} }});"></div>
+                <span class="username">${user.username}</span>
+                <span class="cargo">${user.cargo}</span>
+                <div class="box-fono">
+                    <span class="box-fono_contenido">${user.celular}</span>
+                </div>
+                <span class="email">${user.email}</span>
+                `;
+                contenedor.appendChild(card);
+            });
+        } else {
+
+        }
+
+    }).catch(error => {
+        console.log("error axios", error)
     });
 }
 mainUser();

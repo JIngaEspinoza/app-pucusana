@@ -15,16 +15,16 @@
         <div class="cuerpo">
             <div class="barra">
 
-                <div class="busqueda-usuario">
+                {{-- <div class="busqueda-usuario">
                     <div class="icon-busqueda" style="background-image: url({{ asset('storage') . '/' . 'uploads/usuarios/lupa-plomo.svg' }});"></div>
                     <input type="text" name="input_busqueda" id="input_busqueda" class="input-busqueda" placeholder="Buscar..">
-                </div>
+                </div> --}}
                 <div class="opciones">
-                    <div class="luna">
+                    <a href="{{route('modulos')}}" class="luna">
                         <div class="luna__url"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/luna.svg' }});">
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos.svg' }});">
                         </div>
-                    </div>
+                    </a>
                     <div class="screen">
                         <div class="screen__url"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/screen.svg' }});">
