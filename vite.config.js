@@ -21,7 +21,8 @@ export default defineConfig({
             'resources/js/transporte/vehiculo.js',
             'resources/scss/prueba/prueba.scss',
             'resources/scss/usuarios/main-usuarios.scss',
-            'resources/js/usuarios/usuarios.js'
+            'resources/js/usuarios/usuarios.js',
+            'resources/js/modulos/panel.js'
             ],
             refresh: true,
         }),

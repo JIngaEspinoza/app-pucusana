@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\modulos\panelController;
 use App\Http\Controllers\Transporte\EntidadController;
 use App\Http\Controllers\Transporte\VehiculoController;
 use App\Http\Controllers\User\UserController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/iniciar-sesion','showLogin')->name ('login');
+    Route::post('/iniciar-sesion','login')->name ('auth.login');
     Route::post('/registrar-usuario','registerUser')->name('auth.registro');
     Route::post('/cambiar-credencial','changePass')->name('auth.pass');
     Route::get('/usuarios/registro','showRegister')->name('auth.mostrar.registro');
@@ -37,7 +39,9 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/usuarios-listado','userList');
 });
 
-
+Route::controller(panelController::class)->group(function () {
+    Route::get('/modulos','show')->name ('modulos');
+});
 
 // Route::get('/usuarios/contrasena', function () {
 //     $accion = 'Contraseña';
@@ -68,10 +72,6 @@ Route::controller(EntidadController::class)->group(function () {
 
 
 //Esta parte se va a cambiar, esta de esa forma por fines de desarrollo
-
-Route::get('/modulos', function () {
-    return view('modulos.panel');
-})->name ('modulos');
 
 
 

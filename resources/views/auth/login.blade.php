@@ -38,22 +38,22 @@
                     <h1>Iniciar Sesion</h1>
                     <span >Inicie sesión para continuar en nuestro sitio web</span>
 
-                    <form method="POST" action="{{ route('login') }}" class="mt-4">
+                    <form id="form-login" method="POST" action="{{ route('auth.login') }}" class="mt-4">
                         @csrf
 
                         <div class="form-floating mb-4">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
-                                name="email">
-                            <label for="floatingInput">Correo o nombre de usuario</label>
+                            <input type="text" class="form-control" id="username" placeholder="name@example.com"
+                                name="username">
+                            <label for="username">Correo o nombre de usuario</label>
                         </div>
                         <div class="form-floating mb-5">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            <input type="password" class="form-control" id="password" placeholder="Password"
                                 name="password">
-                            <label for="floatingPassword">Contraseña</label>
+                            <label for="password">Contraseña</label>
                         </div>
                         <div class="pad_button">
                             {{-- <a href="{{ route('vehiculoConsulta') }}" class="mb-4">Iniciar Sesion</a> --}}
-                            <button onclick="window.location.href='http://127.0.0.1:8000/modulos'" class="mb-4">Iniciar Sesion</button>
+                            <button type="submit" class="mb-4">Iniciar Sesion</button>
 
                         </div>
 
@@ -141,6 +141,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

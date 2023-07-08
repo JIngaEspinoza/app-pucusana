@@ -20,32 +20,36 @@
                     <input type="text" name="input_busqueda" id="input_busqueda" class="input-busqueda" placeholder="Buscar..">
                 </div> --}}
                 <div class="opciones">
-                    <a href="{{route('modulos')}}" class="luna">
-                        <div class="luna__url"
-                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos.svg' }});">
+
+
+
+                    <div class="card-usuario">
+                        <div class="foto">
+                            <div class="foto__url"
+                                style="background-image: url({{ asset('storage') . '/' . $imagen }});">
+                            </div>
                         </div>
-                    </a>
+                        <div class="info">
+                            <div class="nombre">
+                                <span>{{$username}}</span>
+                            </div>
+                            <div class="rol">
+                                <span>{{$cargo}}</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="screen">
                         <div class="screen__url"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/screen.svg' }});">
                         </div>
                     </div>
 
-                    <div class="card-usuario">
-                        <div class="foto">
-                            <div class="foto__url"
-                                style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.jpeg' }});">
-                            </div>
+                    <a href="{{route('modulos')}}" class="luna">
+                        <div class="luna__url"
+                            style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_modulos.svg' }});">
                         </div>
-                        <div class="info">
-                            <div class="nombre">
-                                <span>Hilton Bill</span>
-                            </div>
-                            <div class="rol">
-                                <span>Super Admin</span>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 

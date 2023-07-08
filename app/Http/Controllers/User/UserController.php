@@ -16,19 +16,29 @@ use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
-    public function showRegister()
-    {
-        Log::debug('mostrar registro');
-        $accion = 'Registro';
-        $users = $this->userList();
-        return view('usuarios.index_usuarios', compact('accion','users'));
+
+    public function showRegister(){
+        try {
+            if (Auth::check() && Auth::user()->estado) {
+                $accion = 'Registro';
+                $users = $this->userList();
+                $username = Auth::user()->username;
+                $cargo = Auth::user()->cargo;
+                $imagen = Auth::user()->imagen;
+                return view('usuarios.index_usuarios', compact('accion', 'users','username','cargo','imagen'));
+            }else{
+                return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+            }
+        } catch (\Throwable $th) {
+            Log::error('Error [showRegister]'.$th);
+            return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+        }
+
     }
-    public function showLogin()
-    {
+    public function showLogin(){
         return view('auth.login');
     }
-    public function registerUser(Request $request)
-    {
+    public function registerUser(Request $request){
 
         try {
 
@@ -46,10 +56,11 @@ class UserController extends Controller
             $user->username = $request->input('username');
             $user->email = $request->input('email');
             $user->rol = $request->input('rol');
-            $user->password = Hash::make($request->input('password'));
+            $user->password = $request->input('password');
             $user->cargo = $request->input('cargo');
             $user->area = $request->input('area');
-            $user->estado = 'activado';
+            $user->estado = true;
+            $user->soporte = false;
             // User::create($user);
 
             if ($request->hasFile('imagen')) {
@@ -72,63 +83,85 @@ class UserController extends Controller
         }
     }
 
-    public function login(LoginRequest $request)
-    {
-        $credentials = $request->getCredentials();
+    public function login(LoginRequest $request){
+        try {
+            $credentials = $request->getCredentials();
+            if (!Auth::validate($credentials)) {
+                return response()->json(['title' => 'Ingreso fallido.', 'text' => 'El Correo/Nombre de usuario y/o contraseña son incorrectas.', 'check' => 'ERROR'], 200);
+            }
 
-        if (!Auth::validate($credentials)) {
-            return redirect()->to('\login')->withErrors('auth.failed');
+            $user = Auth::getProvider()->retrieveByCredentials($credentials);
+
+            Auth::login($user);
+            Log::debug('Auth :' . Auth::user());
+            return $this->authenticated($request, $user);
+        } catch (\Throwable $th) {
+            Log::error('Error [login]' . $th);
+            return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+        }
+    }
+
+    public function authenticated(Request $request, $user){
+        return response()->json(['title' => 'Ingreso existoso', 'text' => 'Credenciales correctas.','check' => 'OK'], 200);
+    }
+
+    public function showPassword(){
+        Log::debug('mostrar Pass');
+        try {
+            if (Auth::check() && Auth::user()->estado) {
+                $accion = 'Contraseña';
+                $users = $this->userList();
+                $username = Auth::user()->username;
+                $cargo = Auth::user()->cargo;
+                $imagen = Auth::user()->imagen;
+                return view('usuarios.index_usuarios', compact('accion', 'users','username','cargo','imagen'));
+            }else{
+                return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+            }
+        } catch (\Throwable $th) {
+            Log::error('Error [showPassword]'.$th);
+            return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
         }
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-
-        Auth::login($user);
-
-        return $this->authenticated($request, $user);
     }
 
-    public function authenticated(Request $request, $user)
-    {
-        return redirect('/home');
-    }
+    public function showList(){
 
-    public function showPassword()
-    {
-        Log::debug('mostrar Pass');
-        $accion = 'Contraseña';
-        $users = $this->userList();
+        try {
+            if (Auth::check() && Auth::user()->estado) {
+                $accion = 'Lista de usuarios';
+                $users = $this->userList();
+                $username = Auth::user()->username;
+                $cargo = Auth::user()->cargo;
+                $imagen = Auth::user()->imagen;
+                return view('usuarios.index_usuarios', compact('accion', 'users','username','cargo','imagen'));
+            }else{
+                return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+            }
+        } catch (\Throwable $th) {
+            Log::debug('Error [showList]'.$th);
+            return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+        }
 
-        return view('usuarios.index_usuarios', compact('accion','users'));
-    }
-
-    public function showList()
-    {
-        Log::debug('mostrar List');
-        $accion = 'Lista de usuarios';
-        $users = $this->userList();
-        return view('usuarios.index_usuarios', compact('accion','users'));
     }
 
     //Cambiar contraseña
 
-    public function searchUsername($param)
-    {
-        $user = User::select('username')->where('username', $param)->where('estado', 'activado')->first();
+    public function searchUsername($param){
+        $user = User::select('username')->where('username', $param)->where('estado', true)->first();
         return $user;
     }
 
-    public function searchEmail($param)
-    {
-        $user = User::select('username')->where('email', $param)->where('estado', 'activado')->first();
+    public function searchEmail($param){
+        $user = User::select('username')->where('email', $param)->where('estado', true)->first();
         return $user;
     }
 
-    public function validateUsernameOrEmail($param)
-    {
+    public function validateUsernameOrEmail($param){
         $user = User::select('username')->where(function ($query) use ($param) {
             $query->where('username', $param)
                 ->orWhere('email', $param);
-        })->where('estado', 'activado')->first();
+        })->where('estado', true)->where('soporte', false)->first();
         return $user;
     }
 
@@ -140,9 +173,12 @@ class UserController extends Controller
         ]);
 
         // Buscar al usuario por email o nombre de usuario
-        $user = User::where('email', $request->username)
-            ->orWhere('username', $request->username)
-            ->first();
+        $user = User::where(function ($query) use ($request) {
+            $query->where('email', $request->username)
+                ->orWhere('username', $request->username);
+        })
+        ->where('soporte', false)
+        ->first();
 
         // Verificar si se encontró al usuario
         if (!$user) {
@@ -150,15 +186,16 @@ class UserController extends Controller
         }
 
         // Actualizar la contraseña del usuario
-        $user->password = Hash::make($request->password);
+        $user->password = $request->password;
         $user->save();
 
         // Redireccionar al usuario a la página de inicio de sesión
         return response()->json(['title' => 'Cambio exitoso', 'text' => 'Se actualizó correcta la contraseña.'], 200);
     }
     public function userList(){
-        $users = User::select('username','imagen','celular','email','cargo')
-                ->get();
+        $users = User::select('username', 'imagen', 'celular', 'email', 'cargo')
+            ->where('soporte', false)
+            ->get();
 
         return $users;
     }

@@ -29,7 +29,8 @@ return new class extends Migration
             $table->string('rol');
             $table->string('cargo');
             $table->text('area');
-            $table->string('estado');
+            $table->boolean('estado');
+            $table->boolean('soporte');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

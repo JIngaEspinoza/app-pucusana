@@ -21,15 +21,15 @@
             <div class="subtitulo-registro-usuario">
                 <h2>Informacion Personal</h2>
             </div>
-
-            <div class="campo-estandar">
-                <label for="apellidos_usuario" class="form-label">Apellidos : </label>
-                <input type="text" name="apellidos" id="apellidos-usuario" class="form-control" required>
-            </div>
             <div class="campo-estandar">
                 <label for="nombres_usuario" class="form-label">Nombres : </label>
-                <input type="text" name="nombres" id="nombres_usuario" class="form-control" required>
+                <input type="text" name="nombres" id="nombres_usuario" class="form-control" inputmode="uppercase" required>
             </div>
+            <div class="campo-estandar">
+                <label for="apellidos_usuario" class="form-label">Apellidos : </label>
+                <input type="text" name="apellidos" id="apellidos-usuario" class="form-control" inputmode="uppercase" required>
+            </div>
+
             <div class="campo-estandar">
                 <label for="dni_usuario" class="form-label">DNI : </label>
                 <input type="number" name="dni" id="dni_usuario" class="form-control" required>
@@ -56,7 +56,7 @@
             </div>
             <div class="campo-estandar">
                 <label for="direccion_usuario" class="form-label">Direccion : </label>
-                <input type="text" name="direccion" id="direccion_usuario" class="form-control" required>
+                <input type="text" name="direccion" id="direccion_usuario" class="form-control" inputmode="uppercase" required>
             </div>
             <div class="campo-estandar">
                 <label for="distrito_usuario" class="form-label">Distrito : </label>
@@ -126,6 +126,7 @@
                     <option value="Apoyo Administrativo">Apoyo Administrativo</option>
                     <option value="Coordinador">Coordinador</option>
                     <option value="Fizcalizador">Fizcalizador</option>
+                    <option value="Developer">Developer</option>
                 </select>
             </div>
             <div class="campo-estandar campo-area">

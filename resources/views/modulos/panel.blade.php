@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    @vite(['resources/scss/modulos/main-panel.scss'])
     <div class="vector_cabecera"
         style="background-image: url({{ asset('storage') . '/' . 'uploads/modulos/cabecera_modelos.svg' }});">
 
@@ -22,20 +23,21 @@
         <div class="padreuser">
             <div class="card-usuario">
 
-                <div class="foto">
-                    <div class="foto__url"
-                        style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/fotouser.svg' }});">
-                    </div>
-                </div>
+
 
                 <div class="info">
 
                     <div class="nombre">
-                        <span>Hilton Bill</span>
+                        <span>{{$username}}</span>
                     </div>
 
                     <div class="rol">
-                        <span>Super Admin</span>
+                        <span>{{$cargo}}</span>
+                    </div>
+                </div>
+                <div class="foto">
+                    <div class="foto__url"
+                        style="background-image: url({{ asset('storage') . '/' . $imagen }});">
                     </div>
                 </div>
 
@@ -50,7 +52,10 @@
 
     </div>
 
+
+
     <div class="tarjetas">
+
         @include('modulos.layouts.tarjeta', [
             'imagen' => asset('storage') . '/' . 'uploads/modulos/transporte.svg',
             'title' => '<p>TRANSPORTE</p>',
@@ -157,10 +162,10 @@
 
     </div>
 
-    @vite(['resources/scss/modulos/main-panel.scss'])
+
 
     {{-- /*no poner nada */ --}}
-
+    @vite(['resources/js/modulos/panel.js'])
 
 </body>
 

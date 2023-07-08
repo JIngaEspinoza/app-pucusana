@@ -19,6 +19,7 @@ const register = () => {
         cumpleInput.value = '2000-01-01';
         cargarDistritos();
         changeAction();
+        uppercaseInputs();
         setImage();
         seleccionarUnClick();
         setUsername();
@@ -265,9 +266,9 @@ const setUsername = () => {
     const apellidos = document.getElementById("apellidos-usuario");
     const nombres = document.getElementById("nombres_usuario");
     const username = document.getElementById("username-usuario");
+    const dniInput = document.getElementById('dni_usuario');
 
-
-    username.addEventListener('mousedown', () => {
+    dniInput.addEventListener('focus', () => {
         if (apellidos.value.length > 2 && nombres.value.length > 2) {
             username.value = `${nombres.value.split(' ')[0]} ${apellidos.value.split(' ')[0]}`;
         }
@@ -289,7 +290,7 @@ const enviarForm = () => {
         console.log("check :", check)
         console.log("checkboxConfirmacion :", checkboxConfirmacion.checked)
         if (allTrue && checkboxConfirmacion.checked && areas.length > 0) {
-            user.area = areas.toString();
+            user.area = areas.join('|');
             axios.post('/registrar-usuario', user, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -303,7 +304,9 @@ const enviarForm = () => {
                         icon: 'success',
                         timer: 5000,
                         returnFocus: false
-                    })
+                    }).then(() => {
+                        location.reload();
+                    });
                     //reset
                     formUsuario.reset();
                     cumpleInput.value = '2000-01-01';
@@ -465,6 +468,23 @@ const verificarPass = () => {
 
 }
 
+const uppercaseInputs = () =>{
+    const apellidosInput = document.getElementById('apellidos-usuario');
+    const nombresInput = document.getElementById('nombres_usuario');
+    const direccionInput = document.getElementById('direccion_usuario');
+
+    apellidosInput.addEventListener('input', function() {
+        this.value = this.value.toUpperCase();
+    });
+    nombresInput.addEventListener('input', function() {
+        this.value = this.value.toUpperCase();
+    });
+    direccionInput.addEventListener('input', function() {
+        this.value = this.value.toUpperCase();
+    });
+
+}
+
 const defaultDevs = () => {
     // Obtener referencia a los elementos del formulario
     const apellidosInput = document.getElementById('apellidos-usuario');
@@ -549,7 +569,7 @@ const validateEmail = () => {
 const validateUsername = () => {
     const usernameInput = document.getElementById('username-usuario');
     const alertUsername = document.getElementById('username-error');
-
+    const dniInput = document.getElementById('dni_usuario');
     usernameInput.addEventListener('keyup', (e) => {
         if (e.target.value.length >= 8) {
             axios.get(`/buscar-username/${e.target.value}`)
@@ -579,8 +599,10 @@ const validateUsername = () => {
                     console.log('user:', response.data);
                     if (response.data) {
                         alertUsername.classList.remove('alert-campo--disable');
+                        check.username = false;
                     } else {
                         alertUsername.classList.add('alert-campo--disable');
+                        check.username = true;
                     }
 
                 }).catch(error => {
@@ -589,6 +611,26 @@ const validateUsername = () => {
         } else {
             alertUsername.classList.add('alert-campo--disable');
         }
+    });
+
+    dniInput.addEventListener('blur', (e) => {
+
+        console.log("buscando BLURR")
+        axios.get(`/buscar-username/${usernameInput.value}`)
+            .then(response => {
+                console.log('user:', response.data);
+                if (response.data) {
+                    alertUsername.classList.remove('alert-campo--disable');
+                    check.username = false;
+                } else {
+                    alertUsername.classList.add('alert-campo--disable');
+                    check.username = true;
+                }
+
+            }).catch(error => {
+                console.log("error axios", error)
+            });
+
     });
 
 
