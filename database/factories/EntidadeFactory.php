@@ -19,7 +19,8 @@ class EntidadeFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->name(),
+            'apellidos' => strtoupper($this->faker->lastName()),
+            'nombres' => strtoupper($this->faker->name()),
             'edad' => $this->faker->numberBetween(18,65),
             'sexo' => $this->faker->randomElement(['Masculino','Femenino']),
             'dni' => $this->faker->unique()->randomNumber(8),

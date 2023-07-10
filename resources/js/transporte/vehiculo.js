@@ -2,15 +2,11 @@
 import { setEmpresa } from "./transporte_LBRY";
 import axios from "axios";
 
-const modalGeneral = document.getElementById('modal_general')
-const modalContent = document.getElementById('modal_content');
 
-const numeroMunicipal = document.getElementById('numero_municipal');
-const empresaNombre = document.getElementById('empresa');
-const estadoInspeccion = document.getElementById('estado_inspeccion');
-const fechaInspeccion = document.getElementById('fecha_inspeccion');
-const estadoCredencial = document.getElementById('estado_credencial');
-const fechaCredencial = document.getElementById('fecha_credencial');
+
+
+
+
 const checkChofer = document.getElementById('check_chofer');
 const namePropietario = document.getElementById('name_propietario');
 const nameChofer = document.getElementById('name_chofer');
@@ -27,171 +23,217 @@ const valueVehiculo = document.getElementById('valor_vehiculo');
 let propiestarioActiveSearch = false;
 let propiestarioActiveMass = false;
 
+const setModal = () => {
 
+    const modalGeneral = document.getElementById('modal_general');
+    const modalContent = document.getElementById('modal_content');
 
-//Registrar entidad
-const formEntity = document.getElementById('form_entity'); //html para crear entidad
-const btnOptionMas = document.querySelectorAll('.btn-mass') // boton que activa el modal de registrar entidad
-const btnCancelEntity = document.getElementById('btn_cancel_entity'); // boton que desactiva el modal de registrar entidad
+    //Registrar entidad
+    const formEntity = document.getElementById('form_entity'); //html para crear entidad
+    const btnOptionMas = document.querySelectorAll('.btn-mass') // boton que activa el modal de registrar entidad
+    const btnCancelEntity = document.getElementById('btn_cancel_entity'); // boton que desactiva el modal de registrar entidad
 
-//Buscar entidad
-const formSearch = document.getElementById('form_search'); //html para buscar entidad
-const btnOptionBuscar = document.querySelectorAll('.btn-buscar') // boton que activa el modal de buscar entidad
-const btnCancelBuscar = document.getElementById('btn_cancel_buscar'); // boton que desactiva el modal de buscar entidad
-
-
-
-btnCancelEntity.addEventListener('click', () => {
-    console.log('click cancel')
-    modalGeneral.classList.add('disable-modal')
-});
-
-btnOptionMas.forEach((optionMas, i) => {
-    optionMas.addEventListener('click', () => {
-        propiestarioActiveMass = i == 0;
-
-        formEntity.classList.remove('content-modal__form--disable')
-        formSearch.classList.add('content-modal__buscar--disable')
-
-        modalContent.classList.add('content-modal__form');
-        modalContent.classList.remove('content-modal__buscar');
-
-        modalGeneral.classList.remove('disable-modal');
-
-    })
-
-});
-
-
-btnCancelBuscar.addEventListener('click', () => {
-    console.log('click cancel buscar');
-    modalGeneral.classList.add('disable-modal');
-});
-
-btnOptionBuscar.forEach((optionBuscar, i) => {
+    //Buscar entidad
+    const formSearch = document.getElementById('form_search'); //html para buscar entidad
+    const btnOptionBuscar = document.querySelectorAll('.btn-buscar') // boton que activa el modal de buscar entidad
+    const btnCancelBuscar = document.getElementById('btn_cancel_buscar'); // boton que desactiva el modal de buscar entidad
 
 
 
+    btnCancelEntity.addEventListener('click', () => {
+        console.log('click cancel')
 
-    optionBuscar.addEventListener('click', () => {
-        propiestarioActiveSearch = i == 0;
+        modalGeneral.classList.add('disable-modal');
+        formEntity.reset();
+    });
 
-        formSearch.classList.remove('content-modal__buscar--disable')
-        formEntity.classList.add('content-modal__form--disable')
+    btnOptionMas.forEach((optionMas, i) => {
+        optionMas.addEventListener('click', () => {
+            propiestarioActiveMass = i == 0;
 
-        modalContent.classList.add('content-modal__buscar');
-        modalContent.classList.remove('content-modal__form');
+            formEntity.classList.remove('content-modal__form--disable') // le doy visibilidad al card de registrar persona
+            formSearch.classList.add('content-modal__buscar--disable') // le quito visibilidad al card de buscar persona
 
-        modalGeneral.classList.remove('disable-modal');
+            modalContent.classList.add('content-modal__form'); // le doy dimension de registrar persona
+            modalContent.classList.remove('content-modal__buscar'); // le quito la  dimension de buscar persona
 
-    })
+            modalGeneral.classList.remove('disable-modal');
 
-});
+        })
 
-
-
-// const componentes = {
-
-//     buscar: {
-//         element:formSearch, // Html que vas a crear
-//         html:{
-//             active:'content-modal__buscar', //clase que defines para darle dimension,
-//             desactive:'content-modal__buscar--disable' //clase que quitas la dimension,
-//         },
-//         btn: {
-//             active: btnOptionBuscar, //boton que activa el modal
-//             desactive: btnCancelBuscar //boton que desactiva el modal
-//         },
-//         state: false,
-//     },
-//     agregar: {
-//         element:formEntity, // Html que vas a crear
-//         html:{
-//             active:'content-modal__form', //clase que defines para darle dimension,
-//             desactive:'content-modal__form--disable' //clase que quitas la dimension,
-//         },
-//         btn: {
-//             active: btnOptionMas, //boton que activa el modal
-//             desactive: btnCancelEntity //boton que desactiva el modal
-//         },
-//         state: false,
-//     }
-// }
-
-// const setModal = (components) => {
+    });
 
 
-//     const atributos = Object.keys(components);
-//     atributos.forEach((component)=>{
+    btnCancelBuscar.addEventListener('click', () => {
+        console.log('click cancel buscar');
+        modalGeneral.classList.add('disable-modal');
+        formSearch.reset();
+    });
+
+    btnOptionBuscar.forEach((optionBuscar, i) => {
 
 
-//         component.btn.active.addEventListener('click', () => {
-
-//             atributos.forEach((component)=>{
-//                 component.element.add(component.html.desactive); // Ocultas todos
-//                 modalContent.classList.remove(component.html.active);
-//             });
-
-//             component.state = i == 0;
-//             component.element.remove(component.html.desactive)
-//             modalContent.classList.add(component.html.active);
-//             modalGeneral.classList.remove('disable-modal');
-
-//         })
-
-//         component.btn.desactive.addEventListener('click', () => {
-//             // console.log('click cancel buscar');
-//             modalGeneral.classList.add('disable-modal');
-//         });
-//     });
 
 
-// }
+        optionBuscar.addEventListener('click', () => {
+            propiestarioActiveSearch = i == 0;
 
-numeroMunicipal.addEventListener('keyup', () => {
+            formSearch.classList.remove('content-modal__buscar--disable') //le doy visibilidad al card de buscar persona
+            formEntity.classList.add('content-modal__form--disable') // le quito visibilidad al card de registrar persona
 
-    let alerts = false;
-    const empresaEncontrada = setEmpresa(numeroMunicipal.value, empresaNombre);
-    if (empresaEncontrada) {
-        empresaNombre.value = empresaEncontrada
-    } else {
+            modalContent.classList.add('content-modal__buscar');  // le doy la dimension de buscar persona
+            modalContent.classList.remove('content-modal__form'); // le quito dimension de registrar persona
+
+            modalGeneral.classList.remove('disable-modal');
+
+        })
+
+    });
+
+}
 
 
-        if (numeroMunicipal.value.length != 0) {
+const setNumeroMunicipal = () =>{
 
-            alert("No existessss")
-            // alert = true;
+    const numeroMunicipal = document.getElementById('numero_municipal');
+    const empresaNombre = document.getElementById('empresa');
+    numeroMunicipal.addEventListener('keyup', () => {
+
+        let alerts = false;
+        const empresaEncontrada = setEmpresa(numeroMunicipal.value, empresaNombre);
+        if (empresaEncontrada) {
+            empresaNombre.value = empresaEncontrada
+        } else {
+
+
+            if (numeroMunicipal.value.length != 0) {
+
+                alert("Numero no reconocido")
+                // alert = true;
+            }
         }
-    }
 
 
-    if (numeroMunicipal.value.length == 0) {
-        empresaNombre.value = '';
-    }
-    // if (numeroMunicipal.value.length>3 && !alerts) {
-    //     empresaNombre.value='';
-    //     alert("No existe")
-    // }
+        if (numeroMunicipal.value.length == 0) {
+            empresaNombre.value = '';
+        }
 
-})
+    })
+}
 
-estadoInspeccion.addEventListener('change', (e) => {
-    console.log('change')
-    if (e.target.value == 'Aprobado') {
-        fechaInspeccion.disabled = false;
-    } else {
-        fechaInspeccion.disabled = true;
-    }
-});
-estadoCredencial.addEventListener('change', (e) => {
-    console.log('change ss')
+const clearFormEntity = () =>{
+    const formEntity = document.getElementById("form_entity");
+    const btnLimpiar = document.getElementById("btn-limpiar");
 
-    if (e.target.value == 'Entregado') {
-        fechaCredencial.disabled = false;
-    } else {
-        fechaCredencial.disabled = true;
-    }
-})
+    btnLimpiar.addEventListener('click',()=>{
+        console.log('Limpiar');
+        formEntity.reset();
+    });
+}
+
+const clearFormSearch = () =>{
+    const formSearch = document.getElementById("form_search");
+    const btnLimpiar = document.getElementById("btn-limpiar-search");
+
+    btnLimpiar.addEventListener('click',()=>{
+        console.log('Limpiar');
+        formSearch.reset();
+    });
+}
+
+const uppercaseInputs = () =>{
+    const apellidosInput = document.getElementById('apellido_entidad');
+    const nombresInput = document.getElementById('nombre_entidad');
+    const direccionInput = document.getElementById('direccion_entidad');
+
+    apellidosInput.addEventListener('input', function() {
+        this.value = this.value.toUpperCase();
+    });
+    nombresInput.addEventListener('input', function() {
+        this.value = this.value.toUpperCase();
+    });
+    direccionInput.addEventListener('input', function() {
+        this.value = this.value.toUpperCase();
+    });
+
+}
+
+const disableTenico = () =>{
+
+    const Inspections = [
+        {
+            estado:document.getElementById('estado_inspeccion'),
+            emision:document.getElementById('fecha_inspeccion_emision'),
+            caducidad:document.getElementById('fecha_inspeccion_caducidad'),
+            numero:document.getElementById('numero_inspeccion_vehicular')
+        },
+        {
+            estado:document.getElementById('estado_credencial'),
+            emision:document.getElementById('fecha_credencial_emision'),
+            caducidad:document.getElementById('fecha_credencial_caducidad'),
+            numero:document.getElementById('numero_credencial_vehicular')
+        },
+        {
+            estado:document.getElementById('estado_seguridad_vial'),
+            emision:document.getElementById('fecha_seguridad_vial_emision'),
+            caducidad:document.getElementById('fecha_seguridad_vial_caducidad'),
+            numero:document.getElementById('numero_seguridad_vial')
+        },
+        {
+            estado:document.getElementById('estado_soat'),
+            emision:document.getElementById('fecha_soat_emision'),
+            caducidad:document.getElementById('fecha_soat_caducidad'),
+            numero:document.getElementById('numero_soat')
+        },
+    ];
+
+    Inspections.forEach(inspection=>{
+        inspection.estado.addEventListener('change',e=>{
+            if (inspection.estado.value == 'Ninguno') {
+                inspection.emision.disabled = true;
+                inspection.caducidad.disabled = true;
+                inspection.numero.disabled = true;
+            } else {
+                inspection.emision.disabled = false;
+                inspection.caducidad.disabled = false;
+                inspection.numero.disabled = false;
+            }
+        });
+    });
+
+}
+const autoCompleteState = () =>{
+    const inputsEstado = [
+        document.getElementById('numero_inspeccion_vehicular'),
+        document.getElementById('numero_credencial_vehicular'),
+        document.getElementById('numero_seguridad_vial'),
+        document.getElementById('numero_soat'),
+
+    ];
+
+    inputsEstado.forEach(function(input) {
+        console.log(input.id)
+       input.addEventListener('blur',()=>{
+            console.log(input.id)
+            input.value = input.value.toString().padStart(5, '0');
+       });
+    });
+}
+
+setModal();
+uppercaseInputs();
+setNumeroMunicipal();
+clearFormEntity();
+clearFormSearch();
+disableTenico();
+autoCompleteState();
+
+
+
+
+
+
+
 nameChofer.disabled = true;
 namePropietario.disabled = true;
 checkChofer.addEventListener('change', (e) => {
@@ -213,13 +255,13 @@ const getPerson = (param) => {
         .then(response => {
             console.log('person:', response.data);
             if (response.data) {
-                const { id_entidad, nombre } = response.data;
+                const { id, nombres,apellidos } = response.data;
                 if (propiestarioActiveSearch) {
-                    namePropietario.value = nombre;
-                    idPropietario.value = id_entidad;
+                    namePropietario.value =  `${apellidos}, ${nombres}`;
+                    idPropietario.value = id;
                 } else {
-                    nameChofer.value = nombre;
-                    idChofer.value = id_entidad;
+                    nameChofer.value = `${apellidos}, ${nombres}`;
+                    idChofer.value = id;
                 }
             } else {
                 if (propiestarioActiveSearch) {
@@ -228,12 +270,24 @@ const getPerson = (param) => {
                     nameChofer.value = 'No se encontró información';
                 }
             }
+            formSearch.reset();
         }).catch(error => {
-            console.log("error axios ", error)
+            console.log("error axios ", error);
+            Swal.fire({
+                title: 'Error de conexion',
+                text: 'Ha ocurrido un error al procesar la peticion.',
+                icon: 'error',
+                timer: 3000,
+                returnFocus: false
+            }).then(() => {
+                //window.location.href = '/iniciar-sesion';
+                Swal.close();
+            });
         });
 
 }
-
+const modalGeneral = document.getElementById('modal_general');
+const formSearch = document.getElementById('form_search');
 formSearch.addEventListener('submit', (e) => {
     e.preventDefault();
     modalGeneral.classList.add('disable-modal');
@@ -248,22 +302,33 @@ const registerEntity = (entity) => {
     console.log("[entity] :", entity);
     axios.post('/registrar-entidad', entity).then(response => {
         if (response.data) {
-            const { id_entidad, nombre } = response.data;
+            const { id_entidad, nombres,apellidos } = response.data;
             if (propiestarioActiveMass) {
-                namePropietario.value = nombre;
+                namePropietario.value = `${apellidos}, ${nombres}`;
                 idPropietario.value = id_entidad;
             } else {
-                nameChofer.value = nombre;
+                nameChofer.value = `${apellidos}, ${nombres}`;
                 idChofer.value = id_entidad;
             }
         }
+        formEntity.reset();
     }).catch(error => {
         console.log("[error]", error);
+        Swal.fire({
+            title: 'Error de conexion',
+            text: 'Ha ocurrido un error al procesar la peticion.',
+            icon: 'error',
+            timer: 3000,
+            returnFocus: false
+        }).then(() => {
+            //window.location.href = '/iniciar-sesion';
+            Swal.close();
+        });
     });
 }
 
 
-
+const formEntity = document.getElementById('form_entity');
 formEntity.addEventListener('submit', (e) => {
     e.preventDefault();
     modalGeneral.classList.add('disable-modal');
@@ -275,6 +340,63 @@ formEntity.addEventListener('submit', (e) => {
 })
 
 
+const registerVehiculo = () =>{
+    const formVehiculo = document.getElementById('form-vehiculo');
+    const checkboxConfirmacion = document.getElementById('confirmacion-vehiculo');
+    formVehiculo.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const formData = new FormData(formVehiculo);
+        const vehiculo = Object.fromEntries(formData);
+        console.log('checkboxConfirmacion.checked :',checkboxConfirmacion.checked)
+        if (checkboxConfirmacion.checked) {
+            axios.post('/registrar-vehiculo', vehiculo).then(response => {
+                if (response.data) {
+                    if (response.data) {
+
+                        Swal.fire({
+                            title: response.data.title,
+                            text: response.data.text,
+                            icon: 'success',
+                            timer: 3000,
+                            returnFocus: false
+                        }).then(() => {
+                            location.reload();
+                        });
+
+                    }
+                }
+            }).catch(error => {
+                console.log("[error]", error);
+                Swal.fire({
+                    title: 'Error de conexion',
+                    text: 'Ha ocurrido un error al procesar la peticion.',
+                    icon: 'error',
+                    timer: 3000,
+                    returnFocus: false
+                }).then(() => {
+                    //window.location.href = '/iniciar-sesion';
+                    Swal.close();
+                });
+            });
+        } else {
+            Swal.fire({
+                title: 'Formulario Incorrecto!',
+                text: 'Completa de correctamente el formulario',
+                icon: 'warning',
+                timer: 3000,
+                returnFocus: false
+            }).then(() => {
+                //window.location.href = '/iniciar-sesion';
+                Swal.close();
+            });
+        }
+
+
+    });
+
+}
+
+registerVehiculo();
 //MAL HECHO MOMENTANEAMENTE
 
 const getVehiculo = (param) => {

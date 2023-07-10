@@ -69,6 +69,15 @@ const sendForm = () => {
                 }
             }).catch(error => {
                 console.log("[error]", error);
+                Swal.fire({
+                    title: 'Error de conexion',
+                    text: 'No se puede establecer una conexión',
+                    icon: 'error',
+                    timer: 2000,
+                    returnFocus: false
+                }).then(() => {
+                    Swal.close();
+                });
             });
         } else {
             // Mostrar un mensaje de error o realizar alguna otra acción

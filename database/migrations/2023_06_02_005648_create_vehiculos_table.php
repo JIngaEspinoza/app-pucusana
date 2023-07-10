@@ -12,20 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vehiculos', function (Blueprint $table) {
-            $table->id('id_vehiculo');
-            $table->string('empresa');
+            $table->id();
+            $table->string('numero_licencia')->nullable();
+            $table->string('numero_municipal')->nullable();
+            $table->string('empresa')->nullable();
             $table->string('placa');
             $table->unsignedBigInteger('id_propietario');
-            $table->foreign('id_propietario')->references('id_entidad')->on('entidades');
+            $table->foreign('id_propietario')->references('id')->on('entidades');
             $table->unsignedBigInteger('id_chofer');
-            $table->foreign('id_chofer')->references('id_entidad')->on('entidades');
-            $table->string('numero_municipal');
-            $table->string('estado_inspeccion');
-            $table->date('fecha_inspeccion');
-            $table->string('curso_vial');
-            $table->string('estado_credencial');
-            $table->date('fecha_credencial');
-            $table->string('estado');
+            $table->foreign('id_chofer')->references('id')->on('entidades');
+
             $table->timestamps();
         });
     }

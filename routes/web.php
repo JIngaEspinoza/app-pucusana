@@ -4,6 +4,7 @@ use App\Http\Controllers\modulos\panelController;
 use App\Http\Controllers\Transporte\EntidadController;
 use App\Http\Controllers\Transporte\VehiculoController;
 use App\Http\Controllers\User\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
@@ -77,37 +78,85 @@ Route::controller(EntidadController::class)->group(function () {
 
 
 Route::get('/orden-de-pago/consulta', function () {
-    $title = 'Orden de pago';
-    $accion = 'Consulta';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Orden de pago';
+        $accion = 'Consulta';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+    }else{
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+
 });
 Route::get('/reportes-laborales/consulta', function () {
-    $title = 'Reportes laborales';
-    $accion = 'Consulta';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Reportes laborales';
+        $accion = 'Consulta';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+    }else{
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+
 });
 Route::get('/papeletas/consulta', function () {
-    $title = 'Papeletas';
-    $accion = 'Consulta';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Papeletas';
+        $accion = 'Consulta';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+    }else{
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+
 });
 
 
 
 Route::get('/orden-de-pago/registro', function () {
-    $title = 'Orden de pago';
-    $accion = 'Registro';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Orden de pago';
+        $accion = 'Registro';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+    }else{
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+
 });
 Route::get('/reportes-laborales/registro', function () {
-    $title = 'Reportes laborales';
-    $accion = 'Registro';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Reportes laborales';
+        $accion = 'Registro';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+    }else{
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+
 });
 Route::get('/papeletas/registro', function () {
-    $title = 'Papeletas';
-    $accion = 'Registro';
-    return view('transporte.navegacion.nav_transporte',compact('title','accion'));
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Papeletas';
+        $accion = 'Registro';
+        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+    }else{
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+
 });
 
 Route::get('/p', function () {

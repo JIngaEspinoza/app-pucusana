@@ -50,4 +50,15 @@ changeAction(listItems);
 
 
 
+const modalGeneral = document.getElementById('modal_general')
+const btnCerrarModal = document.getElementById('btn-cerrar-modal');
+btnCerrarModal.addEventListener('click', () => {
+    console.log('click cancel')
+
+    modalGeneral.classList.add('disable-modal')
+});
+
+
+
+
 

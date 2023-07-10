@@ -13,7 +13,8 @@
         <div id="cuerpo-main" class="cuerpo">
             <nav id="nacCuerpo" class="nav_cuerpo">
                 <div class="ola_superior">
-                    <img class="ola_superior__url" src="{{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }}">
+                    <img class="ola_superior__url"
+                        src="{{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }}">
                     {{-- <div class="ola_superior__url"
                         style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/olasuperior.svg' }});">
                     </div> --}}
@@ -50,7 +51,8 @@
 
                 </div>
                 <div class="ola_inferior">
-                    <img class="ola_inferior__url" src="{{ asset('storage') . '/' . 'uploads/navegacion/olainferior.svg' }}">
+                    <img class="ola_inferior__url"
+                        src="{{ asset('storage') . '/' . 'uploads/navegacion/olainferior.svg' }}">
                 </div>
 
 
@@ -65,9 +67,23 @@
                         </div>
                     </div>
                     <div class="opciones">
-                        <div class="luna">
-                            <div class="luna__url"
-                                style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/luna.svg' }});">
+
+
+
+                        <div class="card-usuario">
+                            <div class="foto">
+                                <div class="foto__url"
+                                    style="background-image: url({{ asset('storage') . '/' . $imagen }});">
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="nombre">
+                                    <span>{{ $username }}</span>
+                                </div>
+                                <div class="rol">
+                                    <span>{{ $cargo }}</span>
+                                </div>
+
                             </div>
                         </div>
                         <div class="screen">
@@ -75,25 +91,15 @@
                                 style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/screen.svg' }});">
                             </div>
                         </div>
-
-                        <div class="card-usuario">
-                            <div class="foto">
-                                @yield('userFoto')
-                            </div>
-                            <div class="info">
-                                <div class="nombre">
-                                    <span>@yield('userName')</span>
-                                </div>
-                                <div class="rol">
-                                    <span>@yield('userRol')</span>
-                                </div>
-
+                        <div class="luna">
+                            <div class="luna__url"
+                                style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/luna.svg' }});">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="contenido">
-                   @yield('contenido')
+                    @yield('contenido')
                 </div>
             </div>
         </div>
