@@ -1,5 +1,5 @@
 
-<div id="modal_general" class="modal-template disable-modal">
+<div id="@yield('id-modal')" class="modal-template disable-modal">
     <div id="modal_content" class="content-modal">
         <div class="space-cerrar">
             <div id="btn-cerrar-modal" class="btn-cerrar">

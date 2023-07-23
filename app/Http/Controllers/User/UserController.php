@@ -79,6 +79,7 @@ class UserController extends Controller
             Log::debug('redirecciona');
             return response()->json(['title' => 'Muy bien', 'text' => 'Se registro existosamente'], 200);
         } catch (Exception $th) {
+            Log::error('Error');
             return response()->json(['title' => 'Error', 'text' => 'Sucedio un error'], 500);
         }
     }
@@ -97,7 +98,7 @@ class UserController extends Controller
             return $this->authenticated($request, $user);
         } catch (\Throwable $th) {
             Log::error('Error [login]' . $th);
-            return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+            return response()->json(['title' => 'Error', 'text' => 'Sucedio un error'], 500);
         }
     }
 
@@ -198,5 +199,11 @@ class UserController extends Controller
             ->get();
 
         return $users;
+    }
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect()->to('iniciar-sesion');
     }
 }

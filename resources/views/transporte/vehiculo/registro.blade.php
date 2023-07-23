@@ -1,6 +1,6 @@
 <div class="registro registro--desactive">
     @extends('templates.modal')
-
+    @section('id-modal','modal_general')
     @section('content-modal')
         <form id="form_entity" class="form-modal" method="post" action="{{ route('entity.register') }}">
             @csrf

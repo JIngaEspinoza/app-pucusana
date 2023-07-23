@@ -38,7 +38,7 @@
                         </div>
                         <span class="item__nombre">Modulos</span>
                     </a>
-                    <a class="item" href="{{ route('login') }}">
+                    <a id="logout" class="item" href="#">
                         <div class="item__icono iconOption"
                             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_cerrarsesion.svg' }});">
                         </div>

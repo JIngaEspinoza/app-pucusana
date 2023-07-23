@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('id_propietario')->references('id')->on('entidades');
             $table->unsignedBigInteger('id_chofer');
             $table->foreign('id_chofer')->references('id')->on('entidades');
-
             $table->timestamps();
         });
     }

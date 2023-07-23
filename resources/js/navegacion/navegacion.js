@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const iconMenu = document.querySelector('.menu-burguer');
 const bodyItems = document.querySelector('.items');
 const navCuerpo = document.getElementById('nacCuerpo');
@@ -59,9 +61,23 @@ iconMenu.addEventListener('click', function () {
 }, false);
 
 
+const logout = () =>{
+    const logoutBtn = document.getElementById('logout');
+    logoutBtn.addEventListener('click',(e)=>{
+        console.log('logout')
+        axios.post('/logout').then(response => {
+            if (response.data) {
+                console.log('logout sssss')
+            }
+            console.log('logout sssssaaaaaaa')
+            window.location.href = '/iniciar-sesion';
+        }).catch(error => {
+            console.log("[error]", error);
+        });
+    });
 
-
-
+}
+logout();
 
 
 

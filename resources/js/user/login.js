@@ -42,6 +42,7 @@ const sendForm = () => {
 
             axios.post('/iniciar-sesion', user).then(response => {
                 if (response.data) {
+                    console.log("response.data",response.data);
                     const check = response.data.check;
                     if (check ==='OK') {
                         Swal.fire({

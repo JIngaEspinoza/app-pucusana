@@ -38,6 +38,7 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/actualizar-password','updatePassword')->name('auth.update.pass');
 
     Route::get('/usuarios-listado','userList');
+    Route::post('/logout','logout')->name('auth.logout');
 });
 
 Route::controller(panelController::class)->group(function () {
@@ -61,6 +62,7 @@ Route::controller(VehiculoController::class)->group(function () {
     Route::get('/consulta-vehicular/consulta','showConsulta')->name('vehiculo.consulta');
     Route::get('/consulta-vehicular/registro', 'showRegistro')->name('vehiculo.registro');
     Route::get('/buscar-vehiculo/{param}','searchVehiculo');
+    Route::get('/consulta-vehicular/lista','obtenerDatosVehiculos');
 });
 
 Route::controller(EntidadController::class)->group(function () {

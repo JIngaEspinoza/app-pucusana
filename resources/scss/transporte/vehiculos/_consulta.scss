@@ -4,261 +4,115 @@
 
     .consulta {
 
-        display: flex;
+        // display: flex;
         // justify-content: center;
-        flex-direction: column;
-        overflow-y: scroll;
-        .seccion-buscar{
+        // flex-direction: column;
+        // border: 1px solid black;
+        margin-top: 30px;
+        height: calc(100% - 80px);
+        overflow-y: auto;
+        padding-bottom: 30px;
+        .seccion-vehiculos{
             width: 100%;
-            height: 80px;
+            height: auto;
             display: flex;
-            // justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            margin-top: 30px;
-            border-radius: 30px 30px 0 0;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-            .busqueda-vehiculo{
-                position: relative;
-                width: 220px;
-                height: 40px;
-                background-color: #ffffff;
-                border-radius: 5px;
-                margin-left: 20px;
-
-                box-shadow: rgba(99, 99, 100, 0.35) 0px -50px 36px -28px inset;
-                // background-color: #8fa0d4;
-                #form_search_vehiculo{
-                    // border: 1px solid black;
-                    margin-top: 5px;
-                    .icon-busqueda{
-
-                        // background-color: #000000;
-
-                        width: 15px;
-                        height: 15px;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                        position: absolute;
-                        margin-top: 8px;
-                        margin-left: 10px;
-                    }
-                    .input-busqueda{
-                        width: 200px;
-                        height: 100%;
-                        margin-top: 2px;
-                        margin-left: 30px;
-                        background-color: transparent;
-                        // background-color: #f19898;
-                        border: none;
-                        &::active {
-                            outline: none;
-                            border-color: transparent;
-                        }
-                        &:focus {
-                            outline: none;
-                            box-shadow: none;
-                        }
-                    }
-                }
-
-            }
-        }
-
-        .seccion-resultado-vehiculo{
-            width: 100%;
-            // height: calc(100% - 10px);
-            margin-top: 4px;
-            // background-color: #ffffff;
-            border-radius: 0 0 30px 30px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-            // width: 800px;
-            height: 100%;
-            background-color: #fff;
-            padding: 20px 0;
-            // border-radius: 20px;
-            // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-            display: flex;
+            //justify-content: center;
             flex-direction: column;
             align-items: center;
-            .title-vehicular{
+            background-color: #ffffff;
+            // margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: rgba(139, 136, 136, 0.16) 0px 1px 4px;
+
+            .title-consulta-vehicular{
                 width: 100%;
                 display: flex;
                 justify-content: center;
-                margin-bottom: 30px;
-                // background-color: aqua;
+                margin-top: 50px;
                 h1{
-
-                    transform: translateX(-80px);
-                    font-family: "Flexo-Bold";
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                 }
             }
-            .consulta-vista{
-                // background-color: aquamarine;
-                display: flex;
-                flex-wrap: wrap;
-                width: 600px;
-                .campo-max{
-
-                    width: 580px;
-                    margin: 10px 10px;
-                    display: flex;
-                    flex-direction: column;
-                    .contenido-vehiculo{
-                        &.oculto{
-                            display: none;
-                        }
-                    }
-
-                }
-                .campo-mitad{
-
-                    width: 280px;
-                    margin: 10px 10px;
-                    display: flex;
-                    flex-direction: column;
+            .tabla-vehiculos{
+                width: 95%;
 
 
-                    .contenido-vehiculo{
-                        &.oculto{
-                            display: none;
-                        }
-                    }
-                }
-                .campo-tercio{
-
-                    width: 180px;
-                    margin: 10px 10px;
-                    display: flex;
-                    flex-direction: column;
-                    .contenido-vehiculo{
-                        &.oculto{
-                            display: none;
-                        }
-                    }
-                    // span{
-                    //     background-color: rgb(64, 122, 209);
-                    // }
-                }
-                .campo-dos-tercio{
-
-                    width: 380px;
-                    margin: 10px 10px;
-                    display: flex;
-                    flex-direction: column;
-                    .contenido-vehiculo{
-                        &.oculto{
-                            display: none;
-                        }
-                    }
-                }
-                label{
-                    font-family: "Flexo-Bold";
-                }
-                .div-btn-guardar{
+                // overflow-x: auto;
+                border: 1px solid rgb(216, 118, 118);
+                margin: 30px;
+                .padding-table{
                     width: 100%;
                     display: flex;
                     justify-content: center;
-                    margin-top: 15px;
-                    .btn-guardar{
-                        width: 580px;
-                        height: 45px;
-                    }
-                }
-                .lbl-chofer{
-                    display: flex;
-                    .check-repeat{
-                        margin-left: 15px;
-                        input{
-                            width: 15px;
-                            height: 15px;
-                        }
-                    }
-                }
 
-
-
-                .grupo-btn{
-                    // background-color: aqua;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: end;
-                    .padding-btn{
+                    // border: 1px solid rgb(41, 26, 172);
+                    table{
                         width: 100%;
-                        height: 50%;
-                        display: flex;
-                        align-items: center;
-                        //  background-color: rgb(163, 97, 10);
 
-                        .btn-option{
-                            width: 35px;
-                            height: 35px;
+                        .actions{
+                            height: 41px;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            border-radius: 10px;
-                            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-                            border: 1px rgb(209, 207, 207) solid;
-                            margin: 0 10px;
-                            cursor: pointer;
-                            .icon-option{
-                                width: 20px;
-                                height: 20px;
-                                background-size: cover;
-                                background-repeat: no-repeat;
-                            }
+                            .padding-icon{
+                                width: 28px;
+                                height: 28px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                // border: 1px solid black;
+                                border-radius: 5px;
+                                margin:0 5px;
+                                cursor: pointer;
+                                .actions-icon{
+                                    width: 15px;
+                                    height: 15px;
+                                    border-radius: 10px;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-color: transparent;
 
-                        }
-
-                        .btn-buscar{
-                            background-color: rgb(9, 192, 9);
-                            @include transition-ease(0.3s,0s);
-                            &:hover{
-                                background-color: rgb(10, 158, 10);
-                                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                                }
+                                &.icon-show{
+                                    background-color: #13d443;
+                                }
+                                &.icon-editar{
+                                    background-color: #7e8cdb;
+                                }
+                                &.icon-delete{
+                                    background-color: #e74a8c;
+                                }
                             }
                         }
-                        .btn-mass{
-                            background-color: rgb(158, 121, 226);
-                            @include transition-ease(0.3s,0s);
-                            &:hover{
-                                background-color: rgb(95, 32, 212);
-                                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-                            }
-                        }
-
 
                     }
-
                 }
+
             }
 
-            &--desactive {
-                display: none;
-            }
+
         }
 
-        .vista-sin-resultados{
-            width: 100%;
-            height: 500px;
-            margin-top: 4px;
-            background-color: #ffffff;
-            border-radius: 0 0 30px 30px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            span{
-                font-size: 2rem;
-                font-family: Flexo-Bold;
-            }
-            &--desactive {
-                display: none;
-            }
+        &::-webkit-scrollbar {
+            width: 0.2em;
+            // height: 80%;
+
         }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+            // height: auto;
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(170, 163, 163);
+        }
+
+        /* Para navegadores que no sean de WebKit (Firefox) */
+
+        scrollbar-width: thin;
+        scrollbar-color: transparent;
 
         &--desactive {
             display: none;

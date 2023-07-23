@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Adicional;
 use App\Models\Entidade;
 use App\Models\User;
+use App\Models\Vehiculo;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Entidade::factory(10)->create();
+        Entidade::factory(20)->create();
         // User::factory(1)->create();
-
+        Vehiculo::factory(20)->create();
+        Adicional::factory(20)->create();
         User::create([
             'imagen' => 'uploads/usuarios/perfil_2.svg',
             'apellidos' => 'const',
