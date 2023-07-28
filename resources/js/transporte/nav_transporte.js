@@ -1,62 +1,269 @@
-import { setStates, setRoute } from './general_LBRY';
-import { changeAction } from './transporte_LBRY';
+import { listaVehiculos } from './vehiculo';
 
+const contenedorPrincipal = document.getElementById('contenido-principal');
 const itemConsulta = document.getElementById('itemConsulta');
 const itemReporte = document.getElementById('itemReporte');
 const itemPapeleta = document.getElementById('itemPapeleta');
 const itemPago = document.getElementById('itemPago');
 
+let stateTablevehiculos= false;
 const listItems = [
     {
         element: itemConsulta,
         title: 'Consulta vehicular',
         route: {
-            consulta:'/consulta-vehicular/consulta',
-            registro:'/consulta-vehicular/registro'
+            consulta: '/consulta-vehicular/consulta',
+            registro: '/consulta-vehicular/registro'
         },
-        classContainer:'.container-vehiculos',
+        classContainer: document.querySelector('.container-vehiculos')
 
     },
     {
         element: itemReporte,
         title: 'Reportes laborales',
         route: {
-            consulta:'/reportes-laborales/consulta',
-            registro:'/reportes-laborales/registro'
+            consulta: '/reportes-laborales/consulta',
+            registro: '/reportes-laborales/registro'
         },
-        classContainer:'.container-reportes'
+        classContainer: document.querySelector('.container-reportes')
     },
     {
         element: itemPapeleta,
         title: 'Papeletas',
         route: {
-            consulta:'/papeletas/consulta',
-            registro:'/papeletas/registro'
+            consulta: '/papeletas/consulta',
+            registro: '/papeletas/registro'
         },
-        classContainer:'.container-papeletas'
-    },{
+        classContainer: document.querySelector('.container-papeletas')
+    }, {
         element: itemPago,
         title: 'Orden de pago',
         route: {
-            consulta:'/orden-de-pago/consulta',
-            registro:'/orden-de-pago/registro'
+            consulta: '/orden-de-pago/consulta',
+            registro: '/orden-de-pago/registro'
         },
-        classContainer:'.container-pagos'
+        classContainer: document.querySelector('.container-pagos')
     }];
 
+
+const setRoute = (listItems) => {
+    console.log("[setRoute]")
+    const title = document.title;
+    // listItems.forEach(e => {
+    //     const container = e.classContainer;
+    //     container.classList.add('desactive');
+    // });
+    contenedorPrincipal.innerHTML = "";
+    listItems.forEach(e => {
+        if (title === e.title) {
+            e.element.classList.add('active');
+            const hijoPlomo = e.element.querySelector('.item__icono');
+            const hijoBlanco = e.element.querySelector('.item__icono--blanco');
+            hijoPlomo.classList.add('disable');
+            hijoBlanco.classList.remove('disable');
+
+            /**CAMBIO DE VISTA DE MODULOS */
+            // const container = e.classContainer;
+            // container.classList.remove('desactive');
+            contenedorPrincipal.appendChild(e.classContainer);
+            if (title === 'Consulta vehicular') {
+                console.log("[setRoute] execute listaVehiculos")
+                stateTablevehiculos = true;
+                listaVehiculos();
+            }
+            /**************************** */
+
+        }
+    });
+}
+
+const setStates = (list) => {
+    const title = document.title;
+    const options = document.querySelectorAll('.options');
+    const items = document.querySelectorAll('.item');
+    console.log("[setStates]")
+
+
+    list.forEach(e => {
+        e.element.addEventListener('click', () => {
+            document.title = e.title
+
+
+            items.forEach((item) => {
+
+                const hijoPlomo = item.querySelector('.item__icono');
+                const hijoBlanco = item.querySelector('.item__icono--blanco');
+                hijoPlomo.classList.remove('disable');
+                hijoBlanco.classList.add('disable');
+                item.classList.remove('active');
+            })
+
+            e.element.classList.add('active');
+            const hijoPlomo = e.element.querySelector('.item__icono');
+            const hijoBlanco = e.element.querySelector('.item__icono--blanco');
+            hijoPlomo.classList.add('disable');
+            hijoBlanco.classList.remove('disable');
+
+            /**CAMBIO DE VISTA DE MODULOS */
+            // options.forEach(option => {
+            //     option.classList.add('desactive');
+            // });
+            const container = e.classContainer;
+            // container.classList.remove('desactive');
+            contenedorPrincipal.innerHTML = "";
+            contenedorPrincipal.appendChild(e.classContainer);
+            /**************************** */
+
+            const rutaAccion = container.querySelector('#rutaAccion');
+            //rutaAccion.textContent = 'Consulta';
+            console.log('rutaAccion.textContent', `${rutaAccion.textContent.toLowerCase()}`);
+            history.pushState(null, e.title, e.route[`${rutaAccion.textContent.toLowerCase()}`]);
+            // hstory.pushState(null, e.title, e.route[`${rutaAccion.textContent.toLowerCase()}`]);
+
+
+        })
+
+    });
+}
+
+const cargarTablaVehiculos = () => {
+    const e = listItems[0]; //Consulta vehicular
+    e.element.addEventListener('click', () => {
+        console.log("stateTablevehiculos", stateTablevehiculos)
+        if (e.title === 'Consulta vehicular' && !stateTablevehiculos) {
+            console.log("[setStates] execute listaVehiculos")
+            stateTablevehiculos = true;
+            listaVehiculos();
+        }
+    });
+
+}
+
+const changeAction = (itemList) => {
+    //cambio el bloque segun el subnavegador
+    itemList.forEach(item => {
+
+        const container = item.classContainer;
+        const optionsMenu = container.querySelectorAll('.opcion');
+        const rutaAccion = container.querySelector('#rutaAccion');
+        const consulta = container.querySelector('.consulta');
+        const registro = container.querySelector('.registro');
+
+        // const consultaSinResultados = document.getElementById('sin_resultados');
+        // const consultaConResultados = document.getElementById('con_resultados');
+
+
+        optionsMenu.forEach(option => {
+            option.addEventListener('click', () => {
+                optionsMenu.forEach(option => {
+                    option.classList.remove('opcion--active');
+                });
+                option.classList.add('opcion--active');
+                rutaAccion.textContent = option.textContent;
+
+                document.title = item.title
+
+
+                if (option.textContent === 'Consulta') {
+                    history.pushState(null, item.title, item.route.consulta);
+                    consulta.classList.remove('consulta--desactive');
+                    registro.classList.add('registro--desactive');
+
+                    // if (item.title == 'Consulta vehicular') {
+                    //     consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
+                    //     consultaSinResultados.classList.add('vista-sin-resultados--desactive');
+                    // }
+                }
+                if (option.textContent === 'Registro') {
+                    history.pushState(null, item.title, item.route.registro);
+                    consulta.classList.add('consulta--desactive');
+                    registro.classList.remove('registro--desactive');
+                }
+
+            })
+
+
+        });
+
+
+        const title = document.title;
+
+        if (title === item.title) {
+
+            if (rutaAccion.textContent === 'Consulta') {
+
+                consulta.classList.remove('consulta--desactive');
+                registro.classList.add('registro--desactive');
+
+                // if (item.title == 'Consulta vehicular') {
+                //     consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
+                //     consultaSinResultados.classList.add('vista-sin-resultados--desactive');
+                // }
+
+            }
+            if (rutaAccion.textContent === 'Registro') {
+
+                consulta.classList.add('consulta--desactive');
+                registro.classList.remove('registro--desactive');
+            }
+        }
+
+        item.element.addEventListener('click',()=>{
+            console.log('[click]',rutaAccion.textContent)
+            if (rutaAccion.textContent === 'Consulta') {
+
+                consulta.classList.remove('consulta--desactive');
+                registro.classList.add('registro--desactive');
+
+                // if (item.title == 'Consulta vehicular') {
+                //     consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
+                //     consultaSinResultados.classList.add('vista-sin-resultados--desactive');
+                // }
+
+            }
+            if (rutaAccion.textContent === 'Registro') {
+
+                consulta.classList.add('consulta--desactive');
+                registro.classList.remove('registro--desactive');
+            }
+        })
+
+
+        //Resaltado de las opciones del subnavegador cuando recarga la pagina
+        for (let i = 0; i < optionsMenu.length; i++) {
+            const option = optionsMenu[i];
+            optionsMenu.forEach(option => {
+                option.classList.remove('opcion--active');
+            });
+            if (option.textContent===rutaAccion.textContent) {
+                option.classList.add('opcion--active');
+                break;
+            }
+        }
+
+
+
+    });
+}
 setStates(listItems);
 setRoute(listItems);
 changeAction(listItems);
 
 
+cargarTablaVehiculos();
+
 
 const modalGeneral = document.getElementById('modal_general')
 const btnCerrarModal = document.getElementById('btn-cerrar-modal');
-btnCerrarModal.addEventListener('click', () => {
-    console.log('click cancel')
 
-    modalGeneral.classList.add('disable-modal')
-});
+if (modalGeneral) {
+    btnCerrarModal.addEventListener('click', () => {
+        console.log('click cancel')
+
+        modalGeneral.classList.add('disable-modal')
+    });
+}
+
 
 
 

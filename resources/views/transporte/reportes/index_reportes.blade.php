@@ -1,4 +1,4 @@
-<div class="container-reportes options desactive">
+<div class="container-reportes options">
     @include('templates.nav_secundario',
         [
             'modulo'=>'Transporte',

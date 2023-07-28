@@ -6,15 +6,15 @@
         </div>
         <div class="tabla-vehiculos">
             <div class="padding-table">
-                <table id="lista-vehiculos" class="table table-hover nowrap">
+                <table id="lista-vehiculos" class="table table-hover nowarp">
                     <thead>
                       <tr>
-                        <th scope="col">Placa</th>
+                        <th scope="col" style="width: 100px;">Placa</th>
                         <th scope="col">Número Municipal</th>
                         <th scope="col">Empresa</th>
                         <th scope="col">Propietario</th>
                         <th scope="col">Chofer</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" style="width: 100px;">Acciones</th>
                       </tr>
                     </thead>
 
@@ -23,5 +23,9 @@
 
         </div>
     </section>
-
+    <script>
+        let icono_ojo_visor_url = "{{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_ojo_visor.svg' }}";
+        let icono_mas_url = "{{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_mas.svg' }}";
+        let icono_eliminar_url = "{{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_eliminar.svg' }}";
+    </script>
 </div>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @yield('head')
+    @vite(['resources/scss/navegacion/main-navegacion.scss'])
 </head>
 
 <body>
@@ -98,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contenido">
+                <div id="contenido-principal" class="contenido">
                     @yield('contenido')
                 </div>
             </div>
@@ -109,7 +110,7 @@
 
 
 
-    @vite(['resources/scss/navegacion/main-navegacion.scss', 'resources/js/navegacion/navegacion.js'])
+    @vite(['resources/js/navegacion/navegacion.js'])
     @yield('footer')
     {{-- /*no poner nada */ --}}
 

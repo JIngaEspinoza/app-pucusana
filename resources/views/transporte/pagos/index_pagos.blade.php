@@ -1,4 +1,4 @@
-<div class="container-pagos options desactive">
+<div class="container-pagos options">
     @include('templates.nav_secundario',
         [
             'modulo'=>'Transporte',

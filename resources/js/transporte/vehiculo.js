@@ -1,5 +1,3 @@
-
-import { setEmpresa } from "./transporte_LBRY";
 import axios from "axios";
 import DataTable from 'datatables.net-dt';
 import 'datatables.net-responsive-dt';
@@ -39,7 +37,7 @@ const sectionRegisterVehiculo = () => {
 }
 
 const sectionListaVehiculo = () => {
-    listaVehiculos();
+    // listaVehiculos();
 }
 
 
@@ -111,7 +109,69 @@ const setModal = () => {
     });
 
 }
+const setEmpresa =(numeroMunicipal) =>{
+    const empresas =[
+        {
+            nombre:'AMTUP',
+            min:1,
+            max:100
+        },
+        {
+            nombre:'ATOMI',
+            min:101,
+            max:200
+        },
+        {
+            nombre:'PUCUSANA EXPRESS',
+            min:201,
+            max:300
+        },
+        {
+            nombre:'BOCANA',
+            min:301,
+            max:400
+        },
+        {
+            nombre:'SAN JERONIMO',
+            min:501,
+            max:551
+        },
+        {
+            nombre:'NUEVA VIDA',
+            min:601,
+            max:650
+        },
+        {
+            nombre:'AMIGOS GEMINIS',
+            min:701,
+            max:752
+        },
+        {
+            nombre:'RAYOS DEL SUR',
+            min:801,
+            max:850
+        },
+        {
+            nombre:'LOS METEORITOS',
+            min:901,
+            max:950
+        }
+    ]
 
+    const valor = parseInt(numeroMunicipal)
+
+    for (let i = 0; i < empresas.length; i++) {
+        const empresa = empresas[i];
+
+        console.log("valor:",valor)
+        console.log("empresa:",empresa)
+        if(empresa.min <= valor && valor <= empresa.max) {
+            return empresa.nombre;
+        }
+
+    }
+    return null;
+}
 const setNumeroMunicipal = () => {
 
     const numeroMunicipal = document.getElementById('numero_municipal');
@@ -423,15 +483,18 @@ const listaVehiculos = () => {
                         data: null,
                         render: function (data) {
                             return `
-              <div class="padding-icon icon-show">
-                <div class="actions-icon" style="background-image: url({{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_ojo_visor.svg' }});"></div>
-              </div>
-              <div class="padding-icon icon-editar">
-                <div class="actions-icon" style="background-image: url({{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_mas.svg' }});"></div>
-              </div>
-              <div class="padding-icon icon-delete">
-                <div class="actions-icon" style="background-image: url({{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_eliminar.svg' }});"></div>
-              </div>`;
+                                <div class="actions">
+                                <div class="padding-icon icon-show">
+                                    <div class="actions-icon" style="background-image: url(${icono_ojo_visor_url});"></div>
+                                </div>
+                                <div class="padding-icon icon-editar">
+                                    <div class="actions-icon" style="background-image: url(${icono_mas_url});"></div>
+                                </div>
+                                <div class="padding-icon icon-delete">
+                                    <div class="actions-icon" style="background-image: url(${icono_eliminar_url});"></div>
+                                </div>
+                                </div>
+                            `;
                         }
                     }
                 ],
@@ -443,7 +506,7 @@ const listaVehiculos = () => {
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por pagina",
                     "zeroRecords": "No se encontraron resultados en su busqueda",
-                    "searchPlaceholder": "Buscar Vehiculos",
+                    "searchPlaceholder": "   Buscar Vehiculos",
                     "info": "Mostrando desde _START_ al _END_ de un total de  _TOTAL_ vehiculos",
                     "infoEmpty": "No existen registros",
                     "infoFiltered": "(filtrado de un total de _MAX_ registros)",
@@ -455,30 +518,20 @@ const listaVehiculos = () => {
                         "previous": "Anterior"
                     },
                 },
-                responsive: {
-                    details: {
-                      type: 'column',
-                      target: 'tr'
-                    },
-                    breakpoints: [
-                      {name: 'desktop', width: Infinity},
-                      {name: 'tablet-l', width: 1024},
-                      {name: 'tablet-p', width: 768},
-                      {name: 'mobile-l', width: 480},
-                      {name: 'mobile-p', width: 320}
-                    ],
-                    auto: true
-                  }
+                responsive: true
             });
+
         })
         .catch(error => {
             console.error('Error al obtener los datos:', error);
         });
 }
 
+
+
 mainVehiculo();
 // Lista de vehiculos
-
+export {listaVehiculos};
 
 
 //MAL HECHO MOMENTANEAMENTE

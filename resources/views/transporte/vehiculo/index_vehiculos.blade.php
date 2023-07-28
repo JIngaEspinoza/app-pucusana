@@ -1,4 +1,4 @@
-<div class="container-vehiculos options desactive">
+<div class="container-vehiculos options">
     @include('templates.nav_secundario',
         [
             'modulo'=>'Transporte',
@@ -10,5 +10,5 @@
 
     @include('transporte.vehiculo.consulta')
     @include('transporte.vehiculo.registro')
-
+    @vite(['resources/js/transporte/vehiculo.js'])
 </div>

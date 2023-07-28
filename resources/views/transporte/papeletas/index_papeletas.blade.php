@@ -1,4 +1,4 @@
-<div class="container-papeletas options desactive">
+<div class="container-papeletas options">
     @include('templates.nav_secundario',
         [
             'modulo'=>'Transporte',
