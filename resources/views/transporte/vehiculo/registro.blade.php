@@ -4,9 +4,10 @@
     @section('content-modal')
         <form id="form_entity" class="form-modal" method="post" action="{{ route('entity.register') }}">
             @csrf
-            <div class="pad-form-entity">
+
+            <div class="pad-form-entity pad-form-entity-send">
                 <div class="subtitulo-registro-entidad">
-                    <H2>Registro de Persona</H2>
+                    <H2>Datos Personales</H2>
                 </div>
 
                 <div class="campo-estandar">
@@ -17,10 +18,17 @@
                     <label for="apellido_entidad" class="form-label">Apellidos</label>
                     <input type="text" name="apellidos" id="apellido_entidad" class="form-control" required>
                 </div>
-
                 <div class="campo-estandar">
-                    <label for="dni_entidad" class="form-label">DNI</label>
-                    <input type="number" name="dni" id="dni_entidad" class="form-control" required>
+                    <label for="tipo_documento_entidad" class="form-label">Tipo de documento</label>
+                    <select id="tipo_documento_entidad" class="form-select" name="tipo_documento">
+                        <option selected value="DNI">DNI</option>
+                        <option value="CE">CE</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="campo-estandar">
+                    <label for="numero_documento_entidad" class="form-label">N° documento</label>
+                    <input type="text" name="numero_documento" id="numero_documento_entidad" class="form-control" required>
                 </div>
                 <div class="group-campos">
                     <div class="campo-estandar quinto">
@@ -61,6 +69,66 @@
                 <div class="campo-estandar">
                     <label for="distrito_entidad" class="form-label">Distrito</label>
                     <input type="text" name="distrito" id="distrito_entidad" class="form-control" required>
+                </div>
+                <div class="campo-estandar">
+                    <label for="email_entidad" class="form-label">Correo electronico</label>
+                    <input type="text" name="email" id="email_entidad" class="form-control" required>
+                </div>
+
+
+                <div class="subtitulo-registro-entidad">
+                    <H2>Credencial vehicular</H2>
+                </div>
+                <div class="campo-estandar">
+                    <label for="numero_credencial" class="form-label">N° Credencial</label>
+                    <input type="text" name="numero_credencial" id="numero_credencial" class="form-control">
+                </div>
+                <div class="campo-estandar">
+                    <label for="numero_licencia" class="form-label">Número de Licencia</label>
+                    <input type="number" name="numero_licencia" id="numero_licencia" class="form-control">
+                </div>
+                <div class="campo-estandar">
+                    <label for="estado_credencial" class="form-label">Estado</label>
+                    <select id="estado_credencial" class="form-select" name="estado_credencial">
+                        <option selected value="Vigente">Vigente</option>
+                        <option value="Vencido">Vencido</option>
+                        <option value="Ninguno">Ninguno</option>
+                    </select>
+                </div>
+
+                <div class="campo-estandar">
+                    <label for="fecha_credencial_emision" class="form-label">Fecha de Emision</label>
+                    <input type="date" name="fecha_credencial_emision" id="fecha_credencial_emision" class="form-control">
+                </div>
+                <div class="campo-estandar">
+                    <label for="fecha_credencial_caducidad" class="form-label">Fecha de Caducidad</label>
+                    <input type="date" name="fecha_credencial_caducidad" id="fecha_credencial_caducidad" class="form-control">
+                </div>
+
+
+                <div class="subtitulo-registro-entidad">
+                    <H2>Curso de seguridad vial</H2>
+                </div>
+                <div class="campo-estandar">
+                    <label for="numero_seguridad_vial" class="form-label">N°</label>
+                    <input type="text" name="numero_seguridad_vial" id="numero_seguridad_vial" class="form-control">
+                </div>
+                <div class="campo-estandar">
+                    <label for="estado_seguridad_vial" class="form-label">Estado</label>
+                    <select id="estado_seguridad_vial" class="form-select" name="estado_seguridad_vial">
+                        <option selected value="Vigente">Vigente</option>
+                        <option value="Vencido">Vencido</option>
+                        <option value="Ninguno">Ninguno</option>
+                    </select>
+                </div>
+
+                <div class="campo-estandar">
+                    <label for="fecha_seguridad_vial_emision" class="form-label">Fecha de Emision</label>
+                    <input type="date" name="fecha_seguridad_vial_emision" id="fecha_seguridad_vial_emision" class="form-control">
+                </div>
+                <div class="campo-estandar">
+                    <label for="fecha_seguridad_vial_caducidad" class="form-label">Fecha de Caducidad</label>
+                    <input type="date" name="fecha_seguridad_vial_caducidad" id="fecha_seguridad_vial_caducidad" class="form-control">
                 </div>
             </div>
 
@@ -118,24 +186,6 @@
                 <h2>Información vehicular</h2>
             </div>
             <div class="campo-estandar">
-                <label for="numero_licencia" class="form-label">Número de Licencia</label>
-                <input type="number" name="numero_licencia" id="numero_licencia" class="form-control">
-            </div>
-            <div class="campo-estandar">
-                <label for="numero_municipal" class="form-label">Número Municipal</label>
-                <input type="number" name="numero_municipal" id="numero_municipal" class="form-control">
-            </div>
-            <div class="campo-estandar">
-                <label for="empresa" class="form-label">Empresa</label>
-                <input type="text" name="empresa" id="empresa" class="form-control">
-            </div>
-
-            <div class="campo-estandar">
-                <label for="placa" class="form-label">Placa</label>
-                <input type="text" name="placa" id="placa" class="form-control" required>
-            </div>
-
-            <div class="campo-estandar">
                 <label for="propietario" class="form-label">Propietario
                     <div class="grupo-btn">
                         <div class="padding-btn">
@@ -185,6 +235,21 @@
                 <input type="text" name="name_chofer" id="name_chofer" class="form-control" required>
                 <input type="text" name="id_chofer" id="id_chofer" class="oculto">
             </div>
+            <div class="campo-estandar">
+                <label for="numero_municipal" class="form-label">Número Municipal</label>
+                <input type="number" name="numero_municipal" id="numero_municipal" class="form-control">
+            </div>
+            <div class="campo-estandar">
+                <label for="empresa" class="form-label">Empresa</label>
+                <input type="text" name="empresa" id="empresa" class="form-control">
+            </div>
+
+            <div class="campo-estandar">
+                <label for="placa" class="form-label">Placa</label>
+                <input type="text" name="placa" id="placa" class="form-control" required>
+            </div>
+
+
 
             <div class="subtitulo-registro-vehiculo">
                 <h2>Información tecnica</h2>
@@ -194,7 +259,7 @@
                 <div class="subtitulo-tecnico">
                     <h3>Inspeccion Vehicular</h3>
                 </div>
-                <div class="campo-estandar quinto">
+                <div class="campo-estandar tercera">
                     <label for="numero_inspeccion_vehicular" class="form-label">N°</label>
                     <input type="text" name="numero_inspeccion_vehicular" id="numero_inspeccion_vehicular" class="form-control">
                 </div>
@@ -217,65 +282,12 @@
                 </div>
             </div>
 
-            <div class="inspecciones">
-                <div class="subtitulo-tecnico">
-                    <h3>Credencial vehicular</h3>
-                </div>
-                <div class="campo-estandar quinto">
-                    <label for="numero_credencial_vehicular" class="form-label">N°</label>
-                    <input type="text" name="numero_credencial_vehicular" id="numero_credencial_vehicular" class="form-control">
-                </div>
-                <div class="campo-estandar tercera">
-                    <label for="estado_credencial" class="form-label">Estado</label>
-                    <select id="estado_credencial" class="form-select" name="estado_credencial">
-                        <option selected value="Vigente">Vigente</option>
-                        <option value="Vencido">Vencido</option>
-                        <option value="Ninguno">Ninguno</option>
-                    </select>
-                </div>
-
-                <div class="campo-estandar tercera">
-                    <label for="fecha_credencial_emision" class="form-label">Fecha de Emision</label>
-                    <input type="date" name="fecha_credencial_emision" id="fecha_credencial_emision" class="form-control">
-                </div>
-                <div class="campo-estandar tercera">
-                    <label for="fecha_credencial_caducidad" class="form-label">Fecha de Caducidad</label>
-                    <input type="date" name="fecha_credencial_caducidad" id="fecha_credencial_caducidad" class="form-control">
-                </div>
-            </div>
-
-            <div class="inspecciones">
-                <div class="subtitulo-tecnico">
-                    <h3>Curso Seguridad Vial</h3>
-                </div>
-                <div class="campo-estandar quinto">
-                    <label for="numero_seguridad_vial" class="form-label">N°</label>
-                    <input type="text" name="numero_seguridad_vial" id="numero_seguridad_vial" class="form-control">
-                </div>
-                <div class="campo-estandar tercera">
-                    <label for="estado_seguridad_vial" class="form-label">Estado</label>
-                    <select id="estado_seguridad_vial" class="form-select" name="estado_seguridad_vial">
-                        <option selected value="Vigente">Vigente</option>
-                        <option value="Vencido">Vencido</option>
-                        <option value="Ninguno">Ninguno</option>
-                    </select>
-                </div>
-
-                <div class="campo-estandar tercera">
-                    <label for="fecha_seguridad_vial_emision" class="form-label">Fecha de Emision</label>
-                    <input type="date" name="fecha_seguridad_vial_emision" id="fecha_seguridad_vial_emision" class="form-control">
-                </div>
-                <div class="campo-estandar tercera">
-                    <label for="fecha_seguridad_vial_caducidad" class="form-label">Fecha de Caducidad</label>
-                    <input type="date" name="fecha_seguridad_vial_caducidad" id="fecha_seguridad_vial_caducidad" class="form-control">
-                </div>
-            </div>
 
             <div class="inspecciones">
                 <div class="subtitulo-tecnico">
                     <h3>SOAT</h3>
                 </div>
-                <div class="campo-estandar quinto">
+                <div class="campo-estandar tercera">
                     <label for="numero_soat" class="form-label">N°</label>
                     <input type="text" name="numero_soat" id="numero_soat" class="form-control">
                 </div>

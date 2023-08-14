@@ -53,7 +53,7 @@ const setModal = () => {
 
     //Buscar entidad
     const formSearch = document.getElementById('form_search'); //html para buscar entidad
-    const btnOptionBuscar = document.querySelectorAll('.btn-buscar') // boton que activa el modal de buscar entidad
+    const btnOptionBuscar = document.querySelectorAll('.btn-buscar') // boton que activa el modal de buscar entidad [btn-propietario , btn-chfer]
     const btnCancelBuscar = document.getElementById('btn_cancel_buscar'); // boton que desactiva el modal de buscar entidad
 
 
@@ -64,7 +64,6 @@ const setModal = () => {
         modalGeneral.classList.add('disable-modal');
         formEntity.reset();
     });
-
     btnOptionMas.forEach((optionMas, i) => {
         optionMas.addEventListener('click', () => {
             propiestarioActiveMass = i == 0;
@@ -94,7 +93,7 @@ const setModal = () => {
 
 
         optionBuscar.addEventListener('click', () => {
-            propiestarioActiveSearch = i == 0;
+            propiestarioActiveSearch = i == 0; //i=0  -> pro
 
             formSearch.classList.remove('content-modal__buscar--disable') //le doy visibilidad al card de buscar persona
             formEntity.classList.add('content-modal__form--disable') // le quito visibilidad al card de registrar persona
@@ -250,7 +249,7 @@ const disableTenico = () => {
             estado: document.getElementById('estado_credencial'),
             emision: document.getElementById('fecha_credencial_emision'),
             caducidad: document.getElementById('fecha_credencial_caducidad'),
-            numero: document.getElementById('numero_credencial_vehicular')
+            numero: document.getElementById('numero_credencial')
         },
         {
             estado: document.getElementById('estado_seguridad_vial'),
@@ -285,7 +284,7 @@ const disableTenico = () => {
 const autoCompleteState = () => {
     const inputsEstado = [
         document.getElementById('numero_inspeccion_vehicular'),
-        document.getElementById('numero_credencial_vehicular'),
+        document.getElementById('numero_credencial'),
         document.getElementById('numero_seguridad_vial'),
         document.getElementById('numero_soat'),
 

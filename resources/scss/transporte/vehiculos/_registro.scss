@@ -132,7 +132,7 @@
                     }
 
                     &.tercera {
-                        width: 180px;
+                        width: 230px;
                     }
 
                     &.quinto {
@@ -147,24 +147,31 @@
 
                 .inspecciones {
 
-                    width: calc(100% - 30px);
+                    width: calc(100% - 210px);
                     display: flex;
                     justify-content: center;
                     flex-wrap: wrap;
                     margin: 20px 0;
                     border-radius: 10px;
-                    padding: 10px 0;
+                    padding-bottom: 10px;
                     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
 
                     .subtitulo-tecnico {
+
+
+
+                        width: 100%;
+                        height: 35px;
+                        border-radius: 10px 10px 0 0;
+                        background-color: #62A8E0;
+                        display: flex;
+                        align-items: end;
                         h3 {
                             font-size: 1rem;
                             margin-left: 30px;
-                            color: #a19e9e;
+                            color: #ffffff;
+                            // background-color: black;
                         }
-
-                        width: 100%;
-                        // background-color: #888;
                     }
                 }
 
@@ -300,7 +307,28 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        // height: 600px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: 0.2em;
+            // height: 80%;
 
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+            // height: auto;
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(170, 163, 163);
+        }
+
+        /* Para navegadores que no sean de WebKit (Firefox) */
+
+        scrollbar-width: thin;
+        scrollbar-color: transparent;
         // border: 1px solid black;
         .subtitulo-registro-entidad {
 
@@ -312,7 +340,7 @@
             padding-left: 20px;
 
             h2 {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
         }
 
@@ -397,6 +425,9 @@
                 margin: 10px 0;
             }
         }
+    }
+    .pad-form-entity-send{
+        height: 600px;
     }
 
 
