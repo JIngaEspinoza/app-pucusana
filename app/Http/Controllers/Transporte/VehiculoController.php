@@ -27,6 +27,7 @@ class VehiculoController extends Controller
             $vehiculo->id_propietario = $request->input('id_propietario');
             $vehiculo->id_chofer = $request->input('id_chofer');
             $vehiculo->save();
+            // dd($vehiculo);
 
             if ($request->input('estado_inspeccion') != 'Ninguno') {
                 $adicional = new Adicional();
@@ -183,7 +184,6 @@ class VehiculoController extends Controller
                         'chofer.nombres AS nombres_chofer'
                     )
                     ->get();
-
                 $vehiculosData = [];
 
 

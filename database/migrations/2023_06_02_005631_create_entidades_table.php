@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('apellidos');
             $table->string('edad');
             $table->string('sexo');
+            $table->string('dni');
             $table->string('tipo_documento');
             $table->string('numero_documento');
             $table->string('direccion');

@@ -6,7 +6,7 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css',
             'resources/scss/user/main-user.scss',
-            'resources/scss/transporte/vehiculo/main-vehiculo.scss',
+            // 'resources/scss/transporte/vehiculo/main-vehiculo.scss',
             'resources/js/app.js',
             'resources/js/user/login.js',
             'resources/scss/modulos/main-panel.scss',
