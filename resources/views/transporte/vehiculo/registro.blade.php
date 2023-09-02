@@ -2,7 +2,7 @@
     @extends('templates.modal')
     @section('id-modal','modal_general')
     @section('content-modal')
-        <form id="form_entity" class="form-modal" method="post" action="{{ route('entity.register') }}">
+        <form id="form_entity" class="form-modal" method="post" >
             @csrf
 
             <div class="pad-form-entity pad-form-entity-send">
@@ -56,12 +56,6 @@
                 </div>
 
 
-
-
-
-
-
-
                 <div class="campo-estandar">
                     <label for="direccion_entidad" class="form-label">Direccion</label>
                     <input type="text" name="direccion" id="direccion_entidad" class="form-control" required>
@@ -76,7 +70,7 @@
                 </div>
 
 
-                <div class="subtitulo-registro-entidad">
+                {{-- <div class="subtitulo-registro-entidad">
                     <H2>Credencial vehicular</H2>
                 </div>
                 <div class="campo-estandar">
@@ -129,7 +123,7 @@
                 <div class="campo-estandar">
                     <label for="fecha_seguridad_vial_caducidad" class="form-label">Fecha de Caducidad</label>
                     <input type="date" name="fecha_seguridad_vial_caducidad" id="fecha_seguridad_vial_caducidad" class="form-control">
-                </div>
+                </div> --}}
             </div>
 
 
@@ -141,7 +135,7 @@
                 </div>
                 <div class="btn-form">
                     <div id="btn_cancel_entity" class="btn-cancelar"><span>Cancelar</span></div>
-                    <button type="submit" class="btn btn-primary btn-guardar">Guardar</button>
+                    <button class="btn btn-primary btn-guardar">Guardar</button>
                 </div>
             </div>
 
@@ -167,11 +161,11 @@
                 </div>
                 <div class="btn-form">
                     <div id="btn_cancel_buscar" class="btn-cancelar"><span>Cancelar</span></div>
-                    <button type="submit" class="btn btn-primary btn-guardar">Buscar</button>
+                    <button class="btn btn-primary btn-guardar">Buscar</button>
                 </div>
             </div>
         </form>
-@endsection
+    @endsection
 
 
 
@@ -205,7 +199,11 @@
                 <input type="text" name="name_propietario" id="name_propietario" class="form-control"
                      required>
                 <input type="text" name="id_propietario" id="id_propietario" class="oculto">
-
+                     {{-- @error('id_propietario')
+                     <br>
+                     <small>*{{ $message }}</small>
+                     <br>
+                     @enderror --}}
             </div>
 
 
@@ -234,6 +232,11 @@
                 </label>
                 <input type="text" name="name_chofer" id="name_chofer" class="form-control" required>
                 <input type="text" name="id_chofer" id="id_chofer" class="oculto">
+                    {{-- @error('id_chofer')
+                     <br>
+                     <small>*{{ $message }}</small>
+                     <br>
+                     @enderror --}}
             </div>
             <div class="campo-estandar">
                 <label for="numero_municipal" class="form-label">Número Municipal</label>
@@ -260,7 +263,7 @@
                     <h3>Inspeccion Vehicular</h3>
                 </div>
                 <div class="campo-estandar tercera">
-                    <label for="numero_inspeccion_vehicular" class="form-label">N°</label>
+                    <label for="numero_inspeccion_vehicular" class="form-label">N° de Inspección</label>
                     <input type="text" name="numero_inspeccion_vehicular" id="numero_inspeccion_vehicular" class="form-control">
                 </div>
                 <div class="campo-estandar tercera">
@@ -288,7 +291,7 @@
                     <h3>SOAT</h3>
                 </div>
                 <div class="campo-estandar tercera">
-                    <label for="numero_soat" class="form-label">N°</label>
+                    <label for="numero_soat" class="form-label">N° de SOAT</label>
                     <input type="text" name="numero_soat" id="numero_soat" class="form-control">
                 </div>
                 <div class="campo-estandar tercera">

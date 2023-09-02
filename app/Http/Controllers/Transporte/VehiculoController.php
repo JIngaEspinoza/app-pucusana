@@ -81,7 +81,7 @@ class VehiculoController extends Controller
 
         // $vehiculo = Vehiculo::create($request->only(['numero_licencia','numero_municipal','empresa', 'placa', 'id_propietario', 'id_chofer']));
 
-        return redirect('/consulta-vehicular/consulta')->with('success', 'Se Registro existosamente');
+        //return redirect('/consulta-vehicular/consulta')->with('success', 'Se Registro existosamente');
     }
 
     public function showConsulta()

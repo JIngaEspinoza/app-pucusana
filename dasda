@@ -1,0 +1,276 @@
+[33mcommit 2e10fe165c03b3311753da941444d41f0170b7a9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jonadabb Inga <jingaespinoza@gmail.com>
+Date:   Sat Aug 26 02:08:55 2023 -0500
+
+    Jonadab, elimina vendor, node_modules, ejecución de composer install, npm install para recrear las los directorios eliminados, php artisan migrate corrección en migrate vehiculos, php artisan db:seed, php artisan serve, npm run dev, npm run build, php artisan storage:link para crear el storage en public
+
+[33mcommit 2791a07dee0aec6052315078c4dcbb344509a188[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Aug 13 22:18:05 2023 -0500
+
+    Optimizacion de BD
+
+[33mcommit b5982eecf3d4a67d45e34f3c580b9d1c8465ee6c[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Thu Jul 27 23:13:35 2023 -0500
+
+    optimizacion de pestañas
+
+[33mcommit cc215c9b06e939bfc787e188bf32f3224a3404c6[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jul 23 01:05:00 2023 -0500
+
+    Prueba datatables
+
+[33mcommit 0012e56352a95b1acf0b13424e83dbf11f734480[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jul 10 00:37:27 2023 -0500
+
+    registro nuevo consulta
+
+[33mcommit 57ec2de70224f84edd418dc0060dd0f66c9881b1[m
+Author: Hilton Bill Caballero <hiltonbillcaballero@gmail.com>
+Date:   Sun Jul 9 17:26:35 2023 -0500
+
+    modificacion imagenes y iconos Modulos
+
+[33mcommit 6ebf289958265f02fa609d67c4d1ed16939de820[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sat Jul 8 17:24:16 2023 -0500
+
+    autentificacion en modulos
+
+[33mcommit 55572e1aad2ef8d8c7329492cdba92ac13cb09eb[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Tue Jul 4 08:11:18 2023 -0500
+
+    lista de consulta
+
+[33mcommit 2e3f20f66fd9f8c1adb331b9d8581a15c5737e4c[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jul 3 09:59:55 2023 -0500
+
+    registro y cambio de contraseña
+    
+    se quito el default
+
+[33mcommit 4823c6ad8b5be4b03e39ae9957c1259949d823e1[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jul 3 09:46:27 2023 -0500
+
+    registro y cambio de contraseña
+
+[33mcommit f74dab45cf5c44a63c27506c47a9b00566e47eb6[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jul 2 20:34:50 2023 -0500
+
+    intento de usario imagen
+
+[33mcommit c184d39f024fdaebb57187d8e0b6af4c5638b806[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jun 26 02:39:58 2023 -0500
+
+    Se agrego la funcionalidad a consulta
+
+[33mcommit 48286fe585cf59b65c45c9fccf022394e60f56e7[m
+Merge: 85aad57 c8b8fe1
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sat Jun 24 19:03:57 2023 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 85aad575b58066f33f3aab87db3ee26b03483818[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sat Jun 24 19:03:30 2023 -0500
+
+    se agrego el apartado PRUEBA
+
+[33mcommit c8b8fe19862c27827e6fdd5896d98b7d3324e88c[m
+Merge: 9704239 9561a8d
+Author: Hilton Bill Caballero <hiltonbillcaballero@gmail.com>
+Date:   Thu Jun 22 11:09:21 2023 -0500
+
+    Merge commit '9561a8d8ce0c57844d478592c3bec8d03244772b' into TEST
+
+[33mcommit 9704239ce627492ac3858ced0f91a698b41a129b[m
+Author: Hilton Bill Caballero <hiltonbillcaballero@gmail.com>
+Date:   Thu Jun 22 11:08:28 2023 -0500
+
+    reportes-pagos-papeleta
+
+[33mcommit 9561a8d8ce0c57844d478592c3bec8d03244772b[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Thu Jun 22 03:40:20 2023 -0500
+
+    Se aacabo el lado funcional de consulta vehicular
+    
+    Falta agregar el diseño
+
+[33mcommit 20c133a7a307246e6cf5400f942e2994e181b92a[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Wed Jun 21 02:53:27 2023 -0500
+
+    Formulario counsuklta vehicular asi terminado
+
+[33mcommit edf46a79505daeddbf9fe2d657a2d95f86d1e836[m
+Author: Hilton Bill Caballero <hiltonbillcaballero@gmail.com>
+Date:   Tue Jun 20 21:35:42 2023 -0500
+
+    intento de formulario
+
+[33mcommit 0b30662f581e571b11f2636483a89256b700ecf2[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jun 19 05:01:23 2023 -0500
+
+    Rutas temporales agregadas
+
+[33mcommit 93cbaac876aecce3cb5b6c8134dcbb664a8685a0[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jun 19 04:32:09 2023 -0500
+
+    Funcionalidad completa de la navegacion terminada
+
+[33mcommit aa019931a26f5fa07d2e3269db8fe069989c6aef[m
+Author: Hilton Bill Caballero <hiltonbillcaballero@gmail.com>
+Date:   Mon Jun 19 04:20:33 2023 -0500
+
+    card usuario en modulos
+
+[33mcommit c3c863c7e5aabdeaba3ddc40a60b462875aefb8d[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jun 18 22:14:14 2023 -0500
+
+    Navegacion terminada
+
+[33mcommit 1b27cd4c149e329778732aacd289cbaa3ff6ae7c[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jun 18 19:04:45 2023 -0500
+
+    border: 10px solid rgb(47, 165, 0);
+
+[33mcommit a4c4ebe5aad38cb869201751cdd811e4def4f668[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jun 18 18:24:01 2023 -0500
+
+    Pruebas en panel de modulos
+
+[33mcommit 002edd0f550882d3face33491dd4c7ef265ff826[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jun 18 04:35:33 2023 -0500
+
+    segunda navegacion implementada
+
+[33mcommit fe1ab3eb21bc760e0901b985c6128c223b7aecdf[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jun 18 02:59:41 2023 -0500
+
+    Correcion modulo
+
+[33mcommit 3670cb719ba1cdce39603ef810ddfbabbfba790b[m
+Author: Hilton Bill Caballero <hiltonbillcaballero@gmail.com>
+Date:   Sun Jun 18 02:23:36 2023 -0500
+
+    Cambio de fondo de los Modulos
+
+[33mcommit bf16fc124777d10dd69131d6a7dfb3777bedffb9[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sun Jun 18 02:19:36 2023 -0500
+
+    navegacion modulada
+
+[33mcommit 89a62308f8c63609379caf0c86ab7132579129e4[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sat Jun 17 21:46:46 2023 -0500
+
+    implemetacion de libreria
+
+[33mcommit 5b4143838237bbf08c733b1e2d858db4399fb7da[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sat Jun 17 20:08:08 2023 -0500
+
+    Probando navegacion
+
+[33mcommit 8258dac0dad3cf5573c5a628172357009b31ed4d[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Sat Jun 17 05:13:18 2023 -0500
+
+    Navegacion terminada
+
+[33mcommit 116f5793ab6249aead4f31693aa11a4ee874993d[m
+Author: Hilton Bill Caballero <hiltonbillcaballero@gmail.com>
+Date:   Sat Jun 17 00:07:11 2023 -0500
+
+    17/06/2023 12:06am Cambio en iconos de card-NAVEGADOR
+
+[33mcommit febd91fb566ea669fe5f97a28d2e26a3b337b738[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Fri Jun 16 02:32:17 2023 -0500
+
+    17/06/2023 - Estados de la navegacion
+
+[33mcommit 9005f05bdf308c0f58cbb15259451819549db4bb[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Thu Jun 15 11:29:59 2023 -0500
+
+    16/06/2023 - Barra de navegacion
+
+[33mcommit 9484479876ae33038039f5fa54471897d328d442[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Thu Jun 15 00:09:23 2023 -0500
+
+    15/06/2023 - Correcion de la navegacion
+
+[33mcommit 18662aa94676b135b8d2751949a0d72ed1a7bbd2[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Wed Jun 14 13:14:53 2023 -0500
+
+    14/06/2023 - Correcion Vista del Login
+
+[33mcommit 971bc605561b8534af38bc66179294df0187a85e[m
+Author: hiltonbill <hiltonbillcaballero@gmail.com>
+Date:   Tue Jun 13 23:42:32 2023 -0500
+
+    13/06/2023 Diseño Navegación
+
+[33mcommit cb67fdf8aa42a061d2f2ea170c4fefbb119882f9[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jun 12 10:46:16 2023 -0500
+
+    12/06/2023 - Seguridad y vista Login
+
+[33mcommit 70c155441d05f278e929552388034e3ed2eb8c8b[m
+Merge: 0e558a5 6e13863
+Author: hiltonbill <hiltonbillcaballero@gmail.com>
+Date:   Mon Jun 12 10:39:55 2023 -0500
+
+    Merge branch 'master' of https://github.com/hiltonbill123456/sigao-webapp
+
+[33mcommit 0e558a5ea46dc70d5433437ac8a909f1018e90cd[m
+Author: hiltonbill <hiltonbillcaballero@gmail.com>
+Date:   Mon Jun 12 10:29:50 2023 -0500
+
+    12/05/2023 diseño de Modulos
+
+[33mcommit 6e138638b8611200c63369a2253f60630fe94498[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Tue Jun 6 02:06:40 2023 -0500
+
+    06/06/2023 - Login vista
+
+[33mcommit d4ebf66f5984a95141917cf9ea777078bb944c2e[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Mon Jun 5 21:19:36 2023 -0500
+
+    01/06/2023 - Login vista
+
+[33mcommit b6482be837e4b9d379bbb88e002a171827b9515d[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Thu Jun 1 21:12:32 2023 -0500
+
+    01/06/2023 - Inicializacion
+
+[33mcommit 50d3774b33c83f10ee3eea9f1cb67fd134e75148[m
+Author: Giussepe Delgado <giussepe@latamready.com>
+Date:   Thu Jun 1 21:07:35 2023 -0500
+
+    Initial commit

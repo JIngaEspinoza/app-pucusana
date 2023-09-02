@@ -24,8 +24,8 @@
         </div>
     </section>
     <script>
-        let icono_ojo_visor_url = "{{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_ojo_visor.svg' }}";
-        let icono_mas_url = "{{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_mas.svg' }}";
-        let icono_eliminar_url = "{{ asset('storage') . '/' . 'uploads/transporte/vehiculo/icono_eliminar.svg' }}";
+        let icono_ojo_visor_url = "{{ asset('storage') . '/' . 'uploads/transporte/icono_lupa.svg' }}";
+        let icono_mas_url = "{{ asset('storage') . '/' . 'uploads/transporte/icono_mas.svg' }}";
+        let icono_eliminar_url = "{{ asset('storage') . '/' . 'uploads/transporte/icono-cancel.svg' }}";
     </script>
 </div>

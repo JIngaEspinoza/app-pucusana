@@ -28,8 +28,8 @@ const sectionRegisterVehiculo = () => {
     setNumeroMunicipal();
     clearFormEntity();
     clearFormSearch();
-    disableTenico();
-    autoCompleteState();
+    //disableTenico();
+    //autoCompleteState();
     stateEntity();
     searchEntity();
     registerEntity();
@@ -56,8 +56,6 @@ const setModal = () => {
     const btnOptionBuscar = document.querySelectorAll('.btn-buscar') // boton que activa el modal de buscar entidad [btn-propietario , btn-chfer]
     const btnCancelBuscar = document.getElementById('btn_cancel_buscar'); // boton que desactiva el modal de buscar entidad
 
-
-
     btnCancelEntity.addEventListener('click', () => {
         console.log('click cancel')
 
@@ -80,7 +78,6 @@ const setModal = () => {
 
     });
 
-
     btnCancelBuscar.addEventListener('click', () => {
         console.log('click cancel buscar');
         modalGeneral.classList.add('disable-modal');
@@ -88,9 +85,6 @@ const setModal = () => {
     });
 
     btnOptionBuscar.forEach((optionBuscar, i) => {
-
-
-
 
         optionBuscar.addEventListener('click', () => {
             propiestarioActiveSearch = i == 0; //i=0  -> pro
@@ -314,8 +308,6 @@ const stateEntity = () => {
 
 const searchEntity = () => {
     const getPerson = (param) => {
-
-
         axios.get(`/buscar-entidad/${param}`)
             .then(response => {
                 console.log('person:', response.data);
@@ -366,8 +358,9 @@ const searchEntity = () => {
 
 const registerEntity = () => {
     const sendEntity = (entity) => {
-        console.log("[entity] :", entity);
+        //console.log("[entity] :", entity);
         axios.post('/registrar-entidad', entity).then(response => {
+            console.log(response)
             if (response.data) {
                 const { id_entidad, nombres, apellidos } = response.data;
                 if (propiestarioActiveMass) {
@@ -377,6 +370,16 @@ const registerEntity = () => {
                     nameChofer.value = `${apellidos}, ${nombres}`;
                     idChofer.value = id_entidad;
                 }
+
+                Swal.fire({
+                    title: response.data.title,
+                    text: response.data.text,
+                    icon: 'success',
+                    timer: 3000,
+                    returnFocus: false
+                }).then(() => {
+                    Swal.close();
+                });
             }
             formEntity.reset();
         }).catch(error => {
@@ -394,18 +397,19 @@ const registerEntity = () => {
         });
     }
 
-
+    const modalGeneral = document.getElementById('modal_general');
     const formEntity = document.getElementById('form_entity');
     formEntity.addEventListener('submit', (e) => {
         e.preventDefault();
         modalGeneral.classList.add('disable-modal');
         const formData = new FormData(formEntity);
         const entity = Object.fromEntries(formData);
-        console.log("[entity] Z==>:", entity)
-        sendEntity(entity);
-
+        //console.log("[entity] Z==>:", entity)
+        sendEntity(entity)
     })
 }
+
+
 
 const registerVehiculo = () => {
     const formVehiculo = document.getElementById('form-vehiculo');
@@ -414,6 +418,31 @@ const registerVehiculo = () => {
         e.preventDefault();
         const formData = new FormData(formVehiculo);
         const vehiculo = Object.fromEntries(formData);
+
+        if (namePropietario.value == '' || namePropietario.value == 'No se encontró información'){
+            Swal.fire({
+                title: 'Alerta!',
+                text: 'Debe completar el propietario',
+                icon: 'warning',
+                timer: 3000,
+                returnFocus: false
+            }).then(() => {
+                Swal.close();
+            }); return
+        }
+
+        if (nameChofer.value == '' || nameChofer.value == 'No se encontró información') {
+            Swal.fire({
+                title: 'Alerta!',
+                text: 'Debe completar el chofer',
+                icon: 'warning',
+                timer: 3000,
+                returnFocus: false
+            }).then(() => {
+                Swal.close();
+            }); return
+        }
+
         console.log('checkboxConfirmacion.checked :', checkboxConfirmacion.checked)
         if (checkboxConfirmacion.checked) {
             axios.post('/registrar-vehiculo', vehiculo).then(response => {
@@ -457,10 +486,7 @@ const registerVehiculo = () => {
                 Swal.close();
             });
         }
-
-
     });
-
 }
 
 const listaVehiculos = () => {
@@ -525,8 +551,6 @@ const listaVehiculos = () => {
             console.error('Error al obtener los datos:', error);
         });
 }
-
-
 
 mainVehiculo();
 // Lista de vehiculos

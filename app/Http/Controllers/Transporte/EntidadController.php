@@ -32,21 +32,31 @@ class EntidadController extends Controller
     }
     public function registerEntity(Request $request)
     {
-
         try {
             // $entidade = Entidade::create($request -> only(['nombre','edad','sexo','dni','direccion','celular']));
-            Log::debug($request);
+            // Log::debug($request);
             $entidade = new Entidade();
             $entidade->nombres = $request->input('nombres');
             $entidade->apellidos = $request->input('apellidos');
             $entidade->edad = $request->input('edad');
             $entidade->sexo = $request->input('sexo');
-            $entidade->dni = $request->input('dni');
+            $entidade->tipo_documento = $request->input('tipo_documento');
+            $entidade->numero_documento = $request->input('numero_documento');
+            //dateCumple
             $entidade->direccion = $request->input('direccion');
             $entidade->celular = $request->input('celular');
+            $entidade->numero_licencia = '479.335.8863';
+            $entidade->email = $request->input('email');
+            // $entidade->distrito = $request->input('distrito');
+            $entidade->dni = $request->input('numero_documento');
             $entidade->save();
 
-            return response()->json(['id_entidad' => $entidade->id, 'nombres' => $entidade->nombres, 'apellidos' => $entidade->apellidos, 'message' => 'Entidad registrada exitosamente'], 200);
+            return response()->json([
+                'id_entidad' => $entidade->id, 
+                'nombres' => $entidade->nombres, 
+                'apellidos' => $entidade->apellidos, 
+                'title' => 'Muy bien',
+                'text' => 'Registrado exitosamente'], 200);
         } catch (\Throwable $th) {
             Log::error($th);
         }
