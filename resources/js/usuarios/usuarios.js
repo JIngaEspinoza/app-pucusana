@@ -1,5 +1,5 @@
 import axios from "axios";
-const check = {
+var check = {
     pass: false,
     username: false,
     email: false,
@@ -800,7 +800,7 @@ const verificarPassword = () => {
     });
 }
 
-const checkPass = {
+var checkPass = {
     username: false,
     pass: false
 }

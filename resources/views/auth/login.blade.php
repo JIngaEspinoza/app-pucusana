@@ -70,19 +70,19 @@
                     </div>
 
                     <div class="social-media">
-                        <a href="https://www.facebook.com/" target="_blank">
+                        <a href="https://www.facebook.com/MuniPucusanaOficial" target="_blank">
                             <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/facebook_icono.svg'}});"></div>
                         </a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/muni_pucusana/" target="_blank" rel="noopener noreferrer">
                             <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/instagram_icono.svg'}});"></div>
                         </a>
-                        <a href="https://www.tiktok.com/es/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.tiktok.com/@munipucusana?lang=es" target="_blank" rel="noopener noreferrer">
                             <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/tiktok_icono.svg'}});"></div>
                         </a>
-                        <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer">
+                        <a href="https://twitter.com/muni_pucusana1" target="_blank" rel="noopener noreferrer">
                             <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/twiter_icono.svg'}});"></div>
                         </a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.youtube.com/@municipalidadpucusana/featured" target="_blank" rel="noopener noreferrer">
                             <div class="icon" style="background-image: url({{asset('storage').'/'.'uploads/login/youtube_icono.svg'}});"></div>
                         </a>
 
