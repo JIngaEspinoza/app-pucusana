@@ -58,11 +58,14 @@ Route::controller(panelController::class)->group(function () {
 Route::controller(VehiculoController::class)->group(function () {
     // Route::get('/registrar-vehiculo','show');
     Route::post('/registrar-vehiculo', 'create')->name ('vehiculos.store');
+    Route::put('/actualizar-vehiculo', 'update')->name ('vehiculos.update');
+    Route::get('/eliminar-vehiculo/{id}', 'delete')->name ('vehiculos.delete');
 
     Route::get('/consulta-vehicular/consulta','showConsulta')->name('vehiculo.consulta');
     Route::get('/consulta-vehicular/registro', 'showRegistro')->name('vehiculo.registro');
     Route::get('/buscar-vehiculo/{param}','searchVehiculo');
     Route::get('/consulta-vehicular/lista','obtenerDatosVehiculos');
+    Route::get('/editar-vehiculo/{param}','editVehiculoById');
 });
 
 Route::controller(EntidadController::class)->group(function () {

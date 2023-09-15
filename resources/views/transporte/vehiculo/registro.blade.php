@@ -130,7 +130,7 @@
             <div class="footer-form">
 
                 <div id="btn-limpiar" class="clear-form">
-                    <div class="icon-clear" style="background-image: url({{ asset('storage') . '/' . 'uploads/transporte/vehiculo/eliminar.png' }});"></div>
+                    <div class="icon-clear" style="background-image: url({{ asset('storage') . '/' . 'uploads/transporte/icono-cancelar.svg' }});"></div>
                     <span>Limpiar</span>
                 </div>
                 <div class="btn-form">
@@ -156,7 +156,7 @@
             </div>
             <div class="footer-form">
                 <div id="btn-limpiar-search" class="clear-form">
-                    <div class="icon-clear" style="background-image: url({{ asset('storage') . '/' . 'uploads/transporte/vehiculo/eliminar.png' }});"></div>
+                    <div class="icon-clear" style="background-image: url({{ asset('storage') . '/' . 'uploads/transporte/icono-cancelar.svg' }});"></div>
                     <span>Limpiar</span>
                 </div>
                 <div class="btn-form">
@@ -212,7 +212,7 @@
                     <div class="form-check check-repeat">
                         <input class="form-check-input" type="checkbox" value="" id="check_chofer">
                     </div>
-                    Chofer
+                    Conductor
                     <div class="grupo-btn">
                         <div class="padding-btn">
                             <div class="btn-option btn-buscar search-chofer">

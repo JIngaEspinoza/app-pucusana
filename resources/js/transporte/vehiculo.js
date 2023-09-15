@@ -496,9 +496,11 @@ const listaVehiculos = () => {
         .then(response => {
             const data = response.data;
             console.log("response.data :", response.data)
+            // console.log("response.data :", data.id)
             const dataTable = new DataTable(table, {
                 data: data,
                 columns: [
+                    { data: 'id'},
                     { data: 'placa'},
                     { data: 'numero_municipal'},
                     { data: 'empresa'},
@@ -513,10 +515,10 @@ const listaVehiculos = () => {
                                     <div class="actions-icon" style="background-image: url(${icono_ojo_visor_url});"></div>
                                 </div>
                                 <div class="padding-icon icon-editar">
-                                    <div class="actions-icon" style="background-image: url(${icono_mas_url});"></div>
+                                    <div class="actions-icon edit" onclick="editVehiculo(${data.id})" style="background-image: url(${icono_mas_url});"></div>
                                 </div>
                                 <div class="padding-icon icon-delete">
-                                    <div class="actions-icon" style="background-image: url(${icono_eliminar_url});"></div>
+                                    <div class="actions-icon delete" onclick="deleteVehiculo(${data.id})" style="background-image: url(${icono_eliminar_url});"></div>
                                 </div>
                                 </div>
                             `;
@@ -527,6 +529,9 @@ const listaVehiculos = () => {
                 lengthMenu: [
                     [5, 10, 20, -1],
                     [5, 10, 20, 'Todos']
+                ],
+                columnDefs: [
+                    { "targets": [0], "visible": false, "searchable": true },
                 ],
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por pagina",
