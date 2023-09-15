@@ -247,8 +247,8 @@ class VehiculoController extends Controller
                 'B.estado AS ESTADO_SOAT',
                 'B.fecha_emision AS FECHA_EMI_SOAT',
                 'B.fecha_caducidad AS FECHA_CAD_SOAT',
-                'vehiculos.id_propietario',
-	            'vehiculos.id_chofer',
+                'vehiculos.id_propietario AS ID_PROPIETARIO',
+	            'vehiculos.id_chofer AS ID_CHOFER',
                 'A.id_vehiculo AS ID_INSPECCION',
 	            'B.id_vehiculo AS ID_SOAT'
             )
