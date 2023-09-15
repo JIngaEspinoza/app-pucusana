@@ -220,39 +220,39 @@ class VehiculoController extends Controller
         //->leftJoin('ADICIONALS AS A', 'vehiculos.ID', '=', 'A.ID_VEHICULO')
         //->leftJoin('ADICIONALS AS B', 'vehiculos.ID', '=', 'B.ID_VEHICULO')
         // \DB::enableQueryLog();
-        $vehiculo = Vehiculo::leftJoin('ENTIDADES AS P', 'vehiculos.ID_PROPIETARIO', '=', 'P.ID')
-            ->leftJoin('ENTIDADES AS C', 'vehiculos.ID_CHOFER', '=', 'C.ID')
-            ->leftJoin('ADICIONALS AS A', function ($join) {
-                $join->on('vehiculos.ID', '=', 'A.ID_VEHICULO');
-                $join->on('A.FLAG','=',DB::raw("'INSPECCION'"));
+        $vehiculo = Vehiculo::leftJoin('entidades AS P', 'vehiculos.id_propietario', '=', 'P.id')
+            ->leftJoin('entidades AS C', 'vehiculos.id_chofer', '=', 'C.id')
+            ->leftJoin('adicionals AS A', function ($join) {
+                $join->on('vehiculos.id', '=', 'A.id_vehiculo');
+                $join->on('A.flag','=',DB::raw("'INSPECCION'"));
             })
-            ->leftJoin('ADICIONALS AS B', function ($join) {
-                $join->on('vehiculos.ID', '=', 'B.ID_VEHICULO');
-                $join->on('B.FLAG','=',DB::raw("'SOAT'"));
+            ->leftJoin('adicionals AS B', function ($join) {
+                $join->on('vehiculos.id', '=', 'B.id_vehiculo');
+                $join->on('B.flag','=',DB::raw("'SOAT'"));
             })
             ->select(
-                'vehiculos.ID',
-                'vehiculos.PLACA',
-                'vehiculos.NUMERO_MUNICIPAL',
-                'vehiculos.EMPRESA',
-                'P.APELLIDOS AS APELLIDOS_PROPIETARIO',
-                'P.NOMBRES AS NOMBRES_PROPIETARIO',
-                'C.APELLIDOS AS APELLIDOS_CHOFER',
-                'C.NOMBRES AS NOMBRES_CHOFER',
-                'A.NUMERO AS NUMERO_INSPECCION',
-                'A.ESTADO AS ESTADO_INSPECCION',
-                'A.FECHA_EMISION AS FECHA_EMI_INSPECCION',
-                'A.FECHA_CADUCIDAD AS FECHA_CAD_INSPECCION',
-                'B.NUMERO AS NUMERO_SOAT',
-                'B.ESTADO AS ESTADO_SOAT',
-                'B.FECHA_EMISION AS FECHA_EMI_SOAT',
-                'B.FECHA_CADUCIDAD AS FECHA_CAD_SOAT',
-                'vehiculos.ID_PROPIETARIO',
-	            'vehiculos.ID_CHOFER',
-                'A.ID_VEHICULO AS ID_INSPECCION',
-	            'B.ID_VEHICULO AS ID_SOAT'
+                'vehiculos.id as ID',
+                'vehiculos.placa AS PLACA',
+                'vehiculos.numero_municipal AS NUMERO_MUNICIPAL',
+                'vehiculos.empresa AS EMPRESA',
+                'P.apellidos AS APELLIDOS_PROPIETARIO',
+                'P.nombres AS NOMBRES_PROPIETARIO',
+                'C.apellidos AS APELLIDOS_CHOFER',
+                'C.nombres AS NOMBRES_CHOFER',
+                'A.numero AS NUMERO_INSPECCION',
+                'A.estado AS ESTADO_INSPECCION',
+                'A.fecha_emision AS FECHA_EMI_INSPECCION',
+                'A.fecha_caducidad AS FECHA_CAD_INSPECCION',
+                'B.numero AS NUMERO_SOAT',
+                'B.estado AS ESTADO_SOAT',
+                'B.fecha_emision AS FECHA_EMI_SOAT',
+                'B.fecha_caducidad AS FECHA_CAD_SOAT',
+                'vehiculos.id_propietario',
+	            'vehiculos.id_chofer',
+                'A.id_vehiculo AS ID_INSPECCION',
+	            'B.id_vehiculo AS ID_SOAT'
             )
-            ->where('vehiculos.ID', $param)
+            ->where('vehiculos.id', $param)
             ->get();
 
             // dd(\DB::getQueryLog());
