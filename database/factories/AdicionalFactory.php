@@ -36,6 +36,11 @@ class AdicionalFactory extends Factory
             'Vigente',
             'Vencido'
         ]);
+
+        $flag = $this->faker->randomElement([
+            'INSPECCION',
+            'SOAT'
+        ]);
         $vehiculoId++;
 
         return [
@@ -45,6 +50,7 @@ class AdicionalFactory extends Factory
             'estado' => $estado,
             'fecha_emision' => $this->faker->date(),
             'fecha_caducidad' => $this->faker->date(),
+            'flag' => $flag
         ];
     }
 }
