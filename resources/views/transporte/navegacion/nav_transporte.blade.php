@@ -11,6 +11,7 @@
     'resources/scss/transporte/vehiculos/main-vehiculos.scss'])
     {{-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'> --}}
     {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css"> --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 @endsection
 
 @section('itemDinamic')
@@ -32,7 +33,7 @@
         <div class="item__icono--blanco disable iconOption"
             style="background-image: url({{ asset('storage') . '/' . 'uploads/navegacion/icono_reporte_blanco.svg' }});">
         </div>
-        <span class="item__nombre">Reporte Laborales</span>
+        <span class="item__nombre">Reporte Laboral</span>
     </div>
 
     <div id="itemPapeleta" class="item">
@@ -79,9 +80,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
-
-    @vite(['resources/js/transporte/nav_transporte.js','resources/js/transporte/vehiculo.js'])
+    @vite(['resources/js/transporte/nav_transporte.js','resources/js/transporte/vehiculo.js','resources/js/transporte/reporte.js'])
 
 @endsection
 

@@ -1,4 +1,5 @@
 import { listaVehiculos } from './vehiculo';
+import { listReport } from './reporte';
 
 const contenedorPrincipal = document.getElementById('contenido-principal');
 const itemConsulta = document.getElementById('itemConsulta');
@@ -7,6 +8,7 @@ const itemPapeleta = document.getElementById('itemPapeleta');
 const itemPago = document.getElementById('itemPago');
 
 let stateTablevehiculos= false;
+let stateChartReport= false;
 const listItems = [
     {
         element: itemConsulta,
@@ -72,7 +74,10 @@ const setRoute = (listItems) => {
                 listaVehiculos();
             }
             /**************************** */
-
+            if (title === 'Reportes laborales') {
+                stateChartReport = true;
+                listReport();
+            }
         }
     });
 }
@@ -134,6 +139,19 @@ const cargarTablaVehiculos = () => {
             console.log("[setStates] execute listaVehiculos")
             stateTablevehiculos = true;
             listaVehiculos();
+        }
+    });
+
+}
+
+const cargarChartReport = () => {
+    const e = listItems[1]; //Reportes laborales
+    e.element.addEventListener('click', () => {
+        console.log("stateChartReport", stateChartReport)
+        if (e.title === 'Reportes laborales' && !stateChartReport) {
+            console.log("[setStates] execute listReport")
+            stateChartReport = true;
+            listReport();
         }
     });
 
@@ -251,6 +269,7 @@ changeAction(listItems);
 
 
 cargarTablaVehiculos();
+cargarChartReport();
 
 
 const modalGeneral = document.getElementById('modal_general')

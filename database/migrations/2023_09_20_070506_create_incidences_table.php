@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('id_tipo')->references('id')->on('types');
             $table->unsignedBigInteger('id_subtipo');
             $table->foreign('id_subtipo')->references('id')->on('sub_types');
+            $table->string('obs');
             $table->timestamps();
         });
     }

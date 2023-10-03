@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Adicional;
 use App\Models\Entidade;
 use App\Models\Vehiculo;
+use App\Models\Incidence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class VehiculoController extends Controller
 {
@@ -96,6 +98,7 @@ class VehiculoController extends Controller
                 $imagen = Auth::user()->imagen;
                 $title = 'Consulta vehicular';
                 $accion = 'Consulta';
+ 
                 return view('transporte.navegacion.nav_transporte', compact('title', 'accion', 'username', 'cargo', 'imagen'));
             } else {
                 return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
@@ -311,6 +314,86 @@ class VehiculoController extends Controller
         } catch (\Throwable $th) {
             Log::error('Error [update]' . $th);
             return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+        }
+    }
+
+    public function showConsultaReporteIndex()
+    {
+        try {
+            if (Auth::check() && Auth::user()->estado) {
+                $username = Auth::user()->username;
+                $cargo = Auth::user()->cargo;
+                $imagen = Auth::user()->imagen;
+                $title = 'Reportes laborales';
+                $accion = 'Consulta';
+                return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+
+            } else {
+                return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+            }
+        } catch (\Throwable $th) {
+            Log::error('Error [showConsulta]' . $th);
+            return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+        }        
+    }
+
+    public function showChartIndex()
+    {
+        try {
+
+            // $users = User::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            //                 ->whereYear('created_at',date('Y'))
+            //                 ->groupBy('month')
+            //                 ->orderBy('month')
+            //                 ->get();
+
+            $users = Incidence::Join('users AS B', 'incidences.id_user', '=', 'B.id')
+                ->Join('types AS C', 'incidences.id_tipo', '=', 'C.id')
+                ->select(
+                    DB::raw("MONTH(incidences.fecha) as month"),
+                    DB::raw("COUNT(incidences.id) AS count"),
+                    // 'C.tipo_nombre',
+                    // 'B.username AS INSPECTOR',
+                )
+                ->where('B.id', 1)
+                // ->groupBy('C.tipo_nombre',DB::raw("MONTH(incidences.fecha)"),'B.username')
+                ->groupBy(DB::raw("MONTH(incidences.fecha)"))
+                ->get();                        
+
+            $labels = [];
+            $data = [];
+            $colors = ['#FF6384','#36A2EB','#FFCE56','#8BC34A','#FF5722','#009688','#795548'];
+
+            for($i=1; $i<=12;$i++)
+            {
+                $month = date('F',mktime(0,0,0,$i,1));
+                $count = 0;
+                foreach($users as $user)
+                {
+                    if($user->month == $i)
+                    {
+                        $count = $user->count;
+                        break;
+                    }
+                }
+                array_push($labels,$month);
+                array_push($data,$count);
+            }
+
+            $datasets = [
+                [
+                    'label' => 'Incidencias',
+                    'data' => $data,
+                    'backgroundColor' => $colors,
+                    'month' => $labels
+                ]
+            ];
+
+            return response()->json($datasets, 200);
+
+        } catch (\Throwable $th) {
+            Log::error('Error [obtenerChartReport]' . $th);
+            return response()->json($th);
         }
     }
 }

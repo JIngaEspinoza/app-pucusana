@@ -10,4 +10,5 @@
 
     @include('transporte.reportes.consulta')
     @include('transporte.reportes.registro')
+    @vite(['resources/js/transporte/reporte.js'])
 </div>

@@ -1,6 +1,16 @@
+@font-face {
+    font-family: "Flexo-Thin" ;
+    src: url("../../../../public/fonts/Flexo-Thin.ttf");
+}
+
 .container-reportes {
     
     &.desactive {
         display: none;
     }
+}
+
+@mixin transition-ease($time,$delay) {
+    transition: all $time ease-in-out;
+    transition-delay: $delay;
 }

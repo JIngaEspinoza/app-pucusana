@@ -4,6 +4,8 @@ use App\Http\Controllers\modulos\panelController;
 use App\Http\Controllers\Transporte\EntidadController;
 use App\Http\Controllers\Transporte\VehiculoController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Transporte\ChartController;
+use App\Http\Controllers\Transporte\IncidenceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -66,13 +68,26 @@ Route::controller(VehiculoController::class)->group(function () {
     Route::get('/buscar-vehiculo/{param}','searchVehiculo');
     Route::get('/consulta-vehicular/lista','obtenerDatosVehiculos');
     Route::get('/editar-vehiculo/{param}','editVehiculoById');
+    Route::get('/reportes-laborales/consulta','showConsultaReporteIndex'); 
+    Route::get('/reportes-laborales/chart','showChartIndex'); //incidenceChart
 });
+
+Route::controller(IncidenceController::class)->group(function () {
+    Route::post('/registrer-incidence', 'create')->name ('incidences.store');
+    Route::get('/reportes-laborales/types', 'getAllTypes');
+    Route::get('/reportes-laborales/subtypes/{data}', 'getSubTypeById');
+});
+
 
 Route::controller(EntidadController::class)->group(function () {
 
     Route::get('/buscar-entidad/{param}','searchEntity');
     Route::post('/registrar-entidad','registerEntity')->name ('entity.register');
 
+});
+
+Route::controller(ChartController::class)->group(function () {
+    Route::get('/chart','incidenceChart');
 });
 
 
@@ -95,19 +110,25 @@ Route::get('/orden-de-pago/consulta', function () {
     }
 
 });
-Route::get('/reportes-laborales/consulta', function () {
-    if (Auth::check() && Auth::user()->estado) {
-        $username = Auth::user()->username;
-        $cargo = Auth::user()->cargo;
-        $imagen = Auth::user()->imagen;
-        $title = 'Reportes laborales';
-        $accion = 'Consulta';
-        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
-    }else{
-        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
-    }
 
-});
+// Route::get('/reportes-laborales/consulta', function () {
+//     if (Auth::check() && Auth::user()->estado) {
+//         $username = Auth::user()->username;
+//         $cargo = Auth::user()->cargo;
+//         $imagen = Auth::user()->imagen;
+//         $title = 'Reportes laborales';
+//         $accion = 'Consulta';
+//         return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
+//     }else{
+//         return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+//     }
+
+// });
+// Route::controller(ChartController::class)->group(function () {
+//     Route::get('/reportes-laborales/consulta','incidenceChart');
+// });
+
+
 Route::get('/papeletas/consulta', function () {
     if (Auth::check() && Auth::user()->estado) {
         $username = Auth::user()->username;
