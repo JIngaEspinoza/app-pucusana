@@ -355,7 +355,7 @@ class VehiculoController extends Controller
                     // 'C.tipo_nombre',
                     // 'B.username AS INSPECTOR',
                 )
-                ->where('B.id', 1)
+                ->where('B.id', Auth::user()->id)
                 // ->groupBy('C.tipo_nombre',DB::raw("MONTH(incidences.fecha)"),'B.username')
                 ->groupBy(DB::raw("MONTH(incidences.fecha)"))
                 ->get();                        
