@@ -22,13 +22,13 @@
                 class="form-control" value="{{ old('fecha',Carbon\Carbon::now()->format('Y-m-d')) }}">
             </div>
 
-            <div class="campo-dos-tercio">
+            <div class="campo-dos-tercio" style="width: 100%">
                 <label for="lugar" class="form-label">Lugar</label>
-                <input type="text" name="lugar" id="lugar" placeholder="Ingrese el lugar" class="form-control"
+                <input type="text" name="lugar" id="lugar" placeholder="Ingrese el lugar" class="form-control" 
                     required>
             </div>
 
-            <div class="campo-tercio">
+            {{-- <div class="campo-tercio">
                 <label for="hora" class="form-label">Hora</label>
                 <input type="text" name="hora" id="hora" placeholder="Ingrese la hora" class="form-control"
                     required>
@@ -39,7 +39,7 @@
                     <div class="btn-agregar">
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="campo-mitad">
                 <label for="tipo" class="form-label">Tipo</label>
@@ -52,24 +52,6 @@
                 <label for="subtipo" class="form-label">Subtipo</label>
                 <select id="subtipo" name="subtipo" class="form-select">
                     <option selected value="Seleccionar el Subtipo">Seleccionar el Subtipo</option>
-                    {{-- <option value="1">ATU</option>
-                    <option value="2">ACTIVIDADES ORGANIZADAS POR LA MUNICIPALIDAD</option>
-                    <option value="3">APOYO A UNIDAD ORGANICA</option>
-                    <option value="4">CONTROL TRANQUERA</option>
-                    <option value="5">DESVIO DE VEHICULOS</option>
-                    <option value="6">INGRESO DE CAMARAS FRIGORIFICAS</option>
-                    <option value="7">INGRESO DE EMBARCACIONES PESQUERAS ARTESANALES O DE RECREO</option>
-                    <option value="8">CONTROL VEHICULAR PARQUEO DE PLAYAS O PUCUSANA PUEBLO</option>
-                    <option value="9">PARADERO INFORMAL</option>
-                    <option value="10">TRANSPORTE PUBLICO INFORMAL</option>
-                    <option value="11">ATU</option>
-                    <option value="12">CONDUCTOR SIN SOAT O SOAT VENCIDO</option>
-                    <option value="13">SENSIBILIZACION</option>
-                    <option value="14">CONDUCTOR SIN LICENCIA</option>
-                    <option value="15">ETC</option>
-                    <option value="16">ATROPELLO</option>
-                    <option value="17">CAMPAÑAS</option>
-                    <option value="18">CHOQUE</option> --}}
                 </select>
             </div>
             
