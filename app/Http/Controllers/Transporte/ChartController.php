@@ -26,7 +26,7 @@ class ChartController extends Controller
                 'B.username AS INSPECTOR',
             )
             ->groupBy('C.tipo_nombre',DB::raw("MONTH(incidences.fecha)"),'B.username')
-            ->get();                        
+            ->get();
 
         $labels = [];
         $data = [];
