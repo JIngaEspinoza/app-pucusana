@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_offender');
-            $table->foreign('id_offender')->references('id')->on('offenders');
+            $table->foreign('id_offender')->references('id')->on('entidades');
             $table->string('direccion')->nullable();
             $table->string('placa');
-            $table->string('infraccion');
+            $table->unsignedBigInteger('id_infraction');
+            $table->foreign('id_infraction')->references('id')->on('infractions');
             $table->string('nro_papeleta');
-            $table->string('imagen_papeleta')->nullable();
-            $table->string('orden_vehicular');
-            $table->string('orden_vehicular')->nullable();
+            $table->string('img_papeleta')->nullable();
+            $table->string('ord_liberacion_vehicular')->nullable();
+            $table->string('img_liberacion_vehicular')->nullable();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
