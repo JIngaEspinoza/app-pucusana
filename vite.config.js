@@ -23,7 +23,8 @@ export default defineConfig({
             'resources/scss/prueba/prueba.scss',
             'resources/scss/usuarios/main-usuarios.scss',
             'resources/js/usuarios/usuarios.js',
-            'resources/js/modulos/panel.js'
+            'resources/js/modulos/panel.js',
+            'resources/js/transporte/papeletas.js'
             ],
             refresh: true,
         }),

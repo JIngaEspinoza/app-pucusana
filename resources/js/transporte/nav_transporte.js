@@ -1,5 +1,6 @@
 import { listaVehiculos } from './vehiculo';
 import { listReport } from './reporte';
+import { listaPapeletas } from './papeletas';
 
 const contenedorPrincipal = document.getElementById('contenido-principal');
 const itemConsulta = document.getElementById('itemConsulta');
@@ -7,8 +8,10 @@ const itemReporte = document.getElementById('itemReporte');
 const itemPapeleta = document.getElementById('itemPapeleta');
 const itemPago = document.getElementById('itemPago');
 
-let stateTablevehiculos= false;
-let stateChartReport= false;
+let stateTablevehiculos = false;
+let stateChartReport = false;
+let stateTablePapeletas = false;
+
 const listItems = [
     {
         element: itemConsulta,
@@ -69,7 +72,6 @@ const setRoute = (listItems) => {
             // container.classList.remove('desactive');
             contenedorPrincipal.appendChild(e.classContainer);
             if (title === 'Consulta vehicular') {
-                console.log("[setRoute] execute listaVehiculos")
                 stateTablevehiculos = true;
                 listaVehiculos();
             }
@@ -77,6 +79,11 @@ const setRoute = (listItems) => {
             if (title === 'Reportes laborales') {
                 stateChartReport = true;
                 listReport();
+            }
+
+            if (title === 'Papeletas') {
+                stateTablevehiculos = true;
+                listaPapeletas();
             }
         }
     });
@@ -144,6 +151,19 @@ const cargarTablaVehiculos = () => {
 
 }
 
+const cargarTablaPapeletas = () => {
+    const e = listItems[0]; //Consulta vehicular
+    e.element.addEventListener('click', () => {
+        console.log("stateTablePapeletas", stateTablePapeletas)
+        if (e.title === 'Papeletas' && !stateTablePapeletas) {
+            console.log("[setStates] execute listaPapeletas")
+            stateTablePapeletas = true;
+            listaPapeletas();
+        }
+    });
+
+}
+
 const cargarChartReport = () => {
     const e = listItems[1]; //Reportes laborales
     e.element.addEventListener('click', () => {
@@ -156,6 +176,15 @@ const cargarChartReport = () => {
     });
 
 }
+
+const SwapInput = () => {
+    jQuery(document).ready(function ($) {
+        $(document).ready(function () {
+            $('#offenderSelect').select2();
+        });
+    });
+}
+
 
 const changeAction = (itemList) => {
     //cambio el bloque segun el subnavegador
@@ -226,8 +255,8 @@ const changeAction = (itemList) => {
             }
         }
 
-        item.element.addEventListener('click',()=>{
-            console.log('[click]',rutaAccion.textContent)
+        item.element.addEventListener('click', () => {
+            console.log('[click]', rutaAccion.textContent)
             if (rutaAccion.textContent === 'Consulta') {
 
                 consulta.classList.remove('consulta--desactive');
@@ -253,7 +282,7 @@ const changeAction = (itemList) => {
             optionsMenu.forEach(option => {
                 option.classList.remove('opcion--active');
             });
-            if (option.textContent===rutaAccion.textContent) {
+            if (option.textContent === rutaAccion.textContent) {
                 option.classList.add('opcion--active');
                 break;
             }
@@ -270,6 +299,7 @@ changeAction(listItems);
 
 cargarTablaVehiculos();
 cargarChartReport();
+cargarTablaPapeletas();
 
 
 const modalGeneral = document.getElementById('modal_general')

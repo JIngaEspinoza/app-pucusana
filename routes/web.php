@@ -1,11 +1,17 @@
 <?php
 
 use App\Http\Controllers\modulos\panelController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Transporte\EntidadController;
+use App\Http\Controllers\Transporte\TicketController;
 use App\Http\Controllers\Transporte\VehiculoController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Transporte\ChartController;
 use App\Http\Controllers\Transporte\IncidenceController;
+use App\Models\Entidade;
+use App\Models\Infraction;
+use App\Models\Offender;
+use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -26,25 +32,25 @@ Route::get('/', function () {
 });
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/iniciar-sesion','showLogin')->name ('login');
-    Route::post('/iniciar-sesion','login')->name ('auth.login');
-    Route::post('/registrar-usuario','registerUser')->name('auth.registro');
-    Route::post('/cambiar-credencial','changePass')->name('auth.pass');
-    Route::get('/usuarios/registro','showRegister')->name('auth.mostrar.registro');
-    Route::get('/usuarios/contrasena','showPassword')->name('auth.mostrar.contrasena');
-    Route::get('/usuarios/lista-de-usuarios','showList')->name('auth.lista');
+    Route::get('/iniciar-sesion', 'showLogin')->name('login');
+    Route::post('/iniciar-sesion', 'login')->name('auth.login');
+    Route::post('/registrar-usuario', 'registerUser')->name('auth.registro');
+    Route::post('/cambiar-credencial', 'changePass')->name('auth.pass');
+    Route::get('/usuarios/registro', 'showRegister')->name('auth.mostrar.registro');
+    Route::get('/usuarios/contrasena', 'showPassword')->name('auth.mostrar.contrasena');
+    Route::get('/usuarios/lista-de-usuarios', 'showList')->name('auth.lista');
 
-    Route::get('/buscar-username/{param}','searchUsername');
-    Route::get('/buscar-email/{param}','searchEmail');
-    Route::get('/buscar-username-or-email/{param}','validateUsernameOrEmail');
-    Route::post('/actualizar-password','updatePassword')->name('auth.update.pass');
+    Route::get('/buscar-username/{param}', 'searchUsername');
+    Route::get('/buscar-email/{param}', 'searchEmail');
+    Route::get('/buscar-username-or-email/{param}', 'validateUsernameOrEmail');
+    Route::post('/actualizar-password', 'updatePassword')->name('auth.update.pass');
 
-    Route::get('/usuarios-listado','userList');
-    Route::post('/logout','logout')->name('auth.logout');
+    Route::get('/usuarios-listado', 'userList');
+    Route::post('/logout', 'logout')->name('auth.logout');
 });
 
 Route::controller(panelController::class)->group(function () {
-    Route::get('/modulos','show')->name ('modulos');
+    Route::get('/modulos', 'show')->name('modulos');
 });
 
 // Route::get('/usuarios/contrasena', function () {
@@ -59,21 +65,31 @@ Route::controller(panelController::class)->group(function () {
 
 Route::controller(VehiculoController::class)->group(function () {
     // Route::get('/registrar-vehiculo','show');
-    Route::post('/registrar-vehiculo', 'create')->name ('vehiculos.store');
-    Route::put('/actualizar-vehiculo', 'update')->name ('vehiculos.update');
-    Route::get('/eliminar-vehiculo/{id}', 'delete')->name ('vehiculos.delete');
+    Route::post('/registrar-vehiculo', 'create')->name('vehiculos.store');
+    Route::put('/actualizar-vehiculo', 'update')->name('vehiculos.update');
+    Route::get('/eliminar-vehiculo/{id}', 'delete')->name('vehiculos.delete');
 
-    Route::get('/consulta-vehicular/consulta','showConsulta')->name('vehiculo.consulta');
+    Route::get('/consulta-vehicular/consulta', 'showConsulta')->name('vehiculo.consulta');
     Route::get('/consulta-vehicular/registro', 'showRegistro')->name('vehiculo.registro');
-    Route::get('/buscar-vehiculo/{param}','searchVehiculo');
-    Route::get('/consulta-vehicular/lista','obtenerDatosVehiculos');
-    Route::get('/editar-vehiculo/{param}','editVehiculoById');
-    Route::get('/reportes-laborales/consulta','showConsultaReporteIndex'); 
-    Route::get('/reportes-laborales/chart','showChartIndex'); //incidenceChart
+    Route::get('/buscar-vehiculo/{param}', 'searchVehiculo');
+    Route::get('/consulta-vehicular/lista', 'obtenerDatosVehiculos');
+    Route::get('/editar-vehiculo/{param}', 'editVehiculoById');
+    Route::get('/reportes-laborales/consulta', 'showConsultaReporteIndex');
+    Route::get('/reportes-laborales/chart', 'showChartIndex'); //incidenceChart
+});
+
+Route::controller(TicketController::class)->group(function () {
+    Route::get('/papeletas/consulta', 'showConsulta')->name('papeleta.consulta');
+    Route::get('/papeletas/registro', 'showRegistro')->name('papeleta.registro');
+    Route::get('/papeletas/lista', 'obtenerDatosTickets');
+    Route::get('/obtener-offenders', 'getOffenders');
+    Route::get('/obtener-infracciones', 'getInfracciones');
+
+    Route::post('tickets', 'store')->name('tickets.store');
 });
 
 Route::controller(IncidenceController::class)->group(function () {
-    Route::post('/registrer-incidence', 'create')->name ('incidences.store');
+    Route::post('/registrer-incidence', 'create')->name('incidences.store');
     Route::get('/reportes-laborales/types', 'getAllTypes');
     Route::get('/reportes-laborales/subtypes/{data}', 'getSubTypeById');
 });
@@ -81,22 +97,18 @@ Route::controller(IncidenceController::class)->group(function () {
 
 Route::controller(EntidadController::class)->group(function () {
 
-    Route::get('/buscar-entidad/{param}','searchEntity');
-    Route::post('/registrar-entidad','registerEntity')->name ('entity.register');
-
+    Route::get('/buscar-entidad/{param}', 'searchEntity');
+    Route::post('/registrar-entidad', 'registerEntity')->name('entity.register');
 });
 
 Route::controller(ChartController::class)->group(function () {
-    Route::get('/chart','incidenceChart');
+    Route::get('/chart', 'incidenceChart');
 });
 
 
 
 //Esta parte se va a cambiar, esta de esa forma por fines de desarrollo
-
-
-
-
+/*
 Route::get('/orden-de-pago/consulta', function () {
     if (Auth::check() && Auth::user()->estado) {
         $username = Auth::user()->username;
@@ -104,12 +116,11 @@ Route::get('/orden-de-pago/consulta', function () {
         $imagen = Auth::user()->imagen;
         $title = 'Orden de pago';
         $accion = 'Consulta';
-        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
-    }else{
+        return view('transporte.navegacion.nav_transporte', compact('title', 'accion', 'username', 'cargo', 'imagen'));
+    } else {
         return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
     }
-
-});
+});*/
 
 // Route::get('/reportes-laborales/consulta', function () {
 //     if (Auth::check() && Auth::user()->estado) {
@@ -129,48 +140,12 @@ Route::get('/orden-de-pago/consulta', function () {
 // });
 
 
-Route::get('/papeletas/consulta', function () {
-    if (Auth::check() && Auth::user()->estado) {
-        $username = Auth::user()->username;
-        $cargo = Auth::user()->cargo;
-        $imagen = Auth::user()->imagen;
-        $title = 'Papeletas';
-        $accion = 'Consulta';
-        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
-    }else{
-        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
-    }
-
-});
 
 
-
-Route::get('/orden-de-pago/registro', function () {
-    if (Auth::check() && Auth::user()->estado) {
-        $username = Auth::user()->username;
-        $cargo = Auth::user()->cargo;
-        $imagen = Auth::user()->imagen;
-        $title = 'Orden de pago';
-        $accion = 'Registro';
-        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
-    }else{
-        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
-    }
-
-});
-Route::get('/reportes-laborales/registro', function () {
-    if (Auth::check() && Auth::user()->estado) {
-        $username = Auth::user()->username;
-        $cargo = Auth::user()->cargo;
-        $imagen = Auth::user()->imagen;
-        $title = 'Reportes laborales';
-        $accion = 'Registro';
-        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
-    }else{
-        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
-    }
-
-});
+/*Route::get('/papeletas/consulta', function () {
+    
+});*/
+/*
 Route::get('/papeletas/registro', function () {
     if (Auth::check() && Auth::user()->estado) {
         $username = Auth::user()->username;
@@ -178,20 +153,48 @@ Route::get('/papeletas/registro', function () {
         $imagen = Auth::user()->imagen;
         $title = 'Papeletas';
         $accion = 'Registro';
-        return view('transporte.navegacion.nav_transporte',compact('title','accion','username','cargo','imagen'));
-    }else{
+        return view('transporte.navegacion.nav_transporte', compact('title', 'accion', 'username', 'cargo', 'imagen'));
+    } else {
         return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
     }
+});*/
 
+Route::controller(OrderController::class)->group(function () {
+    Route::post('order', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    //Route::get('/obtener-offenders', [OrderController::class, 'getOffenders'])->name('obtener-offenders');
 });
+/*
+Route::get('/orden-de-pago/registro', function () {
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Orden de pago';
+        $accion = 'Registro';
+        return view('transporte.navegacion.nav_transporte', compact('title', 'accion', 'username', 'cargo', 'imagen'));
+    } else {
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+});*/
+/*
+Route::get('/reportes-laborales/registro', function () {
+    if (Auth::check() && Auth::user()->estado) {
+        $username = Auth::user()->username;
+        $cargo = Auth::user()->cargo;
+        $imagen = Auth::user()->imagen;
+        $title = 'Reportes laborales';
+        $accion = 'Registro';
+        return view('transporte.navegacion.nav_transporte', compact('title', 'accion', 'username', 'cargo', 'imagen'));
+    } else {
+        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
+    }
+});*/
+
 
 Route::get('/p', function () {
     return view('prueba.prueba');
 });
-
-
-
-
 
 // Route::get('/ordenes-de-pago', function () {
 //     $title = 'Orden de pago';
@@ -214,5 +217,3 @@ Route::get('/p', function () {
 // })->name ('papeletas');
 
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
-
-

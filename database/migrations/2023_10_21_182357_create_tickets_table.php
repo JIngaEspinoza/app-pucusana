@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('placa');
             $table->unsignedBigInteger('id_infraction');
             $table->foreign('id_infraction')->references('id')->on('infractions');
-            $table->string('nro_papeleta');
-            $table->string('img_papeleta')->nullable();
-            $table->string('ord_liberacion_vehicular')->nullable();
-            $table->string('img_liberacion_vehicular')->nullable();
+            $table->text('nro_papeleta')->nullable();
+            $table->text('img_papeleta')->nullable();
+            $table->text('ord_liberacion_vehicular')->nullable();
+            $table->text('img_liberacion_vehicular')->nullable();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();

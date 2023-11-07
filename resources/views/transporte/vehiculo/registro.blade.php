@@ -142,7 +142,7 @@
 
         </form>
 
-        <form id="form_search" class="form-modal" method="post" ">
+        <form id="form_search" class="form-modal" method="post">
             @csrf
             <div class="pad-form-entity">
                 <div class="subtitulo-registro-entidad">
