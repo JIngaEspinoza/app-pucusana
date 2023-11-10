@@ -78,6 +78,12 @@ Route::controller(VehiculoController::class)->group(function () {
     Route::get('/reportes-laborales/chart', 'showChartIndex'); //incidenceChart
 });
 
+Route::controller(IncidenceController::class)->group(function () {
+    Route::post('/registrer-incidence', 'create')->name('incidences.store');
+    Route::get('/reportes-laborales/types', 'getAllTypes');
+    Route::get('/reportes-laborales/subtypes/{data}', 'getSubTypeById');
+});
+
 Route::controller(TicketController::class)->group(function () {
     Route::get('/papeletas/consulta', 'showConsulta')->name('papeleta.consulta');
     Route::get('/papeletas/registro', 'showRegistro')->name('papeleta.registro');
@@ -88,15 +94,17 @@ Route::controller(TicketController::class)->group(function () {
     Route::post('tickets', 'store')->name('tickets.store');
 });
 
-Route::controller(IncidenceController::class)->group(function () {
-    Route::post('/registrer-incidence', 'create')->name('incidences.store');
-    Route::get('/reportes-laborales/types', 'getAllTypes');
-    Route::get('/reportes-laborales/subtypes/{data}', 'getSubTypeById');
+Route::controller(OrderController::class)->group(function () {
+    Route::get('/orden-de-pagos/consulta', 'showConsulta')->name('pagos.consulta');
+    Route::get('/orden-de-pagos/registro', 'showRegistro')->name('pagos.registro');
+    Route::get('/pagos/lista', 'obtenerDatosPagos');
+    
+    Route::post('order', 'store')->name('order.store');
+    // Route::get('/obtener-offenders', [OrderController::class, 'getOffenders'])->name('obtener-offenders');
+    // Route::get('/obtener-services', [OrderController::class, 'getServices'])->name('obtener-services');
 });
 
-
 Route::controller(EntidadController::class)->group(function () {
-
     Route::get('/buscar-entidad/{param}', 'searchEntity');
     Route::post('/registrar-entidad', 'registerEntity')->name('entity.register');
 });
@@ -105,22 +113,9 @@ Route::controller(ChartController::class)->group(function () {
     Route::get('/chart', 'incidenceChart');
 });
 
-
-
 //Esta parte se va a cambiar, esta de esa forma por fines de desarrollo
 /*
-Route::get('/orden-de-pago/consulta', function () {
-    if (Auth::check() && Auth::user()->estado) {
-        $username = Auth::user()->username;
-        $cargo = Auth::user()->cargo;
-        $imagen = Auth::user()->imagen;
-        $title = 'Orden de pago';
-        $accion = 'Consulta';
-        return view('transporte.navegacion.nav_transporte', compact('title', 'accion', 'username', 'cargo', 'imagen'));
-    } else {
-        return redirect()->to('iniciar-sesion')->withErrors('auth.failed');
-    }
-});*/
+
 
 // Route::get('/reportes-laborales/consulta', function () {
 //     if (Auth::check() && Auth::user()->estado) {
@@ -159,11 +154,6 @@ Route::get('/papeletas/registro', function () {
     }
 });*/
 
-Route::controller(OrderController::class)->group(function () {
-    Route::post('order', [OrderController::class, 'store'])->name('order.store');
-    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-    //Route::get('/obtener-offenders', [OrderController::class, 'getOffenders'])->name('obtener-offenders');
-});
 /*
 Route::get('/orden-de-pago/registro', function () {
     if (Auth::check() && Auth::user()->estado) {

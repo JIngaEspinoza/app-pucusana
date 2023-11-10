@@ -1,16 +1,19 @@
 import { listaVehiculos } from './vehiculo';
 import { listReport } from './reporte';
 import { listaPapeletas } from './papeletas';
+import { listaPagos } from './pagos';
+
 
 const contenedorPrincipal = document.getElementById('contenido-principal');
 const itemConsulta = document.getElementById('itemConsulta');
 const itemReporte = document.getElementById('itemReporte');
 const itemPapeleta = document.getElementById('itemPapeleta');
-const itemPago = document.getElementById('itemPago');
+const itemPagos = document.getElementById('itemPagos');
 
 let stateTablevehiculos = false;
 let stateChartReport = false;
 let stateTablePapeletas = false;
+let stateTablePagos = false;
 
 const listItems = [
     {
@@ -41,14 +44,15 @@ const listItems = [
         },
         classContainer: document.querySelector('.container-papeletas')
     }, {
-        element: itemPago,
-        title: 'Orden de pago',
+        element: itemPagos,
+        title: 'Pagos',
         route: {
-            consulta: '/orden-de-pago/consulta',
-            registro: '/orden-de-pago/registro'
+            consulta: '/orden-de-pagos/consulta',
+            registro: '/orden-de-pagos/registro'
         },
         classContainer: document.querySelector('.container-pagos')
-    }];
+    },
+];
 
 
 const setRoute = (listItems) => {
@@ -85,6 +89,11 @@ const setRoute = (listItems) => {
                 stateTablevehiculos = true;
                 listaPapeletas();
             }
+
+            if (title === 'Pagos') {
+                stateTablePagos = true;
+                listaPagos();
+            }
         }
     });
 }
@@ -94,7 +103,6 @@ const setStates = (list) => {
     const options = document.querySelectorAll('.options');
     const items = document.querySelectorAll('.item');
     console.log("[setStates]")
-
 
     list.forEach(e => {
         e.element.addEventListener('click', () => {
@@ -132,9 +140,7 @@ const setStates = (list) => {
             history.pushState(null, e.title, e.route[`${rutaAccion.textContent.toLowerCase()}`]);
             // hstory.pushState(null, e.title, e.route[`${rutaAccion.textContent.toLowerCase()}`]);
 
-
-        })
-
+        });
     });
 }
 
@@ -151,8 +157,21 @@ const cargarTablaVehiculos = () => {
 
 }
 
+const cargarChartReport = () => {
+    const e = listItems[1]; //Reportes laborales
+    e.element.addEventListener('click', () => {
+        console.log("stateChartReport", stateChartReport)
+        if (e.title === 'Reportes laborales' && !stateChartReport) {
+            console.log("[setStates] execute listReport")
+            stateChartReport = true;
+            listReport();
+        }
+    });
+
+}
+
 const cargarTablaPapeletas = () => {
-    const e = listItems[0]; //Consulta vehicular
+    const e = listItems[2]; //Consulta vehicular
     e.element.addEventListener('click', () => {
         console.log("stateTablePapeletas", stateTablePapeletas)
         if (e.title === 'Papeletas' && !stateTablePapeletas) {
@@ -164,14 +183,14 @@ const cargarTablaPapeletas = () => {
 
 }
 
-const cargarChartReport = () => {
-    const e = listItems[1]; //Reportes laborales
+const cargarTablaPagos = () => {
+    const e = listItems[3]; //Consulta vehicular
     e.element.addEventListener('click', () => {
-        console.log("stateChartReport", stateChartReport)
-        if (e.title === 'Reportes laborales' && !stateChartReport) {
-            console.log("[setStates] execute listReport")
-            stateChartReport = true;
-            listReport();
+        console.log("stateTablePagos", stateTablePagos)
+        if (e.title === 'Pagos' && !stateTablePagos) {
+            console.log("[setStates] execute listaPagos")
+            stateTablePagos = true;
+            listaPagos();
         }
     });
 
@@ -216,10 +235,6 @@ const changeAction = (itemList) => {
                     consulta.classList.remove('consulta--desactive');
                     registro.classList.add('registro--desactive');
 
-                    // if (item.title == 'Consulta vehicular') {
-                    //     consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
-                    //     consultaSinResultados.classList.add('vista-sin-resultados--desactive');
-                    // }
                 }
                 if (option.textContent === 'Registro') {
                     history.pushState(null, item.title, item.route.registro);
@@ -242,11 +257,6 @@ const changeAction = (itemList) => {
                 consulta.classList.remove('consulta--desactive');
                 registro.classList.add('registro--desactive');
 
-                // if (item.title == 'Consulta vehicular') {
-                //     consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
-                //     consultaSinResultados.classList.add('vista-sin-resultados--desactive');
-                // }
-
             }
             if (rutaAccion.textContent === 'Registro') {
 
@@ -261,11 +271,6 @@ const changeAction = (itemList) => {
 
                 consulta.classList.remove('consulta--desactive');
                 registro.classList.add('registro--desactive');
-
-                // if (item.title == 'Consulta vehicular') {
-                //     consultaConResultados.classList.add('seccion-resultado-vehiculo--desactive');
-                //     consultaSinResultados.classList.add('vista-sin-resultados--desactive');
-                // }
 
             }
             if (rutaAccion.textContent === 'Registro') {
@@ -296,11 +301,10 @@ setStates(listItems);
 setRoute(listItems);
 changeAction(listItems);
 
-
 cargarTablaVehiculos();
-cargarChartReport();
 cargarTablaPapeletas();
-
+cargarChartReport();
+cargarTablaPagos();
 
 const modalGeneral = document.getElementById('modal_general')
 const btnCerrarModal = document.getElementById('btn-cerrar-modal');

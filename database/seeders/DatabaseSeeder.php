@@ -13,6 +13,8 @@ use App\Models\Sub_type;
 use App\Models\Incidence;
 use App\Models\Infraction;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -165,5 +167,54 @@ class DatabaseSeeder extends Seeder
 
         Incidence::factory(1000)->create();
 
+        $this->createInfraction('IC-01', 99.00);
+        $this->createInfraction('IC-02', 99.00);
+        $this->createInfraction('IC-03', 99.00);
+        $this->createInfraction('IC-04', 247.50);
+        $this->createInfraction('IC-05', 148.50);
+        $this->createInfraction('IC-06', 148.50);
+        $this->createInfraction('IC-07', 148.50);
+        $this->createInfraction('IC-08', 148.50);
+        $this->createInfraction('IC-09', 99.00);
+        $this->createInfraction('IC-10', 99.00);
+        $this->createInfraction('IC-11', 247.50);
+        $this->createInfraction('IC-12', 99.00);
+        $this->createInfraction('IC-13', 99.00);
+        $this->createInfraction('IC-14', 99.00);
+        $this->createInfraction('IC-15', 99.00);
+        $this->createInfraction('IC-16', 247.50);
+        $this->createInfraction('IC-17', 148.50);
+        $this->createInfraction('IC-18', 148.50);
+        $this->createInfraction('IC-19', 148.50);
+        $this->createInfraction('IC-20', 148.50);
+        $this->createInfraction('IC-21', 247.50);
+        $this->createInfraction('IC-22', 247.50);
+        $this->createInfraction('IC-23', 247.50);
+        $this->createInfraction('IC-24', 148.50);
+        $this->createInfraction('IC-25', 247.50);
+        $this->createInfraction('IC-26', 247.50);
+        $this->createInfraction('IC-27', 247.50);
+        $this->createInfraction('IC-28', 247.50);
+
+        $services = [
+            ['descripcion' => 'INSPECCIÓN DE CARACTERÍSTICAS', 'precio' => 50.00],
+            ['descripcion' => 'CREDENCIAL DEL CONDUCTOR', 'precio' => 75.00],
+            ['descripcion' => 'PAPELETA', 'precio' => 100.00],
+            ['descripcion' => 'DEPÓSITO', 'precio' => 125.00],
+        ];
+
+        foreach ($services as $service) {
+            DB::table('services')->insert($service);
+        }
+
+    }
+
+    private function createInfraction($cod, $monto)
+    {
+        Infraction::create([
+            'cod' => $cod,
+            'monto' => $monto,
+            'monto_desc_50' => $monto / 2,
+        ]);
     }
 }

@@ -1,6 +1,213 @@
 .container-pagos {
-    .consulta{
-        &--desactive{
+    width: 100%;
+    height: 100%;
+
+    .consulta {
+
+        // display: flex;
+        // justify-content: center;
+        // flex-direction: column;
+        // border: 1px solid black;
+        margin-top: 30px;
+        height: calc(100% - 80px);
+        overflow-y: auto;
+        padding-bottom: 30px;
+
+        .seccion-pagos {
+            width: 100%;
+            height: auto;
+            display: flex;
+            //justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            // margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: rgba(139, 136, 136, 0.16) 0px 1px 4px;
+
+            .title-consulta-papeletas {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 50px;
+
+                h1 {
+                    font-family: "Flexo-Bold";
+                    font-size: 1.5rem;
+                }
+            }
+
+            .tabla-pagos {
+                width: 80%;
+
+
+                overflow-x: hidden;
+
+                // border: 1px solid rgb(216, 118, 118);
+                // margin: 30px;
+                .padding-table {
+                    width: 100%;
+                    // display: flex;
+                    // justify-content: center;
+                    overflow-x: auto;
+                    // border: 1px solid rgb(41, 26, 172);
+                    margin: 40px 0;
+
+                    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    /* Estilos personalizados para el campo de búsqueda */
+                    .dataTables_filter input {
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        padding: 5px;
+                        margin-bottom: 20px;
+                        border-radius: 15px;
+                    }
+
+                    /* Estilos personalizados para el select */
+                    .dataTables_length select {
+                        background-color: #f2f2f2;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        padding: 5px;
+                        color: #333;
+                        border-radius: 15px;
+                    }
+
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        background-color: #ffffff;
+                        // border-radius: 10px;
+                        // border: 1px solid #ccc;
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                        margin: 20px 0;
+
+                        .actions {
+                            height: 41px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .padding-icon {
+                                width: 28px;
+                                height: 28px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                // border: 1px solid black;
+                                border-radius: 5px;
+                                margin: 0 5px;
+                                cursor: pointer;
+
+                                .actions-icon {
+                                    width: 15px;
+                                    height: 15px;
+                                    border-radius: 10px;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    // background-color: black;
+                                    // border: 1px solid black;
+
+                                }
+
+                                &.icon-show {
+                                    background-color: #13d443;
+                                }
+
+                                &.icon-editar {
+                                    background-color: #7e8cdb;
+                                }
+
+                                &.icon-delete {
+                                    background-color: #e74a8c;
+                                }
+                            }
+                        }
+
+                        thead {
+                            background-color: #62A8E0;
+                            color: #ffffff;
+
+                            th {
+                                padding: 12px 15px;
+                                text-align: left;
+
+                                &:first-child {
+                                    border-radius: 10px 0 0 0;
+                                }
+
+                                &:last-child {
+                                    border-radius: 0 10px 0 0;
+                                }
+                            }
+                        }
+
+
+                        tbody {
+
+                            tr {
+                                &:nth-child(even) {
+                                    background-color: #f8f8f8;
+                                }
+
+                                &:hover {
+                                    background-color: #e2e2e2;
+                                    transition: background-color 0.2s;
+                                }
+                            }
+
+                            td {
+                                padding: 10px 15px;
+                                text-align: left;
+
+                                &:first-child {
+                                    border-top-left-radius: 5px;
+                                    border-bottom-left-radius: 5px;
+                                }
+
+                                &:last-child {
+                                    border-top-right-radius: 5px;
+                                    border-bottom-right-radius: 5px;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+
+
+
+                }
+
+            }
+
+
+        }
+
+        &::-webkit-scrollbar {
+            width: 0.2em;
+            // height: 80%;
+
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+            // height: auto;
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(170, 163, 163);
+        }
+
+        /* Para navegadores que no sean de WebKit (Firefox) */
+
+        scrollbar-width: thin;
+        scrollbar-color: transparent;
+
+        &--desactive {
             display: none;
         }
     }

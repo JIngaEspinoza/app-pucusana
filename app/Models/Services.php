@@ -5,28 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entidade extends Model
+class Services extends Model
 {
     use HasFactory;
-
     protected $primaryKey = 'id';
 
-    protected $table = 'entidades';
+    protected $table = 'services';
 
     protected $fillable = [
         'id',
-        'nombres',
-        'apellidos',
-        'edad',
-        'sexo',
-        'dni',
-        'tipo_documento',
-        'numero_documento',
+        'descripcion',
         'direccion',
-        'celular',
-        'numero_licencia',
-        'email',
+        'precio',
         'created_at',
         'updated_at'
     ];
+
 }

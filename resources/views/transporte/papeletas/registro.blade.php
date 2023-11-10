@@ -5,7 +5,7 @@
             <h1>Registro de Papeletas</h1>
         </div>
 
-        <form id="form-papeleta" method="POST" action="{{ route('tickets.store') }}" enctype="multipart/form-data">
+        <form id="form-papeletas" method="POST" action="{{ route('tickets.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="campo-max">
                 <label for="id_offender" class="form-label">Offender:</label>

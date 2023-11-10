@@ -10,4 +10,5 @@
 
     @include('transporte.papeletas.consulta')
     @include('transporte.papeletas.registro')
+    @vite(['resources/js/transporte/papeletas.js'])
 </div>

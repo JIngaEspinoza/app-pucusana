@@ -40,7 +40,6 @@ const sectionListaVehiculo = () => {
     // listaVehiculos();
 }
 
-
 const setModal = () => {
 
     const modalGeneral = document.getElementById('modal_general');
@@ -408,8 +407,6 @@ const registerEntity = () => {
         sendEntity(entity)
     })
 }
-
-
 
 const registerVehiculo = () => {
     const formVehiculo = document.getElementById('form-vehiculo');

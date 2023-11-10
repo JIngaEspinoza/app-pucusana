@@ -21,7 +21,6 @@ class TicketController extends Controller
         try {
 
             if (Auth::check() && Auth::user()->estado) {
-                $tickets = Ticket::all();
                 $username = Auth::user()->username;
                 $cargo = Auth::user()->cargo;
                 $imagen = Auth::user()->imagen;
